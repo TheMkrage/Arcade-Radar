@@ -1,0 +1,505 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7EF8AE3F1CBB65B20003BA99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF8AE3E1CBB65B20003BA99 /* AppDelegate.swift */; };
+		7EF8AE411CBB65B20003BA99 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF8AE401CBB65B20003BA99 /* ViewController.swift */; };
+		7EF8AE441CBB65B20003BA99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EF8AE421CBB65B20003BA99 /* Main.storyboard */; };
+		7EF8AE461CBB65B20003BA99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EF8AE451CBB65B20003BA99 /* Assets.xcassets */; };
+		7EF8AE491CBB65B20003BA99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EF8AE471CBB65B20003BA99 /* LaunchScreen.storyboard */; };
+		7EF8AE541CBB65B20003BA99 /* Arcade_RadarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF8AE531CBB65B20003BA99 /* Arcade_RadarTests.swift */; };
+		7EF8AE5F1CBB65B20003BA99 /* Arcade_RadarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF8AE5E1CBB65B20003BA99 /* Arcade_RadarUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7EF8AE501CBB65B20003BA99 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7EF8AE331CBB65B20003BA99 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7EF8AE3A1CBB65B20003BA99;
+			remoteInfo = "Arcade Radar";
+		};
+		7EF8AE5B1CBB65B20003BA99 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7EF8AE331CBB65B20003BA99 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7EF8AE3A1CBB65B20003BA99;
+			remoteInfo = "Arcade Radar";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7EF8AE3B1CBB65B20003BA99 /* Arcade Radar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Arcade Radar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EF8AE3E1CBB65B20003BA99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7EF8AE401CBB65B20003BA99 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7EF8AE431CBB65B20003BA99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7EF8AE451CBB65B20003BA99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7EF8AE481CBB65B20003BA99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7EF8AE4A1CBB65B20003BA99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7EF8AE4F1CBB65B20003BA99 /* Arcade RadarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Arcade RadarTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EF8AE531CBB65B20003BA99 /* Arcade_RadarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arcade_RadarTests.swift; sourceTree = "<group>"; };
+		7EF8AE551CBB65B20003BA99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7EF8AE5A1CBB65B20003BA99 /* Arcade RadarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Arcade RadarUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EF8AE5E1CBB65B20003BA99 /* Arcade_RadarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arcade_RadarUITests.swift; sourceTree = "<group>"; };
+		7EF8AE601CBB65B20003BA99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7EF8AE381CBB65B20003BA99 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7EF8AE4C1CBB65B20003BA99 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7EF8AE571CBB65B20003BA99 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7EF8AE321CBB65B20003BA99 = {
+			isa = PBXGroup;
+			children = (
+				7EF8AE3D1CBB65B20003BA99 /* Arcade Radar */,
+				7EF8AE521CBB65B20003BA99 /* Arcade RadarTests */,
+				7EF8AE5D1CBB65B20003BA99 /* Arcade RadarUITests */,
+				7EF8AE3C1CBB65B20003BA99 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7EF8AE3C1CBB65B20003BA99 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7EF8AE3B1CBB65B20003BA99 /* Arcade Radar.app */,
+				7EF8AE4F1CBB65B20003BA99 /* Arcade RadarTests.xctest */,
+				7EF8AE5A1CBB65B20003BA99 /* Arcade RadarUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7EF8AE3D1CBB65B20003BA99 /* Arcade Radar */ = {
+			isa = PBXGroup;
+			children = (
+				7EF8AE3E1CBB65B20003BA99 /* AppDelegate.swift */,
+				7EF8AE401CBB65B20003BA99 /* ViewController.swift */,
+				7EF8AE421CBB65B20003BA99 /* Main.storyboard */,
+				7EF8AE451CBB65B20003BA99 /* Assets.xcassets */,
+				7EF8AE471CBB65B20003BA99 /* LaunchScreen.storyboard */,
+				7EF8AE4A1CBB65B20003BA99 /* Info.plist */,
+			);
+			path = "Arcade Radar";
+			sourceTree = "<group>";
+		};
+		7EF8AE521CBB65B20003BA99 /* Arcade RadarTests */ = {
+			isa = PBXGroup;
+			children = (
+				7EF8AE531CBB65B20003BA99 /* Arcade_RadarTests.swift */,
+				7EF8AE551CBB65B20003BA99 /* Info.plist */,
+			);
+			path = "Arcade RadarTests";
+			sourceTree = "<group>";
+		};
+		7EF8AE5D1CBB65B20003BA99 /* Arcade RadarUITests */ = {
+			isa = PBXGroup;
+			children = (
+				7EF8AE5E1CBB65B20003BA99 /* Arcade_RadarUITests.swift */,
+				7EF8AE601CBB65B20003BA99 /* Info.plist */,
+			);
+			path = "Arcade RadarUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7EF8AE3A1CBB65B20003BA99 /* Arcade Radar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7EF8AE631CBB65B20003BA99 /* Build configuration list for PBXNativeTarget "Arcade Radar" */;
+			buildPhases = (
+				7EF8AE371CBB65B20003BA99 /* Sources */,
+				7EF8AE381CBB65B20003BA99 /* Frameworks */,
+				7EF8AE391CBB65B20003BA99 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Arcade Radar";
+			productName = "Arcade Radar";
+			productReference = 7EF8AE3B1CBB65B20003BA99 /* Arcade Radar.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7EF8AE4E1CBB65B20003BA99 /* Arcade RadarTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7EF8AE661CBB65B20003BA99 /* Build configuration list for PBXNativeTarget "Arcade RadarTests" */;
+			buildPhases = (
+				7EF8AE4B1CBB65B20003BA99 /* Sources */,
+				7EF8AE4C1CBB65B20003BA99 /* Frameworks */,
+				7EF8AE4D1CBB65B20003BA99 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7EF8AE511CBB65B20003BA99 /* PBXTargetDependency */,
+			);
+			name = "Arcade RadarTests";
+			productName = "Arcade RadarTests";
+			productReference = 7EF8AE4F1CBB65B20003BA99 /* Arcade RadarTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		7EF8AE591CBB65B20003BA99 /* Arcade RadarUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7EF8AE691CBB65B20003BA99 /* Build configuration list for PBXNativeTarget "Arcade RadarUITests" */;
+			buildPhases = (
+				7EF8AE561CBB65B20003BA99 /* Sources */,
+				7EF8AE571CBB65B20003BA99 /* Frameworks */,
+				7EF8AE581CBB65B20003BA99 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7EF8AE5C1CBB65B20003BA99 /* PBXTargetDependency */,
+			);
+			name = "Arcade RadarUITests";
+			productName = "Arcade RadarUITests";
+			productReference = 7EF8AE5A1CBB65B20003BA99 /* Arcade RadarUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7EF8AE331CBB65B20003BA99 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Matthew Krager";
+				TargetAttributes = {
+					7EF8AE3A1CBB65B20003BA99 = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+					7EF8AE4E1CBB65B20003BA99 = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = 7EF8AE3A1CBB65B20003BA99;
+					};
+					7EF8AE591CBB65B20003BA99 = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = 7EF8AE3A1CBB65B20003BA99;
+					};
+				};
+			};
+			buildConfigurationList = 7EF8AE361CBB65B20003BA99 /* Build configuration list for PBXProject "Arcade Radar" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7EF8AE321CBB65B20003BA99;
+			productRefGroup = 7EF8AE3C1CBB65B20003BA99 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7EF8AE3A1CBB65B20003BA99 /* Arcade Radar */,
+				7EF8AE4E1CBB65B20003BA99 /* Arcade RadarTests */,
+				7EF8AE591CBB65B20003BA99 /* Arcade RadarUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7EF8AE391CBB65B20003BA99 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7EF8AE491CBB65B20003BA99 /* LaunchScreen.storyboard in Resources */,
+				7EF8AE461CBB65B20003BA99 /* Assets.xcassets in Resources */,
+				7EF8AE441CBB65B20003BA99 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7EF8AE4D1CBB65B20003BA99 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7EF8AE581CBB65B20003BA99 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7EF8AE371CBB65B20003BA99 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7EF8AE411CBB65B20003BA99 /* ViewController.swift in Sources */,
+				7EF8AE3F1CBB65B20003BA99 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7EF8AE4B1CBB65B20003BA99 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7EF8AE541CBB65B20003BA99 /* Arcade_RadarTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7EF8AE561CBB65B20003BA99 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7EF8AE5F1CBB65B20003BA99 /* Arcade_RadarUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7EF8AE511CBB65B20003BA99 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7EF8AE3A1CBB65B20003BA99 /* Arcade Radar */;
+			targetProxy = 7EF8AE501CBB65B20003BA99 /* PBXContainerItemProxy */;
+		};
+		7EF8AE5C1CBB65B20003BA99 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7EF8AE3A1CBB65B20003BA99 /* Arcade Radar */;
+			targetProxy = 7EF8AE5B1CBB65B20003BA99 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7EF8AE421CBB65B20003BA99 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7EF8AE431CBB65B20003BA99 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7EF8AE471CBB65B20003BA99 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7EF8AE481CBB65B20003BA99 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7EF8AE611CBB65B20003BA99 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7EF8AE621CBB65B20003BA99 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7EF8AE641CBB65B20003BA99 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Arcade Radar/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "TheMkrage.Arcade-Radar";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		7EF8AE651CBB65B20003BA99 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Arcade Radar/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "TheMkrage.Arcade-Radar";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		7EF8AE671CBB65B20003BA99 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Arcade RadarTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "TheMkrage.Arcade-RadarTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Arcade Radar.app/Arcade Radar";
+			};
+			name = Debug;
+		};
+		7EF8AE681CBB65B20003BA99 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Arcade RadarTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "TheMkrage.Arcade-RadarTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Arcade Radar.app/Arcade Radar";
+			};
+			name = Release;
+		};
+		7EF8AE6A1CBB65B20003BA99 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Arcade RadarUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "TheMkrage.Arcade-RadarUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Arcade Radar";
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		7EF8AE6B1CBB65B20003BA99 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Arcade RadarUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "TheMkrage.Arcade-RadarUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Arcade Radar";
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7EF8AE361CBB65B20003BA99 /* Build configuration list for PBXProject "Arcade Radar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7EF8AE611CBB65B20003BA99 /* Debug */,
+				7EF8AE621CBB65B20003BA99 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7EF8AE631CBB65B20003BA99 /* Build configuration list for PBXNativeTarget "Arcade Radar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7EF8AE641CBB65B20003BA99 /* Debug */,
+				7EF8AE651CBB65B20003BA99 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		7EF8AE661CBB65B20003BA99 /* Build configuration list for PBXNativeTarget "Arcade RadarTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7EF8AE671CBB65B20003BA99 /* Debug */,
+				7EF8AE681CBB65B20003BA99 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		7EF8AE691CBB65B20003BA99 /* Build configuration list for PBXNativeTarget "Arcade RadarUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7EF8AE6A1CBB65B20003BA99 /* Debug */,
+				7EF8AE6B1CBB65B20003BA99 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7EF8AE331CBB65B20003BA99 /* Project object */;
+}
