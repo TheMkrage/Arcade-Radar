@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7E9DCCC71CBB718B00479C5F /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9DCCC61CBB718B00479C5F /* Comment.swift */; };
-		7E9DCCCB1CBB750C00479C5F /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9DCCC91CBB750C00479C5F /* LogInViewController.swift */; };
-		7E9DCCCC1CBB750C00479C5F /* RegisterUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9DCCCA1CBB750C00479C5F /* RegisterUserViewController.swift */; };
+		7EE87EFC1CCDCB7200E282B8 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE87EFB1CCDCB7200E282B8 /* MapViewController.swift */; };
+		7EE87EFE1CCDCB9700E282B8 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE87EFD1CCDCB9700E282B8 /* Colors.swift */; };
+		7EE87F001CCDCBEE00E282B8 /* ArcadeMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE87EFF1CCDCBEE00E282B8 /* ArcadeMachine.swift */; };
 		7EF8AE3F1CBB65B20003BA99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF8AE3E1CBB65B20003BA99 /* AppDelegate.swift */; };
 		7EF8AE411CBB65B20003BA99 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF8AE401CBB65B20003BA99 /* ViewController.swift */; };
 		7EF8AE441CBB65B20003BA99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EF8AE421CBB65B20003BA99 /* Main.storyboard */; };
@@ -51,9 +51,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7E9DCCC61CBB718B00479C5F /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
-		7E9DCCC91CBB750C00479C5F /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
-		7E9DCCCA1CBB750C00479C5F /* RegisterUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterUserViewController.swift; sourceTree = "<group>"; };
+		7EE87EFB1CCDCB7200E282B8 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		7EE87EFD1CCDCB9700E282B8 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		7EE87EFF1CCDCBEE00E282B8 /* ArcadeMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcadeMachine.swift; sourceTree = "<group>"; };
 		7EF8AE3B1CBB65B20003BA99 /* Arcade Radar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Arcade Radar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EF8AE3E1CBB65B20003BA99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7EF8AE401CBB65B20003BA99 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -293,15 +293,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7E9DCCC81CBB74FB00479C5F /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				7E9DCCC91CBB750C00479C5F /* LogInViewController.swift */,
-				7E9DCCCA1CBB750C00479C5F /* RegisterUserViewController.swift */,
-			);
-			name = Login;
-			sourceTree = "<group>";
-		};
 		7EF8AE321CBB65B20003BA99 = {
 			isa = PBXGroup;
 			children = (
@@ -329,7 +320,8 @@
 		7EF8AE3D1CBB65B20003BA99 /* Arcade Radar */ = {
 			isa = PBXGroup;
 			children = (
-				7E9DCCC81CBB74FB00479C5F /* Login */,
+				7EE87EFD1CCDCB9700E282B8 /* Colors.swift */,
+				7EE87EFB1CCDCB7200E282B8 /* MapViewController.swift */,
 				7EF8AE3E1CBB65B20003BA99 /* AppDelegate.swift */,
 				7EF8AE401CBB65B20003BA99 /* ViewController.swift */,
 				7EF8AE421CBB65B20003BA99 /* Main.storyboard */,
@@ -337,7 +329,7 @@
 				7EF8AE471CBB65B20003BA99 /* LaunchScreen.storyboard */,
 				7EF8AE4A1CBB65B20003BA99 /* Info.plist */,
 				7EF8B0201CBB69C90003BA99 /* Bridging.h */,
-				7E9DCCC61CBB718B00479C5F /* Comment.swift */,
+				7EE87EFF1CCDCBEE00E282B8 /* ArcadeMachine.swift */,
 			);
 			path = "Arcade Radar";
 			sourceTree = "<group>";
@@ -856,10 +848,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E9DCCCC1CBB750C00479C5F /* RegisterUserViewController.swift in Sources */,
-				7E9DCCCB1CBB750C00479C5F /* LogInViewController.swift in Sources */,
+				7EE87EFC1CCDCB7200E282B8 /* MapViewController.swift in Sources */,
+				7EE87F001CCDCBEE00E282B8 /* ArcadeMachine.swift in Sources */,
+				7EE87EFE1CCDCB9700E282B8 /* Colors.swift in Sources */,
 				7EF8AE411CBB65B20003BA99 /* ViewController.swift in Sources */,
-				7E9DCCC71CBB718B00479C5F /* Comment.swift in Sources */,
 				7EF8AE3F1CBB65B20003BA99 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
