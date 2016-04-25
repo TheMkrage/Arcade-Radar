@@ -10,6 +10,7 @@
 		7EE87EFC1CCDCB7200E282B8 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE87EFB1CCDCB7200E282B8 /* MapViewController.swift */; };
 		7EE87EFE1CCDCB9700E282B8 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE87EFD1CCDCB9700E282B8 /* Colors.swift */; };
 		7EE87F001CCDCBEE00E282B8 /* ArcadeMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE87EFF1CCDCBEE00E282B8 /* ArcadeMachine.swift */; };
+		7EE87F021CCDD55F00E282B8 /* ArcadeMachineProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE87F011CCDD55F00E282B8 /* ArcadeMachineProfileViewController.swift */; };
 		7EF8AE3F1CBB65B20003BA99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF8AE3E1CBB65B20003BA99 /* AppDelegate.swift */; };
 		7EF8AE411CBB65B20003BA99 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF8AE401CBB65B20003BA99 /* ViewController.swift */; };
 		7EF8AE441CBB65B20003BA99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EF8AE421CBB65B20003BA99 /* Main.storyboard */; };
@@ -54,6 +55,7 @@
 		7EE87EFB1CCDCB7200E282B8 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		7EE87EFD1CCDCB9700E282B8 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		7EE87EFF1CCDCBEE00E282B8 /* ArcadeMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcadeMachine.swift; sourceTree = "<group>"; };
+		7EE87F011CCDD55F00E282B8 /* ArcadeMachineProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcadeMachineProfileViewController.swift; sourceTree = "<group>"; };
 		7EF8AE3B1CBB65B20003BA99 /* Arcade Radar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Arcade Radar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EF8AE3E1CBB65B20003BA99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7EF8AE401CBB65B20003BA99 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -330,6 +332,7 @@
 				7EF8AE4A1CBB65B20003BA99 /* Info.plist */,
 				7EF8B0201CBB69C90003BA99 /* Bridging.h */,
 				7EE87EFF1CCDCBEE00E282B8 /* ArcadeMachine.swift */,
+				7EE87F011CCDD55F00E282B8 /* ArcadeMachineProfileViewController.swift */,
 			);
 			path = "Arcade Radar";
 			sourceTree = "<group>";
@@ -848,6 +851,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EE87F021CCDD55F00E282B8 /* ArcadeMachineProfileViewController.swift in Sources */,
 				7EE87EFC1CCDCB7200E282B8 /* MapViewController.swift in Sources */,
 				7EE87F001CCDCBEE00E282B8 /* ArcadeMachine.swift in Sources */,
 				7EE87EFE1CCDCB9700E282B8 /* Colors.swift in Sources */,

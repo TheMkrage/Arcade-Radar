@@ -9,7 +9,6 @@
 import UIKit
 
 class ArcadeMachine: MKCircle {
-    
     var name = ""
     var lastSeen = NSDate()
     var geoPoint = "" // This should be something that can hold a lat and long
