@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E519C7C1CDDCE0300030680 /* ArcadeMachineMkCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E519C7B1CDDCE0300030680 /* ArcadeMachineMkCircle.swift */; };
 		7EE87EFC1CCDCB7200E282B8 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE87EFB1CCDCB7200E282B8 /* MapViewController.swift */; };
 		7EE87EFE1CCDCB9700E282B8 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE87EFD1CCDCB9700E282B8 /* Colors.swift */; };
 		7EE87F001CCDCBEE00E282B8 /* ArcadeMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE87EFF1CCDCBEE00E282B8 /* ArcadeMachine.swift */; };
@@ -52,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7E519C7B1CDDCE0300030680 /* ArcadeMachineMkCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcadeMachineMkCircle.swift; sourceTree = "<group>"; };
 		7EE87EFB1CCDCB7200E282B8 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		7EE87EFD1CCDCB9700E282B8 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		7EE87EFF1CCDCBEE00E282B8 /* ArcadeMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcadeMachine.swift; sourceTree = "<group>"; };
@@ -295,6 +297,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E519C791CDDBBEB00030680 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7EE87EFF1CCDCBEE00E282B8 /* ArcadeMachine.swift */,
+				7E519C7B1CDDCE0300030680 /* ArcadeMachineMkCircle.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		7E519C7A1CDDBC1100030680 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				7EE87EFB1CCDCB7200E282B8 /* MapViewController.swift */,
+				7EE87F011CCDD55F00E282B8 /* ArcadeMachineProfileViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		7EF8AE321CBB65B20003BA99 = {
 			isa = PBXGroup;
 			children = (
@@ -323,7 +343,8 @@
 			isa = PBXGroup;
 			children = (
 				7EE87EFD1CCDCB9700E282B8 /* Colors.swift */,
-				7EE87EFB1CCDCB7200E282B8 /* MapViewController.swift */,
+				7E519C791CDDBBEB00030680 /* Model */,
+				7E519C7A1CDDBC1100030680 /* ViewControllers */,
 				7EF8AE3E1CBB65B20003BA99 /* AppDelegate.swift */,
 				7EF8AE401CBB65B20003BA99 /* ViewController.swift */,
 				7EF8AE421CBB65B20003BA99 /* Main.storyboard */,
@@ -331,8 +352,6 @@
 				7EF8AE471CBB65B20003BA99 /* LaunchScreen.storyboard */,
 				7EF8AE4A1CBB65B20003BA99 /* Info.plist */,
 				7EF8B0201CBB69C90003BA99 /* Bridging.h */,
-				7EE87EFF1CCDCBEE00E282B8 /* ArcadeMachine.swift */,
-				7EE87F011CCDD55F00E282B8 /* ArcadeMachineProfileViewController.swift */,
 			);
 			path = "Arcade Radar";
 			sourceTree = "<group>";
@@ -857,6 +876,7 @@
 				7EE87EFE1CCDCB9700E282B8 /* Colors.swift in Sources */,
 				7EF8AE411CBB65B20003BA99 /* ViewController.swift in Sources */,
 				7EF8AE3F1CBB65B20003BA99 /* AppDelegate.swift in Sources */,
+				7E519C7C1CDDCE0300030680 /* ArcadeMachineMkCircle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1009,6 +1029,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Arcade Radar/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1031,6 +1052,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Arcade Radar/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(SRCROOT)/$(PROJECT_NAME)/lib/**",
