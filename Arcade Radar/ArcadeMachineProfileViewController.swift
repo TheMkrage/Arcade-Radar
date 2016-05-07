@@ -16,6 +16,7 @@ class ArcadeMachineProfileViewController: ViewController {
     
     @IBOutlet var scrollView: UIView!
     var arcadeMachine:ArcadeMachine = ArcadeMachine()
+    var backendless = Backendless()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,9 +40,29 @@ class ArcadeMachineProfileViewController: ViewController {
     }
 
     @IBAction func yes(sender: AnyObject) {
+        self.arcadeMachine.finds++
+        
+        backendless.persistenceService.of(ArcadeMachine.ofClass()).save(self.arcadeMachine,
+            response: { ( point : AnyObject!) -> Void in
+                print("ASYNC: geo point saved. Object ID - \(point.objectId)")
+            },
+            error: { ( fault : Fault!) -> () in
+                print("Server reported an error: \(fault)")
+            }
+        )
     }
     
     @IBAction func no(sender: AnyObject) {
+        self.arcadeMachine.finds++
+        
+        backendless.persistenceService.of(ArcadeMachine.ofClass()).save(self.arcadeMachine,
+            response: { ( point : AnyObject!) -> Void in
+                print("ASYNC: geo point saved. Object ID - \(point.objectId)")
+            },
+            error: { ( fault : Fault!) -> () in
+                print("Server reported an error: \(fault)")
+            }
+        )
     }
     /*
     // MARK: - Navigation

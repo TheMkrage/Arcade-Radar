@@ -358,5 +358,104 @@
             </objects>
             <point key="canvasLocation" x="513" y="-1073"/>
         </scene>
+        <!--Arcade Table View Controller-->
+        <scene sceneID="bVa-Km-gxD">
+            <objects>
+                <tableViewController id="SUI-TY-Cfi" customClass="ArcadeTableViewController" customModule="Arcade_Radar" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="55" sectionHeaderHeight="28" sectionFooterHeight="28" id="Fcu-B4-bXa">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ArcadeMachineCell" rowHeight="55" id="61i-eh-4SZ" customClass="ArcadeMachineTableViewCell" customModule="Arcade_Radar" customModuleProvider="target">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="61i-eh-4SZ" id="dia-lY-SnK">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Machine Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hqD-FA-H5T">
+                                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="26" id="wAb-OB-aUE"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="21"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="wAb-OB-aUE"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="widthClass=compact">
+                                                <mask key="constraints">
+                                                    <include reference="wAb-OB-aUE"/>
+                                                </mask>
+                                            </variation>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1.00 for 3 plays" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="piX-GN-neI">
+                                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="qh6-qu-3s7"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="qh6-qu-3s7"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="widthClass=compact">
+                                                <mask key="constraints">
+                                                    <include reference="qh6-qu-3s7"/>
+                                                </mask>
+                                            </variation>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="piX-GN-neI" firstAttribute="centerY" secondItem="dia-lY-SnK" secondAttribute="centerY" id="JoR-pA-Es7"/>
+                                        <constraint firstItem="piX-GN-neI" firstAttribute="trailing" secondItem="dia-lY-SnK" secondAttribute="trailingMargin" id="T7g-P8-9in"/>
+                                        <constraint firstItem="hqD-FA-H5T" firstAttribute="leading" secondItem="dia-lY-SnK" secondAttribute="leadingMargin" id="ecI-pO-34f"/>
+                                        <constraint firstItem="hqD-FA-H5T" firstAttribute="centerY" secondItem="dia-lY-SnK" secondAttribute="centerY" id="yWd-rq-Uqz"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="subviews">
+                                            <exclude reference="hqD-FA-H5T"/>
+                                            <exclude reference="piX-GN-neI"/>
+                                        </mask>
+                                        <mask key="constraints">
+                                            <exclude reference="ecI-pO-34f"/>
+                                            <exclude reference="yWd-rq-Uqz"/>
+                                            <exclude reference="JoR-pA-Es7"/>
+                                            <exclude reference="T7g-P8-9in"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="widthClass=compact">
+                                        <mask key="subviews">
+                                            <include reference="hqD-FA-H5T"/>
+                                            <include reference="piX-GN-neI"/>
+                                        </mask>
+                                        <mask key="constraints">
+                                            <include reference="ecI-pO-34f"/>
+                                            <include reference="yWd-rq-Uqz"/>
+                                            <include reference="JoR-pA-Es7"/>
+                                            <include reference="T7g-P8-9in"/>
+                                        </mask>
+                                    </variation>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="machineNameLabel" destination="hqD-FA-H5T" id="iTA-dw-1G0"/>
+                                    <outlet property="pricePerPlayLabel" destination="piX-GN-neI" id="Ibh-l4-RB3"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="SUI-TY-Cfi" id="hFq-1G-nCu"/>
+                            <outlet property="delegate" destination="SUI-TY-Cfi" id="8Kt-T9-Xtg"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K4C-VZ-t5o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1396.5" y="-1195"/>
+        </scene>
     </scenes>
 </document>

@@ -81,6 +81,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
         print("Server reported an error: \(fault)")
         }
         )*/
+        //backendless.persistenceService.of(ArcadeMachine.ofClass()).sa
     }
     
     override func didReceiveMemoryWarning() {
@@ -110,10 +111,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
                 response: { ( machinesSearched : BackendlessCollection!) -> () in
                     let currentPage = machinesSearched.getCurrentPage()
                     print("Loaded \(currentPage.count) machine objects")
-                    print("Total restaurants in the Backendless starage - \(machinesSearched.totalObjects)")
                     
                     for machine in currentPage {
-                        print("Restaurant name = \(machine.name)")
+                        print("name = \(machine.name)")
+                        print("\(machine.objectId)")
                         print(machine.geoPoint)
                         let overlay = ArcadeMachineMkCircle(centerCoordinate: CLLocationCoordinate2D(latitude: ((machine.geoPoint as GeoPoint).latitude as Double), longitude: ((machine.geoPoint as GeoPoint).longitude as Double)), radius: 20)
                         overlay.setArcadeMachine(machine as! ArcadeMachine)
