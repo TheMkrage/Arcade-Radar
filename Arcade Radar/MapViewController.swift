@@ -12,6 +12,7 @@ import MapKit
 class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureRecognizerDelegate {
     
     var backendless = Backendless()
+    var machines: NSMutableArray = NSMutableArray()
     
     @IBOutlet var mapView: MKMapView!
     let locationManager = CLLocationManager()
@@ -23,10 +24,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
     override func viewDidLoad() {
         super.viewDidLoad()
         print("REQUESTS")
+       // self.mapView.
+       //// self.mapView. = self
         // Location manager
         // Ask for Authorisation from the User.
         self.locationManager.requestAlwaysAuthorization()
         self.locationManager.requestWhenInUseAuthorization()
+        
         if CLLocationManager.locationServicesEnabled() {
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
@@ -84,7 +88,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
     }
     
     func refresh() {
-        if abs(self.mapView.region.span.latitudeDelta) < 0.15 && abs(self.mapView.region.span.longitudeDelta) < 0.13 {
+        if abs(self.mapView.region.span.latitudeDelta) < 0.4 && abs(self.mapView.region.span.longitudeDelta) < 0.38 {
             let nwPoint = CGPointMake(self.mapView.bounds.origin.x - 100, mapView.bounds.origin.y - 100);
             let sePoint = CGPointMake((self.mapView.bounds.origin.x + self.mapView.bounds.size.width + 100), (mapView.bounds.origin.y + mapView.bounds.size.height) + 100);
             // Transform points into lat,lng values
@@ -95,26 +99,41 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
             print(seCoord)
             // Search backendless for machines in the view
             //var query2 = BackendlessDataQuery
-            var queryOptions = QueryOptions()
+            let queryOptions = QueryOptions()
             queryOptions.addRelated("geoPoint")
             //queryOptions.so
-            var query = BackendlessDataQuery()
+            let query = BackendlessDataQuery()
             query.queryOptions = queryOptions
             query.whereClause = "geoPoint.latitude < \(nwCoord.latitude) AND geoPoint.latitude > \(seCoord.latitude) AND geoPoint.longitude > \(nwCoord.longitude) AND geoPoint.longitude < \(seCoord.longitude)"
             backendless.persistenceService.of(ArcadeMachine.ofClass()).find(
                 query,
-                response: { (var restaurants : BackendlessCollection!) -> () in
-                    var currentPage = restaurants.getCurrentPage()
-                    print("Loaded \(currentPage.count) restaurant objects")
-                    print("Total restaurants in the Backendless starage - \(restaurants.totalObjects)")
+                response: { ( machinesSearched : BackendlessCollection!) -> () in
+                    let currentPage = machinesSearched.getCurrentPage()
+                    print("Loaded \(currentPage.count) machine objects")
+                    print("Total restaurants in the Backendless starage - \(machinesSearched.totalObjects)")
                     
-                    for restaurant in currentPage {
-                        print("Restaurant name = \(restaurant.name)")
-                        print(restaurant.geoPoint)
-                        //self.printLocations(restaurant.locations as? [ArcadeMachine])
+                    for machine in currentPage {
+                        print("Restaurant name = \(machine.name)")
+                        print(machine.geoPoint)
+                        let overlay = ArcadeMachineMkCircle(centerCoordinate: CLLocationCoordinate2D(latitude: ((machine.geoPoint as GeoPoint).latitude as Double), longitude: ((machine.geoPoint as GeoPoint).longitude as Double)), radius: 20)
+                        overlay.setArcadeMachine(machine as! ArcadeMachine)
+                        var isAlreadyThere = false
+                        for current in self.mapView.overlays as! [ArcadeMachineMkCircle] {
+                            if current.machine?.geoPoint?.latitude == overlay.machine?.geoPoint?.latitude {
+                                if current.machine?.geoPoint?.longitude == overlay.machine?.geoPoint?.longitude {
+                                    if current.machine?.name == overlay.machine?.name {
+                                        isAlreadyThere = true
+                                    }
+                                }
+                            }
+                        }
+                        if !isAlreadyThere {
+                            self.mapView.addOverlay(overlay)
+                            self.mapView.addAnnotation(overlay)
+                        }
                     }
                 },
-                error: { (var fault : Fault!) -> () in
+                error: { ( fault : Fault!) -> () in
                     print("Server reported an error: \(fault)")
                 }
             )
@@ -170,15 +189,17 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
     
     func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
         let identifier = "ArcadeMachine"
-        if ((annotation as? ArcadeMachine) != nil) {
+        print("HOWDYY")
+        if ((annotation as? ArcadeMachineMkCircle) != nil) {
             var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier)
             if annotationView == nil {
-                annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
                 annotationView!.canShowCallout = true
                 
                 let btn = UIButton(type: .DetailDisclosure)
                 annotationView!.rightCalloutAccessoryView = btn
-                
+                print("INIT!")
+            
             }
             return annotationView
         }
@@ -186,9 +207,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
     }
     
     func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!, calloutAccessoryControlTapped control: UIControl!) {
-        //let vc = self.storyboard?.instantiateViewControllerWithIdentifier("TerritoryProfile") as! TerritoryProfileViewController
-        //vc.territory = view.annotation as! Territory
-        //self.showViewController(vc, sender: self)
+        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("ArcadeMachineProfile") as! ArcadeMachineProfileViewController
+        vc.arcadeMachine = (view.annotation as! ArcadeMachineMkCircle).machine as ArcadeMachine!
+        self.showViewController(vc, sender: self)
     }
     
     func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {

@@ -14,9 +14,19 @@ class ArcadeMachineProfileViewController: ViewController {
     @IBOutlet var addressButton: UIButton!
     @IBOutlet var pricePerPlayLabel: UILabel!
     
+    @IBOutlet var scrollView: UIView!
+    var arcadeMachine:ArcadeMachine = ArcadeMachine()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.arcadeMachineNameLabel.text = self.arcadeMachine.name
+        self.lastSeenOnLabel.text = "Last Seen on \(self.arcadeMachine.lastSeen)"
+        self.addressButton.setTitle(self.arcadeMachine.arcadeName, forState: .Normal)
+        if (self.arcadeMachine.numOfPlays > 1){
+            self.pricePerPlayLabel.text = "$\(arcadeMachine.price) for \(self.arcadeMachine.numOfPlays) \(self.arcadeMachine.whatPriceIsFor)s"
+        }else {
+            self.pricePerPlayLabel.text = "$\(arcadeMachine.price) for \(self.arcadeMachine.numOfPlays) \(self.arcadeMachine.whatPriceIsFor)"
+        }
         // Do any additional setup after loading the view.
     }
 
