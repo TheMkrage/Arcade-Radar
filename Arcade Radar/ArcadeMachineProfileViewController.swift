@@ -17,6 +17,7 @@ class ArcadeMachineProfileViewController: ViewController {
     @IBOutlet var noButton: UIButton!
     @IBOutlet var yesCountLabel: UILabel!
     @IBOutlet var noCountLabel: UILabel!
+    @IBOutlet var percentLabel: UILabel!
     
     @IBOutlet var scrollView: UIView!
     var arcadeMachine:ArcadeMachine = ArcadeMachine()
@@ -31,8 +32,17 @@ class ArcadeMachineProfileViewController: ViewController {
         self.arcadeMachineNameLabel.text = self.arcadeMachine.name
         self.lastSeenOnLabel.text = "Last Seen on \(self.arcadeMachine.lastSeen)"
         self.addressButton.setTitle(self.arcadeMachine.arcadeName, forState: .Normal)
-        self.yesCountLabel.text = "\(self.arcadeMachine.finds)"
-        self.noCountLabel.text = "\(self.arcadeMachine.notFinds)"
+        self.yesCountLabel.text = String(format: "%7.0f", self.arcadeMachine.finds)
+        print(self.yesCountLabel.text)
+        self.noCountLabel.text = String(format: "%7.0f", self.arcadeMachine.notFinds)
+        if (self.arcadeMachine.finds != 0) {
+            let percent:Double = (self.arcadeMachine.finds)/(self.arcadeMachine.finds + self.arcadeMachine.notFinds)
+            print(percent)
+            
+            self.percentLabel.text = String(format: "%3.0f%%", (percent * 100.0))
+        }else {
+            self.percentLabel.text = "0%"
+        }
         if (self.arcadeMachine.numOfPlays > 1){
             self.pricePerPlayLabel.text = "$\(arcadeMachine.price) for \(self.arcadeMachine.numOfPlays) \(self.arcadeMachine.whatPriceIsFor)s"
         }else {
@@ -84,46 +94,45 @@ class ArcadeMachineProfileViewController: ViewController {
         if !self.hasAlreadyReported {
             self.arcadeMachine.finds++
             self.arcadeMachine.lastSeen = NSDate()
-            self.hasAlreadyReported = true
-            self.yesCountLabel.text = "\(self.arcadeMachine.finds)"
-            self.noCountLabel.text = "\(self.arcadeMachine.notFinds)"
-            self.IDArray?.append((self.arcadeMachine as AnyObject).objectId)
-            backendless.persistenceService.of(ArcadeMachine.ofClass()).save(self.arcadeMachine,
-                response: { ( point : AnyObject!) -> Void in
-                    print("ASYNC: geo point saved. Object ID - \(point.objectId)")
-                },
-                error: { ( fault : Fault!) -> () in
-                    print("Server reported an error: \(fault)")
-                }
-            )
-            NSUserDefaults.standardUserDefaults().setObject(self.IDArray, forKey: key)
-            NSUserDefaults.standardUserDefaults().synchronize()
-            self.yesButton.setTitleColor(UIColor.lightGrayColor(), forState: .Normal)
-            self.noButton.setTitleColor(UIColor.lightGrayColor(), forState: .Normal)
+            self.updateAfterNewReport()
         }
     }
     
     @IBAction func no(sender: AnyObject) {
         if !self.hasAlreadyReported {
             
-            self.arcadeMachine.finds++
-            self.hasAlreadyReported = true
-            self.IDArray?.append((self.arcadeMachine as AnyObject).objectId)
-            self.yesCountLabel.text = "\(self.arcadeMachine.finds)"
-            self.noCountLabel.text = "\(self.arcadeMachine.notFinds)"
-            backendless.persistenceService.of(ArcadeMachine.ofClass()).save(self.arcadeMachine,
-                response: { ( point : AnyObject!) -> Void in
-                    print("ASYNC: geo point saved. Object ID - \(point.objectId)")
-                },
-                error: { ( fault : Fault!) -> () in
-                    print("Server reported an error: \(fault)")
-                }
-            )
-            NSUserDefaults.standardUserDefaults().setObject(self.IDArray, forKey: key)
-            NSUserDefaults.standardUserDefaults().synchronize()
-            self.yesButton.setTitleColor(UIColor.lightGrayColor(), forState: .Normal)
-            self.noButton.setTitleColor(UIColor.lightGrayColor(), forState: .Normal)
+            self.arcadeMachine.notFinds++
+            self.updateAfterNewReport()
+            
         }
+    }
+    
+    func updateAfterNewReport() {
+        self.hasAlreadyReported = true
+        self.IDArray?.append((self.arcadeMachine as AnyObject).objectId)
+        self.yesCountLabel.text = String(format: "%7.0f", self.arcadeMachine.finds)
+        self.noCountLabel.text = String(format: "%7.0f", self.arcadeMachine.notFinds)
+        if (self.arcadeMachine.finds != 0) {
+            let percent:Double = (self.arcadeMachine.finds)/(self.arcadeMachine.finds + self.arcadeMachine.notFinds)
+            print(percent)
+            
+            self.percentLabel.text = String(format: "%3.0f%%", (percent * 100.0))
+        }else {
+            self.percentLabel.text = "0%"
+        }
+
+        backendless.persistenceService.of(ArcadeMachine.ofClass()).save(self.arcadeMachine,
+            response: { ( point : AnyObject!) -> Void in
+                print("ASYNC: geo point saved. Object ID - \(point.objectId)")
+            },
+            error: { ( fault : Fault!) -> () in
+                print("Server reported an error: \(fault)")
+            }
+        )
+        NSUserDefaults.standardUserDefaults().setObject(self.IDArray, forKey: key)
+        NSUserDefaults.standardUserDefaults().synchronize()
+        self.yesButton.setTitleColor(UIColor.lightGrayColor(), forState: .Normal)
+        self.noButton.setTitleColor(UIColor.lightGrayColor(), forState: .Normal)
     }
     /*
     // MARK: - Navigation

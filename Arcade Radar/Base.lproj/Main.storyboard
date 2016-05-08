@@ -274,6 +274,25 @@
                                                     </mask>
                                                 </variation>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vu4-Bs-y74">
+                                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="KmM-ci-p65"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="KmM-ci-p65"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="widthClass=compact">
+                                                    <mask key="constraints">
+                                                        <include reference="KmM-ci-p65"/>
+                                                    </mask>
+                                                </variation>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="deviceRGB"/>
                                         <constraints>
@@ -295,10 +314,12 @@
                                             <constraint firstItem="Yv3-QW-8PR" firstAttribute="centerX" secondItem="CrQ-Mj-gNn" secondAttribute="centerX" id="gHR-8W-sJK"/>
                                             <constraint firstItem="Y2k-Jk-M65" firstAttribute="centerX" secondItem="CrQ-Mj-gNn" secondAttribute="centerX" id="hH2-vj-mwI"/>
                                             <constraint firstItem="rM2-IU-3ub" firstAttribute="top" secondItem="rYu-Ey-8GM" secondAttribute="bottom" constant="8" id="nax-UK-hwM"/>
+                                            <constraint firstItem="vu4-Bs-y74" firstAttribute="top" secondItem="Y2k-Jk-M65" secondAttribute="bottom" constant="8" id="u8r-v9-YLb"/>
                                             <constraint firstItem="YfX-lH-XdR" firstAttribute="top" secondItem="Yv3-QW-8PR" secondAttribute="bottom" constant="8" id="uOu-3w-aWa"/>
                                             <constraint firstItem="YfX-lH-XdR" firstAttribute="centerX" secondItem="CrQ-Mj-gNn" secondAttribute="centerX" id="ujQ-8f-wIC"/>
                                             <constraint firstItem="jUp-RX-DDO" firstAttribute="top" secondItem="K5m-Lc-vRP" secondAttribute="bottom" constant="8" id="vw6-ld-ro8"/>
                                             <constraint firstItem="QFk-ce-Cir" firstAttribute="top" secondItem="QLd-26-YIV" secondAttribute="bottom" constant="8" id="xe0-sr-HXs"/>
+                                            <constraint firstItem="vu4-Bs-y74" firstAttribute="centerX" secondItem="CrQ-Mj-gNn" secondAttribute="centerX" id="zW5-Ho-yrx"/>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="subviews">
@@ -311,6 +332,7 @@
                                                 <exclude reference="rYu-Ey-8GM"/>
                                                 <exclude reference="QFk-ce-Cir"/>
                                                 <exclude reference="rM2-IU-3ub"/>
+                                                <exclude reference="vu4-Bs-y74"/>
                                             </mask>
                                             <mask key="constraints">
                                                 <exclude reference="5zj-Af-wsO"/>
@@ -324,6 +346,8 @@
                                                 <exclude reference="vw6-ld-ro8"/>
                                                 <exclude reference="Xcr-Ci-erf"/>
                                                 <exclude reference="hH2-vj-mwI"/>
+                                                <exclude reference="u8r-v9-YLb"/>
+                                                <exclude reference="zW5-Ho-yrx"/>
                                                 <exclude reference="3UT-jo-vVn"/>
                                                 <exclude reference="SlJ-VE-s9X"/>
                                                 <exclude reference="J8k-WE-rQq"/>
@@ -345,6 +369,7 @@
                                                 <include reference="rYu-Ey-8GM"/>
                                                 <include reference="QFk-ce-Cir"/>
                                                 <include reference="rM2-IU-3ub"/>
+                                                <include reference="vu4-Bs-y74"/>
                                             </mask>
                                             <mask key="constraints">
                                                 <include reference="5zj-Af-wsO"/>
@@ -358,6 +383,8 @@
                                                 <include reference="vw6-ld-ro8"/>
                                                 <include reference="Xcr-Ci-erf"/>
                                                 <include reference="hH2-vj-mwI"/>
+                                                <include reference="u8r-v9-YLb"/>
+                                                <include reference="zW5-Ho-yrx"/>
                                                 <include reference="3UT-jo-vVn"/>
                                                 <include reference="SlJ-VE-s9X"/>
                                                 <include reference="J8k-WE-rQq"/>
@@ -406,6 +433,7 @@
                         <outlet property="lastSeenOnLabel" destination="YfX-lH-XdR" id="qQd-xb-U27"/>
                         <outlet property="noButton" destination="rYu-Ey-8GM" id="Wlt-O6-bm9"/>
                         <outlet property="noCountLabel" destination="rM2-IU-3ub" id="Wdf-qS-cAM"/>
+                        <outlet property="percentLabel" destination="vu4-Bs-y74" id="UAl-Wk-hAP"/>
                         <outlet property="pricePerPlayLabel" destination="jUp-RX-DDO" id="tkj-6t-cea"/>
                         <outlet property="scrollView" destination="CrQ-Mj-gNn" id="ERg-Go-Fnt"/>
                         <outlet property="yesButton" destination="QLd-26-YIV" id="uj1-0r-Nzv"/>
