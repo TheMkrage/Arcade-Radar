@@ -66,7 +66,7 @@ class ArcadeTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ArcadeMachineCell", forIndexPath: indexPath) as! ArcadeMachineTableViewCell
-        var machine = self.machines[indexPath.row]
+        let machine = self.machines[indexPath.row]
         cell.pricePerPlayLabel.text = "$\(machine.price) for \(machine.numOfPlays) \(machine.whatPriceIsFor)"
         cell.machineNameLabel.text = self.machines[indexPath.row].name
         // Configure the cell...

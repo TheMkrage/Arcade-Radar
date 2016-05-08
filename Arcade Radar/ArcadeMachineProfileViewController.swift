@@ -32,9 +32,9 @@ class ArcadeMachineProfileViewController: ViewController {
         self.arcadeMachineNameLabel.text = self.arcadeMachine.name
         self.lastSeenOnLabel.text = "Last Seen on \(self.arcadeMachine.lastSeen)"
         self.addressButton.setTitle(self.arcadeMachine.arcadeName, forState: .Normal)
-        self.yesCountLabel.text = String(format: "%7.0f", self.arcadeMachine.finds)
+        self.yesCountLabel.text = String(format: "%7.0f", self.arcadeMachine.finds).stringByReplacingOccurrencesOfString(" ", withString: "")
         print(self.yesCountLabel.text)
-        self.noCountLabel.text = String(format: "%7.0f", self.arcadeMachine.notFinds)
+        self.noCountLabel.text = String(format: "%7.0f", self.arcadeMachine.notFinds).stringByReplacingOccurrencesOfString(" ", withString: "")
         if (self.arcadeMachine.finds != 0) {
             let percent:Double = (self.arcadeMachine.finds)/(self.arcadeMachine.finds + self.arcadeMachine.notFinds)
             print(percent)
@@ -110,8 +110,8 @@ class ArcadeMachineProfileViewController: ViewController {
     func updateAfterNewReport() {
         self.hasAlreadyReported = true
         self.IDArray?.append((self.arcadeMachine as AnyObject).objectId)
-        self.yesCountLabel.text = String(format: "%7.0f", self.arcadeMachine.finds)
-        self.noCountLabel.text = String(format: "%7.0f", self.arcadeMachine.notFinds)
+        self.yesCountLabel.text = String(format: "%7.0f", self.arcadeMachine.finds).stringByReplacingOccurrencesOfString(" ", withString: "")
+        self.noCountLabel.text = String(format: "%7.0f", self.arcadeMachine.notFinds).stringByReplacingOccurrencesOfString(" ", withString: "")
         if (self.arcadeMachine.finds != 0) {
             let percent:Double = (self.arcadeMachine.finds)/(self.arcadeMachine.finds + self.arcadeMachine.notFinds)
             print(percent)

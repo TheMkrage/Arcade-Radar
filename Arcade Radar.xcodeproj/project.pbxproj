@@ -10,6 +10,8 @@
 		7E519C7C1CDDCE0300030680 /* ArcadeMachineMkCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E519C7B1CDDCE0300030680 /* ArcadeMachineMkCircle.swift */; };
 		7EDFB6F21CDEA9130013D89A /* ArcadeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDFB6F11CDEA9130013D89A /* ArcadeTableViewController.swift */; };
 		7EDFB6F51CDEAF6F0013D89A /* ArcadeMachineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDFB6F41CDEAF6F0013D89A /* ArcadeMachineTableViewCell.swift */; };
+		7EDFB6F71CDFAFD30013D89A /* SearchForNameTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDFB6F61CDFAFD30013D89A /* SearchForNameTableViewController.swift */; };
+		7EDFB6F91CDFC20C0013D89A /* Candy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDFB6F81CDFC20C0013D89A /* Candy.swift */; };
 		7EE87EFC1CCDCB7200E282B8 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE87EFB1CCDCB7200E282B8 /* MapViewController.swift */; };
 		7EE87EFE1CCDCB9700E282B8 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE87EFD1CCDCB9700E282B8 /* Colors.swift */; };
 		7EE87F001CCDCBEE00E282B8 /* ArcadeMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE87EFF1CCDCBEE00E282B8 /* ArcadeMachine.swift */; };
@@ -58,6 +60,8 @@
 		7E519C7B1CDDCE0300030680 /* ArcadeMachineMkCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcadeMachineMkCircle.swift; sourceTree = "<group>"; };
 		7EDFB6F11CDEA9130013D89A /* ArcadeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcadeTableViewController.swift; sourceTree = "<group>"; };
 		7EDFB6F41CDEAF6F0013D89A /* ArcadeMachineTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcadeMachineTableViewCell.swift; sourceTree = "<group>"; };
+		7EDFB6F61CDFAFD30013D89A /* SearchForNameTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchForNameTableViewController.swift; sourceTree = "<group>"; };
+		7EDFB6F81CDFC20C0013D89A /* Candy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Candy.swift; sourceTree = "<group>"; };
 		7EE87EFB1CCDCB7200E282B8 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		7EE87EFD1CCDCB9700E282B8 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		7EE87EFF1CCDCBEE00E282B8 /* ArcadeMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcadeMachine.swift; sourceTree = "<group>"; };
@@ -306,6 +310,7 @@
 			children = (
 				7EE87EFF1CCDCBEE00E282B8 /* ArcadeMachine.swift */,
 				7E519C7B1CDDCE0300030680 /* ArcadeMachineMkCircle.swift */,
+				7EDFB6F81CDFC20C0013D89A /* Candy.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -316,6 +321,7 @@
 				7EE87EFB1CCDCB7200E282B8 /* MapViewController.swift */,
 				7EE87F011CCDD55F00E282B8 /* ArcadeMachineProfileViewController.swift */,
 				7EDFB6F11CDEA9130013D89A /* ArcadeTableViewController.swift */,
+				7EDFB6F61CDFAFD30013D89A /* SearchForNameTableViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -888,9 +894,11 @@
 				7EDFB6F21CDEA9130013D89A /* ArcadeTableViewController.swift in Sources */,
 				7EE87EFC1CCDCB7200E282B8 /* MapViewController.swift in Sources */,
 				7EE87F001CCDCBEE00E282B8 /* ArcadeMachine.swift in Sources */,
+				7EDFB6F91CDFC20C0013D89A /* Candy.swift in Sources */,
 				7EE87EFE1CCDCB9700E282B8 /* Colors.swift in Sources */,
 				7EF8AE411CBB65B20003BA99 /* ViewController.swift in Sources */,
 				7EDFB6F51CDEAF6F0013D89A /* ArcadeMachineTableViewCell.swift in Sources */,
+				7EDFB6F71CDFAFD30013D89A /* SearchForNameTableViewController.swift in Sources */,
 				7EF8AE3F1CBB65B20003BA99 /* AppDelegate.swift in Sources */,
 				7E519C7C1CDDCE0300030680 /* ArcadeMachineMkCircle.swift in Sources */,
 			);

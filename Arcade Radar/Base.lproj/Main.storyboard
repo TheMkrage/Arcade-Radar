@@ -543,5 +543,116 @@
             </objects>
             <point key="canvasLocation" x="1396.5" y="-1195"/>
         </scene>
+        <!--Search For Name Table View Controller-->
+        <scene sceneID="LWO-Ix-LGO">
+            <objects>
+                <tableViewController storyboardIdentifier="SearchForName" id="Yi7-m1-cv1" customClass="SearchForNameTableViewController" customModule="Arcade_Radar" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="bkK-1h-aKg">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ArcadeMachineCell" rowHeight="55" id="sgk-eC-lFd" customClass="ArcadeMachineTableViewCell" customModule="Arcade_Radar" customModuleProvider="target">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sgk-eC-lFd" id="QFj-dS-aG6">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Machine Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XsZ-it-rTr">
+                                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="26" id="rrD-cg-Lvv"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="21"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="rrD-cg-Lvv"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="widthClass=compact" misplaced="YES">
+                                                <rect key="frame" x="8" y="14" width="137" height="26"/>
+                                                <mask key="constraints">
+                                                    <include reference="rrD-cg-Lvv"/>
+                                                </mask>
+                                            </variation>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1.00 for 3 plays" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G4Y-bT-Rev">
+                                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="TO8-uZ-Zv0"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="TO8-uZ-Zv0"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="widthClass=compact">
+                                                <mask key="constraints">
+                                                    <include reference="TO8-uZ-Zv0"/>
+                                                </mask>
+                                            </variation>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="XsZ-it-rTr" firstAttribute="leading" secondItem="QFj-dS-aG6" secondAttribute="leadingMargin" id="7CK-NJ-EgT"/>
+                                        <constraint firstItem="G4Y-bT-Rev" firstAttribute="trailing" secondItem="QFj-dS-aG6" secondAttribute="trailingMargin" id="Bf6-Wb-8EH"/>
+                                        <constraint firstItem="XsZ-it-rTr" firstAttribute="centerY" secondItem="QFj-dS-aG6" secondAttribute="centerY" id="Mv7-4d-bzj"/>
+                                        <constraint firstItem="G4Y-bT-Rev" firstAttribute="centerY" secondItem="QFj-dS-aG6" secondAttribute="centerY" id="p50-P4-pDc"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="subviews">
+                                            <exclude reference="XsZ-it-rTr"/>
+                                            <exclude reference="G4Y-bT-Rev"/>
+                                        </mask>
+                                        <mask key="constraints">
+                                            <exclude reference="7CK-NJ-EgT"/>
+                                            <exclude reference="Mv7-4d-bzj"/>
+                                            <exclude reference="p50-P4-pDc"/>
+                                            <exclude reference="Bf6-Wb-8EH"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="widthClass=compact">
+                                        <mask key="subviews">
+                                            <include reference="XsZ-it-rTr"/>
+                                            <include reference="G4Y-bT-Rev"/>
+                                        </mask>
+                                        <mask key="constraints">
+                                            <include reference="7CK-NJ-EgT"/>
+                                            <include reference="Mv7-4d-bzj"/>
+                                            <include reference="p50-P4-pDc"/>
+                                            <include reference="Bf6-Wb-8EH"/>
+                                        </mask>
+                                    </variation>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="machineNameLabel" destination="XsZ-it-rTr" id="jix-zw-fUs"/>
+                                    <outlet property="pricePerPlayLabel" destination="G4Y-bT-Rev" id="JwF-tu-CmG"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Yi7-m1-cv1" id="LuI-zb-P4S"/>
+                            <outlet property="delegate" destination="Yi7-m1-cv1" id="fZG-N9-HlO"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="cbM-9o-FVL" id="SFc-Uj-J6E"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6LU-Nk-98R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="cbM-9o-FVL">
+                    <connections>
+                        <outlet property="delegate" destination="Yi7-m1-cv1" id="qCT-R1-28d"/>
+                        <outlet property="searchContentsController" destination="Yi7-m1-cv1" id="WWg-tt-D9R"/>
+                        <outlet property="searchResultsDataSource" destination="Yi7-m1-cv1" id="Kmr-9d-tBC"/>
+                        <outlet property="searchResultsDelegate" destination="Yi7-m1-cv1" id="yxB-TK-nY9"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="2244" y="-1201"/>
+        </scene>
     </scenes>
 </document>

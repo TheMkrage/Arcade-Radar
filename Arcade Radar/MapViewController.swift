@@ -64,13 +64,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
         navigationItem.leftBarButtonItems = [UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Refresh, target: self, action: "refresh"), MKUserTrackingBarButtonItem(mapView: self.mapView)]
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addNewArcadeMachine")
         
-        let machine = ArcadeMachine()
+        /*let machine = ArcadeMachine()
         machine.name = "DDR Mega Mix "
         machine.arcadeName = "Kragers Arcade"
         machine.geoPoint = GeoPoint.geoPoint(
             GEO_POINT(latitude: 33.71 , longitude: -118.03)
             ) as? GeoPoint
-        backendless.persistenceService.of(ArcadeMachine.ofClass()).save(machine)
+        backendless.persistenceService.of(ArcadeMachine.ofClass()).save(machine)*/
         
         /* backendless.geoService.savePoint(
         houstonTX,
@@ -84,12 +84,17 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
         //backendless.persistenceService.of(ArcadeMachine.ofClass()).sa
     }
     
+    func addNewArcadeMachine() {
+        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("SearchForName") as! SearchForNameTableViewController
+        self.showViewController(vc, sender: self) 
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
     func refresh() {
-        if abs(self.mapView.region.span.latitudeDelta) < 0.4 && abs(self.mapView.region.span.longitudeDelta) < 0.38 {
+        if abs(self.mapView.region.span.latitudeDelta) < 0.6 && abs(self.mapView.region.span.longitudeDelta) < 0.58 {
             let nwPoint = CGPointMake(self.mapView.bounds.origin.x - 100, mapView.bounds.origin.y - 100);
             let sePoint = CGPointMake((self.mapView.bounds.origin.x + self.mapView.bounds.size.width + 100), (mapView.bounds.origin.y + mapView.bounds.size.height) + 100);
             // Transform points into lat,lng values
