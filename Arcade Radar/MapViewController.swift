@@ -65,13 +65,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addNewArcadeMachine")
         
         /*let machine = ArcadeMachine()
-        machine.name = "DDR X"
-        
+        machine.name = "DDR Mega Mix "
+        machine.arcadeName = "Kragers Arcade"
         machine.geoPoint = GeoPoint.geoPoint(
-            GEO_POINT(latitude: 33.700, longitude: -118.02)
+            GEO_POINT(latitude: 34.13 , longitude: -117.7)
             ) as? GeoPoint
-        backendless.persistenceService.of(ArcadeMachine.ofClass()).save(machine)*/
-        
+        backendless.persistenceService.of(ArcadeMachine.ofClass()).save(machine)
+        */
         /* backendless.geoService.savePoint(
         houstonTX,
         response: { (var point : GeoPoint!) -> () in
