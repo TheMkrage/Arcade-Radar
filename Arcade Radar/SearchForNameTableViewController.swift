@@ -52,6 +52,10 @@ class SearchForNameTableViewController: UITableViewController {
         return 0
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+    }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ArcadeMachineCell", forIndexPath: indexPath) as! ArcadeMachineTableViewCell
         let machine: ArcadeMachine
@@ -100,7 +104,6 @@ class SearchForNameTableViewController: UITableViewController {
                     print("Server reported an error: \(fault)")
                 }
             )
-            
         }
     }
 }

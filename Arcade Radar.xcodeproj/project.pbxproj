@@ -12,6 +12,7 @@
 		7EDFB6F51CDEAF6F0013D89A /* ArcadeMachineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDFB6F41CDEAF6F0013D89A /* ArcadeMachineTableViewCell.swift */; };
 		7EDFB6F71CDFAFD30013D89A /* SearchForNameTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDFB6F61CDFAFD30013D89A /* SearchForNameTableViewController.swift */; };
 		7EDFB6F91CDFC20C0013D89A /* Candy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDFB6F81CDFC20C0013D89A /* Candy.swift */; };
+		7EE7526D1CF10079007188B7 /* CreateArcadeMachineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE7526C1CF10079007188B7 /* CreateArcadeMachineViewController.swift */; };
 		7EE87EFC1CCDCB7200E282B8 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE87EFB1CCDCB7200E282B8 /* MapViewController.swift */; };
 		7EE87EFE1CCDCB9700E282B8 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE87EFD1CCDCB9700E282B8 /* Colors.swift */; };
 		7EE87F001CCDCBEE00E282B8 /* ArcadeMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE87EFF1CCDCBEE00E282B8 /* ArcadeMachine.swift */; };
@@ -62,6 +63,7 @@
 		7EDFB6F41CDEAF6F0013D89A /* ArcadeMachineTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcadeMachineTableViewCell.swift; sourceTree = "<group>"; };
 		7EDFB6F61CDFAFD30013D89A /* SearchForNameTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchForNameTableViewController.swift; sourceTree = "<group>"; };
 		7EDFB6F81CDFC20C0013D89A /* Candy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Candy.swift; sourceTree = "<group>"; };
+		7EE7526C1CF10079007188B7 /* CreateArcadeMachineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateArcadeMachineViewController.swift; sourceTree = "<group>"; };
 		7EE87EFB1CCDCB7200E282B8 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		7EE87EFD1CCDCB9700E282B8 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		7EE87EFF1CCDCBEE00E282B8 /* ArcadeMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcadeMachine.swift; sourceTree = "<group>"; };
@@ -322,6 +324,7 @@
 				7EE87F011CCDD55F00E282B8 /* ArcadeMachineProfileViewController.swift */,
 				7EDFB6F11CDEA9130013D89A /* ArcadeTableViewController.swift */,
 				7EDFB6F61CDFAFD30013D89A /* SearchForNameTableViewController.swift */,
+				7EE7526C1CF10079007188B7 /* CreateArcadeMachineViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -896,6 +899,7 @@
 				7EE87F001CCDCBEE00E282B8 /* ArcadeMachine.swift in Sources */,
 				7EDFB6F91CDFC20C0013D89A /* Candy.swift in Sources */,
 				7EE87EFE1CCDCB9700E282B8 /* Colors.swift in Sources */,
+				7EE7526D1CF10079007188B7 /* CreateArcadeMachineViewController.swift in Sources */,
 				7EF8AE411CBB65B20003BA99 /* ViewController.swift in Sources */,
 				7EDFB6F51CDEAF6F0013D89A /* ArcadeMachineTableViewCell.swift in Sources */,
 				7EDFB6F71CDFAFD30013D89A /* SearchForNameTableViewController.swift in Sources */,
