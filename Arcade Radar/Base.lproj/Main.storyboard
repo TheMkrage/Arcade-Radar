@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -107,13 +108,13 @@
                         <viewControllerLayoutGuide type="bottom" id="AgE-DU-03e"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Bzk-Or-axx">
-                        <rect key="frame" x="0.0" y="64" width="320" height="836"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="787"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ps4-5r-cnS">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="836"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="787"/>
                                 <subviews>
-                                    <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CrQ-Mj-gNn" userLabel="Content View">
+                                    <view autoresizesSubviews="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CrQ-Mj-gNn" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="787"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arcade Machine Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yv3-QW-8PR">
@@ -335,27 +336,27 @@
                                                 <exclude reference="vu4-Bs-y74"/>
                                             </mask>
                                             <mask key="constraints">
-                                                <exclude reference="5zj-Af-wsO"/>
-                                                <exclude reference="gHR-8W-sJK"/>
-                                                <exclude reference="uOu-3w-aWa"/>
-                                                <exclude reference="ujQ-8f-wIC"/>
                                                 <exclude reference="M2z-tw-gMx"/>
                                                 <exclude reference="bSf-6X-E0K"/>
-                                                <exclude reference="36Z-yJ-KEh"/>
-                                                <exclude reference="5NY-4N-w4i"/>
-                                                <exclude reference="vw6-ld-ro8"/>
-                                                <exclude reference="Xcr-Ci-erf"/>
-                                                <exclude reference="hH2-vj-mwI"/>
-                                                <exclude reference="u8r-v9-YLb"/>
-                                                <exclude reference="zW5-Ho-yrx"/>
                                                 <exclude reference="3UT-jo-vVn"/>
                                                 <exclude reference="SlJ-VE-s9X"/>
                                                 <exclude reference="J8k-WE-rQq"/>
                                                 <exclude reference="cNH-Rp-pC1"/>
                                                 <exclude reference="DbJ-PB-2OI"/>
                                                 <exclude reference="xe0-sr-HXs"/>
+                                                <exclude reference="Xcr-Ci-erf"/>
+                                                <exclude reference="hH2-vj-mwI"/>
+                                                <exclude reference="uOu-3w-aWa"/>
+                                                <exclude reference="ujQ-8f-wIC"/>
+                                                <exclude reference="5zj-Af-wsO"/>
+                                                <exclude reference="gHR-8W-sJK"/>
+                                                <exclude reference="36Z-yJ-KEh"/>
+                                                <exclude reference="5NY-4N-w4i"/>
+                                                <exclude reference="vw6-ld-ro8"/>
                                                 <exclude reference="Ljn-Jr-G0O"/>
                                                 <exclude reference="nax-UK-hwM"/>
+                                                <exclude reference="u8r-v9-YLb"/>
+                                                <exclude reference="zW5-Ho-yrx"/>
                                             </mask>
                                         </variation>
                                         <variation key="widthClass=compact">
@@ -372,27 +373,27 @@
                                                 <include reference="vu4-Bs-y74"/>
                                             </mask>
                                             <mask key="constraints">
-                                                <include reference="5zj-Af-wsO"/>
-                                                <include reference="gHR-8W-sJK"/>
-                                                <include reference="uOu-3w-aWa"/>
-                                                <include reference="ujQ-8f-wIC"/>
                                                 <include reference="M2z-tw-gMx"/>
                                                 <include reference="bSf-6X-E0K"/>
-                                                <include reference="36Z-yJ-KEh"/>
-                                                <include reference="5NY-4N-w4i"/>
-                                                <include reference="vw6-ld-ro8"/>
-                                                <include reference="Xcr-Ci-erf"/>
-                                                <include reference="hH2-vj-mwI"/>
-                                                <include reference="u8r-v9-YLb"/>
-                                                <include reference="zW5-Ho-yrx"/>
                                                 <include reference="3UT-jo-vVn"/>
                                                 <include reference="SlJ-VE-s9X"/>
                                                 <include reference="J8k-WE-rQq"/>
                                                 <include reference="cNH-Rp-pC1"/>
                                                 <include reference="DbJ-PB-2OI"/>
                                                 <include reference="xe0-sr-HXs"/>
+                                                <include reference="Xcr-Ci-erf"/>
+                                                <include reference="hH2-vj-mwI"/>
+                                                <include reference="uOu-3w-aWa"/>
+                                                <include reference="ujQ-8f-wIC"/>
+                                                <include reference="5zj-Af-wsO"/>
+                                                <include reference="gHR-8W-sJK"/>
+                                                <include reference="36Z-yJ-KEh"/>
+                                                <include reference="5NY-4N-w4i"/>
+                                                <include reference="vw6-ld-ro8"/>
                                                 <include reference="Ljn-Jr-G0O"/>
                                                 <include reference="nax-UK-hwM"/>
+                                                <include reference="u8r-v9-YLb"/>
+                                                <include reference="zW5-Ho-yrx"/>
                                             </mask>
                                         </variation>
                                     </view>
@@ -449,12 +450,15 @@
             <objects>
                 <tableViewController storyboardIdentifier="ArcadeTable" id="SUI-TY-Cfi" customClass="ArcadeTableViewController" customModule="Arcade_Radar" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="55" sectionHeaderHeight="28" sectionFooterHeight="28" id="Fcu-B4-bXa">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ArcadeMachineCell" rowHeight="55" id="61i-eh-4SZ" customClass="ArcadeMachineTableViewCell" customModule="Arcade_Radar" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="600" height="55"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="61i-eh-4SZ" id="dia-lY-SnK">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="54"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Machine Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hqD-FA-H5T">
@@ -543,17 +547,28 @@
             </objects>
             <point key="canvasLocation" x="1396.5" y="-1195"/>
         </scene>
-        <!--Search For Name Table View Controller-->
+        <!--Name of Machine-->
         <scene sceneID="LWO-Ix-LGO">
             <objects>
-                <tableViewController storyboardIdentifier="SearchForName" id="Yi7-m1-cv1" customClass="SearchForNameTableViewController" customModule="Arcade_Radar" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SearchForName" title="Name of Machine" extendedLayoutIncludesOpaqueBars="YES" id="Yi7-m1-cv1" customClass="SearchForNameTableViewController" customModule="Arcade_Radar" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="bkK-1h-aKg">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="LGL-EI-ed7">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="Yi7-m1-cv1" id="Y8j-Ym-nQC"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ArcadeMachineCell" rowHeight="55" id="sgk-eC-lFd" customClass="ArcadeMachineTableViewCell" customModule="Arcade_Radar" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="600" height="55"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sgk-eC-lFd" id="QFj-dS-aG6">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="54"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Machine Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XsZ-it-rTr">
@@ -569,8 +584,7 @@
                                                     <exclude reference="rrD-cg-Lvv"/>
                                                 </mask>
                                             </variation>
-                                            <variation key="widthClass=compact" misplaced="YES">
-                                                <rect key="frame" x="8" y="14" width="137" height="26"/>
+                                            <variation key="widthClass=compact">
                                                 <mask key="constraints">
                                                     <include reference="rrD-cg-Lvv"/>
                                                 </mask>
@@ -608,10 +622,10 @@
                                             <exclude reference="G4Y-bT-Rev"/>
                                         </mask>
                                         <mask key="constraints">
+                                            <exclude reference="Bf6-Wb-8EH"/>
+                                            <exclude reference="p50-P4-pDc"/>
                                             <exclude reference="7CK-NJ-EgT"/>
                                             <exclude reference="Mv7-4d-bzj"/>
-                                            <exclude reference="p50-P4-pDc"/>
-                                            <exclude reference="Bf6-Wb-8EH"/>
                                         </mask>
                                     </variation>
                                     <variation key="widthClass=compact">
@@ -620,10 +634,10 @@
                                             <include reference="G4Y-bT-Rev"/>
                                         </mask>
                                         <mask key="constraints">
+                                            <include reference="Bf6-Wb-8EH"/>
+                                            <include reference="p50-P4-pDc"/>
                                             <include reference="7CK-NJ-EgT"/>
                                             <include reference="Mv7-4d-bzj"/>
-                                            <include reference="p50-P4-pDc"/>
-                                            <include reference="Bf6-Wb-8EH"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
@@ -639,7 +653,7 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <outlet property="searchDisplayController" destination="cbM-9o-FVL" id="SFc-Uj-J6E"/>
+                        <outlet property="searchDisplayController" destination="mKw-9k-jYe" id="mLU-X7-siL"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6LU-Nk-98R" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -651,8 +665,17 @@
                         <outlet property="searchResultsDelegate" destination="Yi7-m1-cv1" id="yxB-TK-nY9"/>
                     </connections>
                 </searchDisplayController>
+                <searchDisplayController id="mKw-9k-jYe">
+                    <connections>
+                        <outlet property="delegate" destination="Yi7-m1-cv1" id="lfZ-ii-3LV"/>
+                        <outlet property="searchBar" destination="LGL-EI-ed7" id="HSW-EN-PU8"/>
+                        <outlet property="searchContentsController" destination="Yi7-m1-cv1" id="jXu-Ww-UXX"/>
+                        <outlet property="searchResultsDataSource" destination="Yi7-m1-cv1" id="oWr-Zd-tqp"/>
+                        <outlet property="searchResultsDelegate" destination="Yi7-m1-cv1" id="jI5-FE-7fl"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="2244" y="-1201"/>
+            <point key="canvasLocation" x="2241" y="-1181"/>
         </scene>
     </scenes>
 </document>

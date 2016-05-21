@@ -9,7 +9,7 @@
 import UIKit
 
 class ArcadeMachine: NSObject {
-    var name = ""
+    var name:String = ""
     var lastSeen = NSDate()
     var geoPoint:GeoPoint? // This should be something that can hold a lat and long
     var price = 1.00 // In US Dollars

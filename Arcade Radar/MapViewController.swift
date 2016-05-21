@@ -64,14 +64,14 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
         navigationItem.leftBarButtonItems = [UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Refresh, target: self, action: "refresh"), MKUserTrackingBarButtonItem(mapView: self.mapView)]
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addNewArcadeMachine")
         
-        /*let machine = ArcadeMachine()
+       /* let machine = ArcadeMachine()
         machine.name = "DDR Mega Mix "
         machine.arcadeName = "Kragers Arcade"
         machine.geoPoint = GeoPoint.geoPoint(
             GEO_POINT(latitude: 33.71 , longitude: -118.03)
             ) as? GeoPoint
-        backendless.persistenceService.of(ArcadeMachine.ofClass()).save(machine)*/
-        
+        backendless.persistenceService.of(ArcadeMachine.ofClass()).save(machine)
+        */
         /* backendless.geoService.savePoint(
         houstonTX,
         response: { (var point : GeoPoint!) -> () in
@@ -195,8 +195,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
     
     func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
         let identifier = "ArcadeMachine"
-        print("HOWDYY")
+        
         if ((annotation as? ArcadeMachineMkCircle) != nil) {
+            
             var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier)
             if annotationView == nil {
                 annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
@@ -204,7 +205,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
                 
                 let btn = UIButton(type: .DetailDisclosure)
                 annotationView!.rightCalloutAccessoryView = btn
-                print("INIT!")
             
             }
             return annotationView

@@ -11,8 +11,8 @@ import UIKit
 class SearchForNameTableViewController: UITableViewController {
     
     // MARK: - Properties
-    var candies = [Candy]()
-    var filteredCandies = [Candy]()
+    var backendless = Backendless()
+    var filteredMachines = [ArcadeMachine]()
     let searchController = UISearchController(searchResultsController: nil)
     
     // MARK: - View Setup
@@ -25,20 +25,11 @@ class SearchForNameTableViewController: UITableViewController {
         definesPresentationContext = true
         searchController.dimsBackgroundDuringPresentation = false
         
-        // Setup the Scope Bar
-        searchController.searchBar.scopeButtonTitles = [""]
-        tableView.tableHeaderView = searchController.searchBar
         
-        candies = [
-            Candy(category:"Chocolate", name:"Chocolate Bar"),
-            Candy(category:"Chocolate", name:"Chocolate Chip"),
-            Candy(category:"Chocolate", name:"Dark Chocolate"),
-            Candy(category:"Hard", name:"Lollipop"),
-            Candy(category:"Hard", name:"Candy Cane"),
-            Candy(category:"Hard", name:"Jaw Breaker"),
-            Candy(category:"Other", name:"Caramel"),
-            Candy(category:"Other", name:"Sour Chew"),
-            Candy(category:"Other", name:"Gummi Bear")]
+        // Setup the Scope Bar
+        searchController.searchBar.scopeButtonTitles = []
+        
+        tableView.tableHeaderView = searchController.searchBar
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -56,29 +47,61 @@ class SearchForNameTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchController.active && searchController.searchBar.text != "" {
-            return filteredCandies.count
+            return filteredMachines.count + 1
         }
-        return candies.count
+        return 0
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ArcadeMachineCell", forIndexPath: indexPath) as! ArcadeMachineTableViewCell
-        let candy: Candy
-        if searchController.active && searchController.searchBar.text != "" {
-            candy = filteredCandies[indexPath.row]
+        let machine: ArcadeMachine
+        if searchController.active && searchController.searchBar.text != "" && indexPath.row < self.filteredMachines.count {
+            machine = filteredMachines[indexPath.row]
+            cell.machineNameLabel.text = machine.name
+            cell.pricePerPlayLabel.text = "$\(machine.price) for \(machine.numOfPlays) \(machine.whatPriceIsFor)s"
         } else {
-            candy = candies[indexPath.row]
+            cell.machineNameLabel.text = "Not Listed"
         }
-        cell.machineNameLabel.text = candy.name
+        
         return cell
     }
     
     func filterContentForSearchText(searchText: String, scope: String = "All") {
-        filteredCandies = candies.filter({( candy : Candy) -> Bool in
+        if searchController.searchBar.text != "" {
+            let queryOptions = QueryOptions()
+            //queryOptions.so
+            let query = BackendlessDataQuery()
+            query.queryOptions = queryOptions
+            print(searchText)
+            let pointsArr = searchText.componentsSeparatedByString(" ")
+            var whereClause = "name LIKE '%\(searchText)%'"
+            print(pointsArr)
+            for x in pointsArr {
+                if x != "" {
+                    whereClause = "\(whereClause) OR name LIKE '%\(x)%'"
+                }
+            }
+            print(whereClause)
+            query.whereClause = whereClause
+            backendless.persistenceService.of(ArcadeMachine.ofClass()).find(
+                query,
+                response: { ( machinesSearched : BackendlessCollection!) -> () in
+                    let currentPage = machinesSearched.getCurrentPage()
+                    print("SEARCHED: Loaded \(currentPage.count) machine objects")
+                    var tempArray = [ArcadeMachine]()
+                    for machine in currentPage {
+                        print("SEARCHED! name = \(machine.name)")
+                        tempArray.append(machine as! ArcadeMachine)
+                    }
+                    self.filteredMachines = tempArray
+                    self.tableView.reloadData()
+                },
+                error: { ( fault : Fault!) -> () in
+                    print("Server reported an error: \(fault)")
+                }
+            )
             
-            return  candy.name.lowercaseString.containsString(searchText.lowercaseString)
-        })
-        tableView.reloadData()
+        }
     }
 }
 
@@ -93,114 +116,6 @@ extension SearchForNameTableViewController: UISearchBarDelegate {
 extension SearchForNameTableViewController: UISearchResultsUpdating {
     // MARK: - UISearchResultsUpdating Delegate
     func updateSearchResultsForSearchController(searchController: UISearchController) {
-        let searchBar = searchController.searchBar
-        let scope = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
-        filterContentForSearchText(searchController.searchBar.text!, scope: scope)
-    }
-}
-/*class SearchForNameTableViewController: UITableViewController  {
-    var filteredMachines = [ArcadeMachine]()
-    var machines: [ArcadeMachine] = []
-    let searchController = UISearchController(searchResultsController: nil)
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        searchController.searchResultsUpdater = self
-        searchController.dimsBackgroundDuringPresentation = true
-        searchController.searchBar.hidden = false
-        print("TACO")
-        definesPresentationContext = true
-        self.tableView.tableHeaderView = searchController.searchBar
-        self.tableView.reloadData()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-    }
-    
-    
-    func filterContentForSearchText(searchText: String, scope: String = "All") {
-        let query = BackendlessDataQuery()
-        query.whereClause = "name LIKE '%\(searchText)%';"
-        /*filteredMachines = self.machines.filter({ (machine) -> Bool in
-            return machine.name.lowercaseString.containsString(searchText.lowercaseString)
-        })*/
-        Backendless()
-            .persistenceService.of(ArcadeMachine.ofClass()).find(
-            query,
-            response: { ( machinesSearched : BackendlessCollection!) -> () in
-                let currentPage = machinesSearched.getCurrentPage()
-                print("Loaded \(currentPage.count) machine objects fo rsearch ting")
-                
-                self.filteredMachines = currentPage as! [ArcadeMachine]
-                self.tableView.reloadData()
-                
-            },
-            error: { ( fault : Fault!) -> () in
-                print("Server reported an error: \(fault)")
-            }
-        )
-
-        
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-}
-
-extension SearchForNameTableViewController: UISearchResultsUpdating {
-    func updateSearchResultsForSearchController(searchController: UISearchController) {
         filterContentForSearchText(searchController.searchBar.text!)
     }
-}*/
+}
