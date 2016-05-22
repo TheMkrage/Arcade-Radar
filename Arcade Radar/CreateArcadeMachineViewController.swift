@@ -11,13 +11,15 @@ import UIKit
 class CreateArcadeMachineViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     var nameOfMachine:String = ""
-    let iPhones = ["iPhone 6s", "iPhone 6s Plus", "iPhone SE"]
+    let currencies = ["Dollar(s)", "Token(s)", "Euro(s)", "Credit(s)", "Other"]
     
-    let colors = ["Gold", "Rose Gold", "Silver", "Space Gray"]
+    let plays = ["Play(s)", "Song(s)", "Life/Lives", "Try/Tries", "Other"]
     
-    @IBOutlet weak var iPhoneTextField: UITextField!
+    @IBOutlet weak var priceTextField: UITextField!
     
-    @IBOutlet weak var colorTextField: UITextField!
+    @IBOutlet weak var currencyTextField: UITextField!
+    @IBOutlet weak var numOfPlaysTextField: UITextField!
+    @IBOutlet weak var playsTextField: UITextField!
     @IBOutlet var nameLabel: UILabel!
     
     @IBOutlet weak var scrollView: UIScrollView!
@@ -26,23 +28,24 @@ class CreateArcadeMachineViewController: UIViewController, UIPickerViewDataSourc
         super.viewDidLoad()
         self.nameLabel.text = self.nameOfMachine
         
-        iPhoneTextField.keyboardType = .DecimalPad
+        priceTextField.keyboardType = .NumbersAndPunctuation
+        playsTextField.keyboardType = .NumbersAndPunctuation
         
-        let iPhonePickerView = UIPickerView()
+        let currencyPickerView = UIPickerView()
         
-        iPhonePickerView.delegate = self
+        currencyPickerView.delegate = self
         
-        iPhonePickerView.tag = 1
+        currencyPickerView.tag = 1
         
-       // iPhoneTextField.inputView = iPhonePickerView
+        currencyTextField.inputView = currencyPickerView
         
-        let colorPickerView = UIPickerView()
+        let playsPickerView = UIPickerView()
         
-        colorPickerView.delegate = self
+        playsPickerView.delegate = self
         
-        colorPickerView.tag = 2
+        playsPickerView.tag = 2
         
-        colorTextField.inputView = colorPickerView
+        playsTextField.inputView = playsPickerView
         
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -59,9 +62,9 @@ class CreateArcadeMachineViewController: UIViewController, UIPickerViewDataSourc
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         
         if pickerView.tag == 1 {
-            return iPhones.count
+            return currencies.count
         }else if pickerView.tag == 2 {
-            return colors.count
+            return plays.count
         }
         
         return 0
@@ -71,11 +74,11 @@ class CreateArcadeMachineViewController: UIViewController, UIPickerViewDataSourc
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
         if pickerView.tag == 1 {
-            return iPhones[row]
+            return currencies[row]
         }
         
         if pickerView.tag == 2 {
-            return colors[row]
+            return plays[row]
         }
         
         return nil
@@ -85,11 +88,24 @@ class CreateArcadeMachineViewController: UIViewController, UIPickerViewDataSourc
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         if pickerView.tag == 1 {
-            iPhoneTextField.text = iPhones[row]
+            if currencies[row] == "Other" {
+                print("TACO")
+                pickerView.endEditing(true)
+                currencyTextField.inputView = nil
+                currencyTextField.reloadInputViews()
+            }else {
+                currencyTextField.text = currencies[row]
+            }
         }
         
         if pickerView.tag == 2 {
-            colorTextField.text = colors[row]
+            if plays[row] == "Other" {
+                pickerView.endEditing(true)
+                playsTextField.inputView = nil
+                playsTextField.reloadInputViews()
+            }else {
+                playsTextField.text = plays[row]
+            }
         }
     }
     

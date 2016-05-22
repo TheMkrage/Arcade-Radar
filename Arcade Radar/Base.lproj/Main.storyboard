@@ -714,7 +714,7 @@
                                                     </mask>
                                                 </variation>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X1e-Mj-HW1">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="1.00" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X1e-Mj-HW1">
                                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="14b-zY-OWc"/>
@@ -735,10 +735,12 @@
                                                     </mask>
                                                 </variation>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5qW-Mu-5fu">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="3" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5qW-Mu-5fu">
                                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="34" id="AUz-w5-XSb"/>
+                                                    <constraint firstAttribute="width" constant="34" id="AUz-w5-XSb">
+                                                        <variation key="widthClass=compact" constant="26"/>
+                                                    </constraint>
                                                     <constraint firstAttribute="height" constant="30" id="UWD-qC-Jhi"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -778,7 +780,7 @@
                                                     </mask>
                                                 </variation>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W1e-fk-kda">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Dollars" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W1e-fk-kda">
                                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="73" id="tAs-Co-i5P"/>
@@ -796,41 +798,66 @@
                                                     </mask>
                                                 </variation>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FDg-Pp-YUQ">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Plays" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FDg-Pp-YUQ">
                                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="97" id="Hlk-Ah-MyW"/>
                                                     <constraint firstAttribute="height" constant="30" id="XP2-ZO-UD7"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="105" id="paW-je-zGK"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <variation key="default">
                                                     <mask key="constraints">
-                                                        <exclude reference="Hlk-Ah-MyW"/>
                                                         <exclude reference="XP2-ZO-UD7"/>
+                                                        <exclude reference="paW-je-zGK"/>
                                                     </mask>
                                                 </variation>
                                                 <variation key="widthClass=compact">
                                                     <mask key="constraints">
-                                                        <include reference="Hlk-Ah-MyW"/>
                                                         <include reference="XP2-ZO-UD7"/>
+                                                        <include reference="paW-je-zGK"/>
+                                                    </mask>
+                                                </variation>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Arcade/Location Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RwU-m1-G2T">
+                                                <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="253" id="1RX-TX-Hmu"/>
+                                                    <constraint firstAttribute="height" constant="30" id="nW7-Zw-xpQ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="1RX-TX-Hmu"/>
+                                                        <exclude reference="nW7-Zw-xpQ"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="widthClass=compact">
+                                                    <mask key="constraints">
+                                                        <include reference="1RX-TX-Hmu"/>
+                                                        <include reference="nW7-Zw-xpQ"/>
                                                     </mask>
                                                 </variation>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="deviceRGB"/>
                                         <constraints>
-                                            <constraint firstItem="FDg-Pp-YUQ" firstAttribute="leading" secondItem="5qW-Mu-5fu" secondAttribute="trailing" constant="8" id="7OW-0Y-GMf"/>
+                                            <constraint firstItem="FDg-Pp-YUQ" firstAttribute="leading" secondItem="5qW-Mu-5fu" secondAttribute="trailing" constant="8" id="7OW-0Y-GMf">
+                                                <variation key="widthClass=compact" constant="8"/>
+                                            </constraint>
                                             <constraint firstItem="X1e-Mj-HW1" firstAttribute="leading" secondItem="VfY-5c-oZ0" secondAttribute="leading" constant="8" id="80C-ke-P06"/>
                                             <constraint firstItem="X1e-Mj-HW1" firstAttribute="centerY" secondItem="W1e-fk-kda" secondAttribute="centerY" id="9K3-X6-nFU"/>
                                             <constraint firstItem="X1e-Mj-HW1" firstAttribute="top" secondItem="on1-Bt-b8R" secondAttribute="bottom" constant="73" id="Af5-RH-Xhg"/>
                                             <constraint firstAttribute="height" constant="828" id="CF0-j6-0qe">
                                                 <variation key="widthClass=compact" constant="787"/>
                                             </constraint>
-                                            <constraint firstAttribute="trailing" secondItem="FDg-Pp-YUQ" secondAttribute="trailing" constant="10" id="Exe-Xa-BpN"/>
                                             <constraint firstItem="5qW-Mu-5fu" firstAttribute="centerY" secondItem="FDg-Pp-YUQ" secondAttribute="centerY" id="G7H-OO-Ccc"/>
                                             <constraint firstItem="5qW-Mu-5fu" firstAttribute="leading" secondItem="dEd-bO-54B" secondAttribute="trailing" constant="8" id="JXX-Bo-5pt"/>
+                                            <constraint firstAttribute="trailing" secondItem="FDg-Pp-YUQ" secondAttribute="trailing" constant="10" id="JZj-EM-QMg"/>
+                                            <constraint firstItem="RwU-m1-G2T" firstAttribute="top" secondItem="FDg-Pp-YUQ" secondAttribute="bottom" constant="49" id="LZ4-b1-Ns3"/>
                                             <constraint firstItem="dEd-bO-54B" firstAttribute="centerY" secondItem="X1e-Mj-HW1" secondAttribute="centerY" id="NeP-CM-f6r"/>
+                                            <constraint firstItem="RwU-m1-G2T" firstAttribute="centerX" secondItem="VfY-5c-oZ0" secondAttribute="centerX" id="RRR-eS-qBc"/>
                                             <constraint firstItem="W1e-fk-kda" firstAttribute="leading" secondItem="X1e-Mj-HW1" secondAttribute="trailing" constant="3" id="ToT-CL-VR9"/>
                                             <constraint firstItem="on1-Bt-b8R" firstAttribute="centerX" secondItem="VfY-5c-oZ0" secondAttribute="centerX" id="aCt-zW-bvy"/>
                                             <constraint firstItem="5qW-Mu-5fu" firstAttribute="centerY" secondItem="X1e-Mj-HW1" secondAttribute="centerY" id="djL-eg-Mp3"/>
@@ -847,6 +874,7 @@
                                                 <exclude reference="dEd-bO-54B"/>
                                                 <exclude reference="W1e-fk-kda"/>
                                                 <exclude reference="FDg-Pp-YUQ"/>
+                                                <exclude reference="RwU-m1-G2T"/>
                                             </mask>
                                             <mask key="constraints">
                                                 <exclude reference="aCt-zW-bvy"/>
@@ -859,11 +887,13 @@
                                                 <exclude reference="NeP-CM-f6r"/>
                                                 <exclude reference="rjQ-VH-84n"/>
                                                 <exclude reference="zpo-oT-3f3"/>
+                                                <exclude reference="LZ4-b1-Ns3"/>
+                                                <exclude reference="RRR-eS-qBc"/>
                                                 <exclude reference="G7H-OO-Ccc"/>
                                                 <exclude reference="JXX-Bo-5pt"/>
                                                 <exclude reference="djL-eg-Mp3"/>
                                                 <exclude reference="7OW-0Y-GMf"/>
-                                                <exclude reference="Exe-Xa-BpN"/>
+                                                <exclude reference="JZj-EM-QMg"/>
                                             </mask>
                                         </variation>
                                         <variation key="widthClass=compact">
@@ -874,6 +904,7 @@
                                                 <include reference="dEd-bO-54B"/>
                                                 <include reference="W1e-fk-kda"/>
                                                 <include reference="FDg-Pp-YUQ"/>
+                                                <include reference="RwU-m1-G2T"/>
                                             </mask>
                                             <mask key="constraints">
                                                 <include reference="aCt-zW-bvy"/>
@@ -886,11 +917,13 @@
                                                 <include reference="NeP-CM-f6r"/>
                                                 <include reference="rjQ-VH-84n"/>
                                                 <include reference="zpo-oT-3f3"/>
+                                                <include reference="LZ4-b1-Ns3"/>
+                                                <include reference="RRR-eS-qBc"/>
                                                 <include reference="G7H-OO-Ccc"/>
                                                 <include reference="JXX-Bo-5pt"/>
                                                 <include reference="djL-eg-Mp3"/>
                                                 <include reference="7OW-0Y-GMf"/>
-                                                <include reference="Exe-Xa-BpN"/>
+                                                <include reference="JZj-EM-QMg"/>
                                             </mask>
                                         </variation>
                                     </view>
@@ -926,9 +959,11 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="900"/>
                     <connections>
-                        <outlet property="colorTextField" destination="5qW-Mu-5fu" id="F8m-Py-7wx"/>
-                        <outlet property="iPhoneTextField" destination="X1e-Mj-HW1" id="jMs-p6-Yd2"/>
+                        <outlet property="currencyTextField" destination="W1e-fk-kda" id="GNr-Ol-ffZ"/>
                         <outlet property="nameLabel" destination="on1-Bt-b8R" id="gBS-ab-l0s"/>
+                        <outlet property="numOfPlaysTextField" destination="5qW-Mu-5fu" id="a38-yN-g2x"/>
+                        <outlet property="playsTextField" destination="FDg-Pp-YUQ" id="LFk-Lk-4hL"/>
+                        <outlet property="priceTextField" destination="X1e-Mj-HW1" id="tx2-O8-LwY"/>
                         <outlet property="scrollView" destination="VfY-5c-oZ0" id="P8Q-oh-0i4"/>
                     </connections>
                 </viewController>
