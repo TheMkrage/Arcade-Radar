@@ -53,7 +53,9 @@ class SearchForNameTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+        var createViewController = self.storyboard?.instantiateViewControllerWithIdentifier("Create") as! CreateArcadeMachineViewController
+        createViewController.nameOfMachine = filteredMachines[indexPath.row].name
+        self.showViewController(createViewController, sender: self)
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
