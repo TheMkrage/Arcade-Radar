@@ -94,7 +94,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
     }
     
     func refresh() {
-        if abs(self.mapView.region.span.latitudeDelta) < 0.6 && abs(self.mapView.region.span.longitudeDelta) < 0.58 {
+        if abs(self.mapView.region.span.latitudeDelta) < 10000.6 && abs(self.mapView.region.span.longitudeDelta) < 10000.58 {
             let nwPoint = CGPointMake(self.mapView.bounds.origin.x - 100, mapView.bounds.origin.y - 100);
             let sePoint = CGPointMake((self.mapView.bounds.origin.x + self.mapView.bounds.size.width + 100), (mapView.bounds.origin.y + mapView.bounds.size.height) + 100);
             // Transform points into lat,lng values
@@ -175,6 +175,17 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
                 }
             }
         }
+        
+        
+    }
+    
+    func getPlacemarkFromLocation(location: CLLocation){
+        CLGeocoder().reverseGeocodeLocation(location, completionHandler:
+            {(placemarks, error) in
+                if (error != nil) {print("reverse geodcode fail: \(error!.localizedDescription)")}
+                let pm = placemarks! as [CLPlacemark]
+                print(pm)
+        })
     }
     
     // MapView Delegate

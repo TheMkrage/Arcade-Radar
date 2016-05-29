@@ -28,8 +28,8 @@ class CreateArcadeMachineViewController: UIViewController, UIPickerViewDataSourc
         super.viewDidLoad()
         self.nameLabel.text = self.nameOfMachine
         
-        priceTextField.keyboardType = .NumbersAndPunctuation
-        playsTextField.keyboardType = .NumbersAndPunctuation
+        //priceTextField.keyboardType = .NumbersAndPunctuation
+        //playsTextField.keyboardType = .NumbersAndPunctuation
         
         let currencyPickerView = UIPickerView()
         

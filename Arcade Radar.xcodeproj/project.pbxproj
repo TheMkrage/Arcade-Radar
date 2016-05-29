@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E0926591CF7A13000F5E097 /* IMG_1806.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7E0926581CF7A13000F5E097 /* IMG_1806.jpg */; };
+		7E09265B1CF7A1F700F5E097 /* SearchForArcadeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E09265A1CF7A1F700F5E097 /* SearchForArcadeViewController.swift */; };
 		7E519C7C1CDDCE0300030680 /* ArcadeMachineMkCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E519C7B1CDDCE0300030680 /* ArcadeMachineMkCircle.swift */; };
 		7EDFB6F21CDEA9130013D89A /* ArcadeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDFB6F11CDEA9130013D89A /* ArcadeTableViewController.swift */; };
 		7EDFB6F51CDEAF6F0013D89A /* ArcadeMachineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDFB6F41CDEAF6F0013D89A /* ArcadeMachineTableViewCell.swift */; };
@@ -58,6 +60,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7E0926581CF7A13000F5E097 /* IMG_1806.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1806.jpg; sourceTree = "<group>"; };
+		7E09265A1CF7A1F700F5E097 /* SearchForArcadeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchForArcadeViewController.swift; sourceTree = "<group>"; };
 		7E519C7B1CDDCE0300030680 /* ArcadeMachineMkCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcadeMachineMkCircle.swift; sourceTree = "<group>"; };
 		7EDFB6F11CDEA9130013D89A /* ArcadeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcadeTableViewController.swift; sourceTree = "<group>"; };
 		7EDFB6F41CDEAF6F0013D89A /* ArcadeMachineTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcadeMachineTableViewCell.swift; sourceTree = "<group>"; };
@@ -321,10 +325,12 @@
 			isa = PBXGroup;
 			children = (
 				7EE87EFB1CCDCB7200E282B8 /* MapViewController.swift */,
+				7E09265A1CF7A1F700F5E097 /* SearchForArcadeViewController.swift */,
 				7EE87F011CCDD55F00E282B8 /* ArcadeMachineProfileViewController.swift */,
 				7EDFB6F11CDEA9130013D89A /* ArcadeTableViewController.swift */,
 				7EDFB6F61CDFAFD30013D89A /* SearchForNameTableViewController.swift */,
 				7EE7526C1CF10079007188B7 /* CreateArcadeMachineViewController.swift */,
+				7E0926581CF7A13000F5E097 /* IMG_1806.jpg */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -868,6 +874,7 @@
 			files = (
 				7EF8AE491CBB65B20003BA99 /* LaunchScreen.storyboard in Resources */,
 				7EF8AE461CBB65B20003BA99 /* Assets.xcassets in Resources */,
+				7E0926591CF7A13000F5E097 /* IMG_1806.jpg in Resources */,
 				7EF8AE441CBB65B20003BA99 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -904,6 +911,7 @@
 				7EDFB6F51CDEAF6F0013D89A /* ArcadeMachineTableViewCell.swift in Sources */,
 				7EDFB6F71CDFAFD30013D89A /* SearchForNameTableViewController.swift in Sources */,
 				7EF8AE3F1CBB65B20003BA99 /* AppDelegate.swift in Sources */,
+				7E09265B1CF7A1F700F5E097 /* SearchForArcadeViewController.swift in Sources */,
 				7E519C7C1CDDCE0300030680 /* ArcadeMachineMkCircle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
