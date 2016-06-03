@@ -10,6 +10,7 @@ import UIKit
 
 class ArcadeTableViewController: UITableViewController {
     var arcadeName: String = ""
+    var sentMachine: ArcadeMachine = ArcadeMachine()
     var machines: [ArcadeMachine] = []
     var backendless = Backendless()
     let locationManager = CLLocationManager()
@@ -22,15 +23,18 @@ class ArcadeTableViewController: UITableViewController {
         //queryOptions.so
         let query = BackendlessDataQuery()
         query.queryOptions = queryOptions
-        let latitude = locationManager.location!.coordinate.latitude
-        let longitude = locationManager.location!.coordinate.longitude
-        query.whereClause = "geoPoint.latitude < \(latitude + 0.2) AND geoPoint.latitude > \(latitude - 0.2) AND geoPoint.longitude > \(longitude - 0.2) AND geoPoint.longitude < \(longitude + 0.2) AND arcadeName = '\(arcadeName)'"
+        let latitude = Double(self.sentMachine.geoPoint!.latitude)
+        let longitude = Double(self.sentMachine.geoPoint!.longitude)
+        
+        query.whereClause = "geoPoint.latitude < \(latitude + 0.06) AND geoPoint.latitude > \(latitude - 0.06) AND geoPoint.longitude > \(longitude - 0.04) AND geoPoint.longitude < \(longitude + 0.04) AND arcadeName = '\(arcadeName)'"
         
         backendless.persistenceService.of(ArcadeMachine.ofClass()).find(
             query,
             response: { ( machinesSearched : BackendlessCollection!) -> () in
                 let currentPage = machinesSearched.getCurrentPage()
+                print(machinesSearched.totalObjects)
                 self.machines = currentPage as! [ArcadeMachine]
+                print(self.machines)
                 self.tableView.reloadData()
             },
             error: { ( fault : Fault!) -> () in

@@ -24,8 +24,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
     override func viewDidLoad() {
         super.viewDidLoad()
         print("REQUESTS")
-       // self.mapView.
-       //// self.mapView. = self
+        // self.mapView.
+        //// self.mapView. = self
         // Location manager
         // Ask for Authorisation from the User.
         self.locationManager.requestAlwaysAuthorization()
@@ -64,12 +64,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
         navigationItem.leftBarButtonItems = [UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Refresh, target: self, action: "refresh"), MKUserTrackingBarButtonItem(mapView: self.mapView)]
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addNewArcadeMachine")
         
-       /* let machine = ArcadeMachine()
+        /* let machine = ArcadeMachine()
         machine.name = "DDR Mega Mix "
         machine.arcadeName = "Kragers Arcade"
         machine.geoPoint = GeoPoint.geoPoint(
-            GEO_POINT(latitude: 33.71 , longitude: -118.03)
-            ) as? GeoPoint
+        GEO_POINT(latitude: 33.71 , longitude: -118.03)
+        ) as? GeoPoint
         backendless.persistenceService.of(ArcadeMachine.ofClass()).save(machine)
         */
         /* backendless.geoService.savePoint(
@@ -86,7 +86,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
     
     func addNewArcadeMachine() {
         let vc = self.storyboard?.instantiateViewControllerWithIdentifier("SearchForName") as! SearchForNameTableViewController
-        self.showViewController(vc, sender: self) 
+        self.showViewController(vc, sender: self)
     }
     
     override func didReceiveMemoryWarning() {
@@ -94,55 +94,65 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
     }
     
     func refresh() {
-        if abs(self.mapView.region.span.latitudeDelta) < 10000.6 && abs(self.mapView.region.span.longitudeDelta) < 10000.58 {
+        if abs(self.mapView.region.span.latitudeDelta) < 10000.6 && abs(self.mapView.region.span.longitudeDelta) < 10000.8 {
             let nwPoint = CGPointMake(self.mapView.bounds.origin.x - 100, mapView.bounds.origin.y - 100);
             let sePoint = CGPointMake((self.mapView.bounds.origin.x + self.mapView.bounds.size.width + 100), (mapView.bounds.origin.y + mapView.bounds.size.height) + 100);
             // Transform points into lat,lng values
             let nwCoord = self.mapView.convertPoint(nwPoint, toCoordinateFromView: self.mapView)
             let seCoord = self.mapView.convertPoint(sePoint, toCoordinateFromView: self.mapView)
             
-            print(nwCoord)
-            print(seCoord)
+            // print(nwCoord)
+            //print(seCoord)
             // Search backendless for machines in the view
             //var query2 = BackendlessDataQuery
             let queryOptions = QueryOptions()
             queryOptions.addRelated("geoPoint")
+            queryOptions.pageSize = 50
             //queryOptions.so
             let query = BackendlessDataQuery()
             query.queryOptions = queryOptions
             query.whereClause = "geoPoint.latitude < \(nwCoord.latitude) AND geoPoint.latitude > \(seCoord.latitude) AND geoPoint.longitude > \(nwCoord.longitude) AND geoPoint.longitude < \(seCoord.longitude)"
-            backendless.persistenceService.of(ArcadeMachine.ofClass()).find(
-                query,
-                response: { ( machinesSearched : BackendlessCollection!) -> () in
-                    let currentPage = machinesSearched.getCurrentPage()
-                    print("Loaded \(currentPage.count) machine objects")
+            
+            dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0), { () -> Void in
+                //print("Taco")
+                Types.tryblock({ () -> Void in
+                let machinesSearched: BackendlessCollection! = self.backendless.data.of(ArcadeMachine.ofClass()).find(query)
                     
-                    for machine in currentPage {
-                        print("name = \(machine.name)")
-                        print("\(machine.objectId)")
-                        print(machine.geoPoint)
-                        let overlay = ArcadeMachineMkCircle(centerCoordinate: CLLocationCoordinate2D(latitude: ((machine.geoPoint as GeoPoint).latitude as Double), longitude: ((machine.geoPoint as GeoPoint).longitude as Double)), radius: 20)
-                        overlay.setArcadeMachine(machine as! ArcadeMachine)
-                        var isAlreadyThere = false
-                        for current in self.mapView.overlays as! [ArcadeMachineMkCircle] {
-                            if current.machine?.geoPoint?.latitude == overlay.machine?.geoPoint?.latitude {
-                                if current.machine?.geoPoint?.longitude == overlay.machine?.geoPoint?.longitude {
-                                    if current.machine?.name == overlay.machine?.name {
-                                        isAlreadyThere = true
-                                    }
+                    
+                let currentPage = machinesSearched.getCurrentPage()
+                print("Loaded \(currentPage.count) machine objects")
+                print("Thread \(NSThread.currentThread())")
+                for machine in currentPage {
+                    //print("name = \(machine.name)")
+                    //print("\(machine.objectId)")
+                    //print(machine.geoPoint)
+                    let overlay = ArcadeMachineMkCircle(centerCoordinate: CLLocationCoordinate2D(latitude: ((machine.geoPoint as GeoPoint).latitude as Double), longitude: ((machine.geoPoint as GeoPoint).longitude as Double)), radius: 20)
+                    overlay.setArcadeMachine(machine as! ArcadeMachine)
+                    var isAlreadyThere = false
+                    for current in self.mapView.overlays as! [ArcadeMachineMkCircle] {
+                        if current.machine?.geoPoint?.latitude == overlay.machine?.geoPoint?.latitude {
+                            if current.machine?.geoPoint?.longitude == overlay.machine?.geoPoint?.longitude {
+                                if current.machine?.name == overlay.machine?.name {
+                                    isAlreadyThere = true
                                 }
                             }
                         }
-                        if !isAlreadyThere {
+                    }
+                    if !isAlreadyThere {
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
                             self.mapView.addOverlay(overlay)
                             self.mapView.addAnnotation(overlay)
-                        }
+                        })
                     }
-                },
-                error: { ( fault : Fault!) -> () in
-                    print("Server reported an error: \(fault)")
                 }
-            )
+                }, catchblock: { (exception) -> Void in
+                    print(exception)
+                })
+                
+                
+            })
+            
+           
         }
     }
     
@@ -175,8 +185,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
                 }
             }
         }
-        
-        
     }
     
     func getPlacemarkFromLocation(location: CLLocation){
@@ -216,7 +224,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
                 
                 let btn = UIButton(type: .DetailDisclosure)
                 annotationView!.rightCalloutAccessoryView = btn
-            
+                
             }
             return annotationView
         }
