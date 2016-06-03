@@ -13,6 +13,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
     
     var backendless = Backendless()
     var machines: NSMutableArray = NSMutableArray()
+    let clusteringManager = FBClusteringManager()
     
     @IBOutlet var mapView: MKMapView!
     let locationManager = CLLocationManager()
@@ -142,6 +143,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
                         dispatch_async(dispatch_get_main_queue(), { () -> Void in
                             self.mapView.addOverlay(overlay)
                             self.mapView.addAnnotation(overlay)
+                            self.clusteringManager.addAnnotations([overlay])
                         })
                     }
                 }
@@ -255,4 +257,57 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
         return true
     }
 }
+
+extension MapViewController : MKMapViewDelegate {
+    
+    func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool){
+        
+        NSOperationQueue().addOperationWithBlock({
+            
+            let mapBoundsWidth = Double(self.mapView.bounds.size.width)
+            
+            let mapRectWidth:Double = self.mapView.visibleMapRect.size.width
+            
+            let scale:Double = mapBoundsWidth / mapRectWidth
+            
+            let annotationArray = self.clusteringManager.clusteredAnnotationsWithinMapRect(self.mapView.visibleMapRect, withZoomScale:scale)
+            
+            self.clusteringManager.displayAnnotations(annotationArray, onMapView:self.mapView)
+            
+        })
+        
+    }
+    
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        var reuseId = ""
+        
+        if annotation.isKindOfClass(FBAnnotationCluster) {
+            
+            reuseId = "Cluster"
+            var clusterView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId)
+            clusterView = FBAnnotationClusterView(annotation: annotation, reuseIdentifier: reuseId, options: nil)
+            
+            return clusterView
+            
+        } else {
+            
+            reuseId = "Pin"
+            var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as? MKPinAnnotationView
+            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            
+            
+            if #available(iOS 9.0, *) {
+                pinView!.pinTintColor = UIColor.greenColor()
+            } else {
+                // Fallback on earlier versions
+            }
+            
+            return pinView
+        }
+        
+    }
+    
+}
+
 
