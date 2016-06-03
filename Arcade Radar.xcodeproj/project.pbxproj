@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		7E0926591CF7A13000F5E097 /* IMG_1806.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7E0926581CF7A13000F5E097 /* IMG_1806.jpg */; };
 		7E09265B1CF7A1F700F5E097 /* SearchForArcadeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E09265A1CF7A1F700F5E097 /* SearchForArcadeViewController.swift */; };
+		7E188FA91D015F3C009187ED /* FBAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E188FA21D015F3C009187ED /* FBAnnotation.swift */; };
+		7E188FAA1D015F3C009187ED /* FBAnnotationCluster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E188FA31D015F3C009187ED /* FBAnnotationCluster.swift */; };
+		7E188FAB1D015F3C009187ED /* FBAnnotationClusterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E188FA41D015F3C009187ED /* FBAnnotationClusterView.swift */; };
+		7E188FAC1D015F3C009187ED /* FBBoundingBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E188FA51D015F3C009187ED /* FBBoundingBox.swift */; };
+		7E188FAD1D015F3C009187ED /* FBClusteringManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E188FA61D015F3C009187ED /* FBClusteringManager.swift */; };
+		7E188FAE1D015F3C009187ED /* FBQuadTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E188FA71D015F3C009187ED /* FBQuadTree.swift */; };
+		7E188FAF1D015F3C009187ED /* FBQuadTreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E188FA81D015F3C009187ED /* FBQuadTreeNode.swift */; };
 		7E519C7C1CDDCE0300030680 /* ArcadeMachineMkCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E519C7B1CDDCE0300030680 /* ArcadeMachineMkCircle.swift */; };
 		7EDFB6F21CDEA9130013D89A /* ArcadeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDFB6F11CDEA9130013D89A /* ArcadeTableViewController.swift */; };
 		7EDFB6F51CDEAF6F0013D89A /* ArcadeMachineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDFB6F41CDEAF6F0013D89A /* ArcadeMachineTableViewCell.swift */; };
@@ -62,6 +69,13 @@
 /* Begin PBXFileReference section */
 		7E0926581CF7A13000F5E097 /* IMG_1806.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1806.jpg; sourceTree = "<group>"; };
 		7E09265A1CF7A1F700F5E097 /* SearchForArcadeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchForArcadeViewController.swift; sourceTree = "<group>"; };
+		7E188FA21D015F3C009187ED /* FBAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBAnnotation.swift; sourceTree = "<group>"; };
+		7E188FA31D015F3C009187ED /* FBAnnotationCluster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBAnnotationCluster.swift; sourceTree = "<group>"; };
+		7E188FA41D015F3C009187ED /* FBAnnotationClusterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBAnnotationClusterView.swift; sourceTree = "<group>"; };
+		7E188FA51D015F3C009187ED /* FBBoundingBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBBoundingBox.swift; sourceTree = "<group>"; };
+		7E188FA61D015F3C009187ED /* FBClusteringManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBClusteringManager.swift; sourceTree = "<group>"; };
+		7E188FA71D015F3C009187ED /* FBQuadTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBQuadTree.swift; sourceTree = "<group>"; };
+		7E188FA81D015F3C009187ED /* FBQuadTreeNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBQuadTreeNode.swift; sourceTree = "<group>"; };
 		7E519C7B1CDDCE0300030680 /* ArcadeMachineMkCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcadeMachineMkCircle.swift; sourceTree = "<group>"; };
 		7EDFB6F11CDEA9130013D89A /* ArcadeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcadeTableViewController.swift; sourceTree = "<group>"; };
 		7EDFB6F41CDEAF6F0013D89A /* ArcadeMachineTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcadeMachineTableViewCell.swift; sourceTree = "<group>"; };
@@ -311,6 +325,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E188FA11D015F28009187ED /* FBClustering */ = {
+			isa = PBXGroup;
+			children = (
+				7E188FA21D015F3C009187ED /* FBAnnotation.swift */,
+				7E188FA31D015F3C009187ED /* FBAnnotationCluster.swift */,
+				7E188FA41D015F3C009187ED /* FBAnnotationClusterView.swift */,
+				7E188FA51D015F3C009187ED /* FBBoundingBox.swift */,
+				7E188FA61D015F3C009187ED /* FBClusteringManager.swift */,
+				7E188FA71D015F3C009187ED /* FBQuadTree.swift */,
+				7E188FA81D015F3C009187ED /* FBQuadTreeNode.swift */,
+			);
+			name = FBClustering;
+			sourceTree = "<group>";
+		};
 		7E519C791CDDBBEB00030680 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -381,6 +409,7 @@
 				7EF8AE471CBB65B20003BA99 /* LaunchScreen.storyboard */,
 				7EF8AE4A1CBB65B20003BA99 /* Info.plist */,
 				7EF8B0201CBB69C90003BA99 /* Bridging.h */,
+				7E188FA11D015F28009187ED /* FBClustering */,
 			);
 			path = "Arcade Radar";
 			sourceTree = "<group>";
@@ -900,6 +929,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E188FAF1D015F3C009187ED /* FBQuadTreeNode.swift in Sources */,
+				7E188FA91D015F3C009187ED /* FBAnnotation.swift in Sources */,
 				7EE87F021CCDD55F00E282B8 /* ArcadeMachineProfileViewController.swift in Sources */,
 				7EDFB6F21CDEA9130013D89A /* ArcadeTableViewController.swift in Sources */,
 				7EE87EFC1CCDCB7200E282B8 /* MapViewController.swift in Sources */,
@@ -907,12 +938,17 @@
 				7EDFB6F91CDFC20C0013D89A /* Candy.swift in Sources */,
 				7EE87EFE1CCDCB9700E282B8 /* Colors.swift in Sources */,
 				7EE7526D1CF10079007188B7 /* CreateArcadeMachineViewController.swift in Sources */,
+				7E188FAB1D015F3C009187ED /* FBAnnotationClusterView.swift in Sources */,
+				7E188FAC1D015F3C009187ED /* FBBoundingBox.swift in Sources */,
 				7EF8AE411CBB65B20003BA99 /* ViewController.swift in Sources */,
+				7E188FAA1D015F3C009187ED /* FBAnnotationCluster.swift in Sources */,
 				7EDFB6F51CDEAF6F0013D89A /* ArcadeMachineTableViewCell.swift in Sources */,
 				7EDFB6F71CDFAFD30013D89A /* SearchForNameTableViewController.swift in Sources */,
 				7EF8AE3F1CBB65B20003BA99 /* AppDelegate.swift in Sources */,
+				7E188FAE1D015F3C009187ED /* FBQuadTree.swift in Sources */,
 				7E09265B1CF7A1F700F5E097 /* SearchForArcadeViewController.swift in Sources */,
 				7E519C7C1CDDCE0300030680 /* ArcadeMachineMkCircle.swift in Sources */,
+				7E188FAD1D015F3C009187ED /* FBClusteringManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
