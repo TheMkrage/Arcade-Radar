@@ -117,23 +117,23 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
             dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0), { () -> Void in
                 //print("Taco")
                 Types.tryblock({ () -> Void in
-                let machinesSearched: BackendlessCollection! = self.backendless.data.of(ArcadeMachine.ofClass()).find(query)
+                let arcadesSearched: BackendlessCollection! = self.backendless.data.of(Arcade.ofClass()).find(query)
                     
                     
-                let currentPage = machinesSearched.getCurrentPage()
-                print("Loaded \(currentPage.count) machine objects")
+                let currentPage = arcadesSearched.getCurrentPage()
+                print("Loaded \(currentPage.count) arcade objects")
                 print("Thread \(NSThread.currentThread())")
-                for machine in currentPage {
+                for arcade in currentPage {
                     //print("name = \(machine.name)")
                     //print("\(machine.objectId)")
                     //print(machine.geoPoint)
-                    let overlay = ArcadeMachineMkCircle(centerCoordinate: CLLocationCoordinate2D(latitude: ((machine.geoPoint as GeoPoint).latitude as Double), longitude: ((machine.geoPoint as GeoPoint).longitude as Double)), radius: 20)
-                    overlay.setArcadeMachine(machine as! ArcadeMachine)
+                    let overlay = ArcadeMkCircle(centerCoordinate: CLLocationCoordinate2D(latitude: ((arcade.geoPoint as GeoPoint).latitude as Double), longitude: ((arcade.geoPoint as GeoPoint).longitude as Double)), radius: 20)
+                    overlay.setArcadeToDisplay(arcade as! Arcade)
                     var isAlreadyThere = false
-                    for current in self.clusteringManager.allAnnotations() as! [ArcadeMachineMkCircle] {
-                        if current.machine?.geoPoint?.latitude == overlay.machine?.geoPoint?.latitude {
-                            if current.machine?.geoPoint?.longitude == overlay.machine?.geoPoint?.longitude {
-                                if current.machine?.name == overlay.machine?.name {
+                    for current in self.clusteringManager.allAnnotations() as! [ArcadeMkCircle] {
+                        if current.arcade?.geoPoint?.latitude == overlay.arcade?.geoPoint?.latitude {
+                            if current.arcade?.geoPoint?.longitude == overlay.arcade?.geoPoint?.longitude {
+                                if current.arcade?.name == overlay.arcade?.name {
                                     isAlreadyThere = true
                                 }
                             }
@@ -150,18 +150,14 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
                 }, catchblock: { (exception) -> Void in
                     print(exception)
                 })
-                
-                
             })
-            
-           
         }
     }
     
     func didPanMap(gestureRecognizer: UIGestureRecognizer) {
         // If the tap is ending (prevents double reload)
         if gestureRecognizer.state == .Ended {
-            refresh()
+            //refresh()
         }
     }
     
@@ -239,14 +235,14 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
         self.showViewController(vc, sender: self)
     }
     
-    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
+    /*func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
         if let overlay = overlay as? ArcadeMachineMkCircle {
             let circleRenderer = MKCircleRenderer(circle: overlay)
             circleRenderer.alpha = 0.5
             return circleRenderer
         }
         return MKOverlayRenderer()
-    }
+    }*/
     
     // CLL Location Delegate
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -271,11 +267,11 @@ extension MapViewController : MKMapViewDelegate {
             let scale:Double = mapBoundsWidth / mapRectWidth
             
             let annotationArray = self.clusteringManager.clusteredAnnotationsWithinMapRect(self.mapView.visibleMapRect, withZoomScale:scale)
-            
+        
             self.clusteringManager.displayAnnotations(annotationArray, onMapView:self.mapView)
             
         })
-        
+        self.refresh()
     }
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
@@ -290,24 +286,24 @@ extension MapViewController : MKMapViewDelegate {
             
             return clusterView
             
+        } else if annotation.isKindOfClass(MKUserLocation){
+            return nil
         } else {
-            
+        
             reuseId = "Pin"
-            var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as? MKPinAnnotationView
-            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
-            
-            
-            if #available(iOS 9.0, *) {
-                pinView!.pinTintColor = UIColor.greenColor()
-            } else {
-                // Fallback on earlier versions
+            var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as MKAnnotationView?
+            if (pinView == nil) {
+                pinView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
             }
+            
+            pinView?.image = UIImage(named: "cabinetFacing.png")
+            pinView?.frame.size = CGSize(width: 45, height: 45)
+            pinView?.canShowCallout = true
+            
+            let btn = UIButton(type: .DetailDisclosure)
+            pinView?.rightCalloutAccessoryView = btn
             
             return pinView
         }
-        
     }
-    
 }
-
-
