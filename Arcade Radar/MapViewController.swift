@@ -230,9 +230,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
     }*/
     
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("ArcadeMachineProfile") as! ArcadeMachineProfileViewController
-        vc.arcadeMachine = (view.annotation as! ArcadeMachineMkCircle).machine as ArcadeMachine!
-        self.showViewController(vc, sender: self)
+        if (view.tag == 0) { // is a cluster object
+            let vc = ArcadeDisplayViewControllerTableViewController()
+            vc.arcades = ((view.annotation as! FBAnnotationCluster).annotations as! [ArcadeMkCircle]).map({ $0.arcade})
+            self.showViewController(vc, sender: self)
+        }else if (view.tag == 1) {
+            let vc = self.storyboard?.instantiateViewControllerWithIdentifier("ArcadeMachineProfile") as! ArcadeMachineProfileViewController
+            vc.arcadeMachine = (view.annotation as! ArcadeMachineMkCircle).machine as ArcadeMachine!
+            self.showViewController(vc, sender: self)
+        }
     }
     
     /*func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
@@ -281,9 +287,15 @@ extension MapViewController : MKMapViewDelegate {
         if annotation.isKindOfClass(FBAnnotationCluster) {
             
             reuseId = "Cluster"
+            (annotation as! FBAnnotationCluster).setTitleOfCluster("\(((annotation as! FBAnnotationCluster).annotations as! [ArcadeMkCircle]).count) Arcades")
             var clusterView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId)
             clusterView = FBAnnotationClusterView(annotation: annotation, reuseIdentifier: reuseId, options: nil)
+            clusterView!.canShowCallout = true
+            clusterView?.tag = 0
             
+            let btn = UIButton(type: .DetailDisclosure)
+            clusterView!.rightCalloutAccessoryView = btn
+            //clusterView!.title
             return clusterView
             
         } else if annotation.isKindOfClass(MKUserLocation){
@@ -302,7 +314,7 @@ extension MapViewController : MKMapViewDelegate {
             
             let btn = UIButton(type: .DetailDisclosure)
             pinView?.rightCalloutAccessoryView = btn
-            
+            pinView?.tag = 1
             return pinView
         }
     }

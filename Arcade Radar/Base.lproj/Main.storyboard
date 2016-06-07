@@ -1099,7 +1099,24 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="2673" y="-1124"/>
+            <point key="canvasLocation" x="2895" y="-1195"/>
+        </scene>
+        <!--Arcade Display View Controller Table View Controller-->
+        <scene sceneID="yEq-Th-YvN">
+            <objects>
+                <tableViewController id="uns-Xf-0PK" customClass="ArcadeDisplayViewControllerTableViewController" customModule="Arcade_Radar" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="1HK-SP-jpW">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="uns-Xf-0PK" id="PHF-yQ-hRv"/>
+                            <outlet property="delegate" destination="uns-Xf-0PK" id="tQm-W9-YHo"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y1k-Wl-6w8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3660" y="-772"/>
         </scene>
     </scenes>
 </document>

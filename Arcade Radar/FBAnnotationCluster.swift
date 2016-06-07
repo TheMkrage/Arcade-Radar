@@ -18,6 +18,10 @@ public class FBAnnotationCluster : NSObject {
     
     public var annotations:[MKAnnotation] = []
     
+    func setTitleOfCluster(x:String!) {
+        self.title = x
+    }
+    
 }
 
 extension FBAnnotationCluster : MKAnnotation {

@@ -29,6 +29,7 @@ public class FBAnnotationClusterView : MKAnnotationView {
         
         let cluster:FBAnnotationCluster = annotation as! FBAnnotationCluster
         count = cluster.annotations.count
+       
         
         // change the size of the cluster image based on number of stories
         switch count {
