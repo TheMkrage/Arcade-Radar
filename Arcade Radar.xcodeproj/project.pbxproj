@@ -16,11 +16,13 @@
 		7E188FAD1D015F3C009187ED /* FBClusteringManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E188FA61D015F3C009187ED /* FBClusteringManager.swift */; };
 		7E188FAE1D015F3C009187ED /* FBQuadTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E188FA71D015F3C009187ED /* FBQuadTree.swift */; };
 		7E188FAF1D015F3C009187ED /* FBQuadTreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E188FA81D015F3C009187ED /* FBQuadTreeNode.swift */; };
+		7E188FCE1D0162A3009187ED /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E188FCD1D0162A3009187ED /* Images.xcassets */; };
+		7E188FD01D06977E009187ED /* ArcadeMachineType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E188FCF1D06977E009187ED /* ArcadeMachineType.swift */; };
+		7E188FD21D0697AE009187ED /* Arcade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E188FD11D0697AE009187ED /* Arcade.swift */; };
 		7E519C7C1CDDCE0300030680 /* ArcadeMachineMkCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E519C7B1CDDCE0300030680 /* ArcadeMachineMkCircle.swift */; };
 		7EDFB6F21CDEA9130013D89A /* ArcadeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDFB6F11CDEA9130013D89A /* ArcadeTableViewController.swift */; };
 		7EDFB6F51CDEAF6F0013D89A /* ArcadeMachineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDFB6F41CDEAF6F0013D89A /* ArcadeMachineTableViewCell.swift */; };
 		7EDFB6F71CDFAFD30013D89A /* SearchForNameTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDFB6F61CDFAFD30013D89A /* SearchForNameTableViewController.swift */; };
-		7EDFB6F91CDFC20C0013D89A /* Candy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDFB6F81CDFC20C0013D89A /* Candy.swift */; };
 		7EE7526D1CF10079007188B7 /* CreateArcadeMachineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE7526C1CF10079007188B7 /* CreateArcadeMachineViewController.swift */; };
 		7EE87EFC1CCDCB7200E282B8 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE87EFB1CCDCB7200E282B8 /* MapViewController.swift */; };
 		7EE87EFE1CCDCB9700E282B8 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE87EFD1CCDCB9700E282B8 /* Colors.swift */; };
@@ -76,11 +78,13 @@
 		7E188FA61D015F3C009187ED /* FBClusteringManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBClusteringManager.swift; sourceTree = "<group>"; };
 		7E188FA71D015F3C009187ED /* FBQuadTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBQuadTree.swift; sourceTree = "<group>"; };
 		7E188FA81D015F3C009187ED /* FBQuadTreeNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBQuadTreeNode.swift; sourceTree = "<group>"; };
+		7E188FCD1D0162A3009187ED /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		7E188FCF1D06977E009187ED /* ArcadeMachineType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcadeMachineType.swift; sourceTree = "<group>"; };
+		7E188FD11D0697AE009187ED /* Arcade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Arcade.swift; sourceTree = "<group>"; };
 		7E519C7B1CDDCE0300030680 /* ArcadeMachineMkCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcadeMachineMkCircle.swift; sourceTree = "<group>"; };
 		7EDFB6F11CDEA9130013D89A /* ArcadeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcadeTableViewController.swift; sourceTree = "<group>"; };
 		7EDFB6F41CDEAF6F0013D89A /* ArcadeMachineTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcadeMachineTableViewCell.swift; sourceTree = "<group>"; };
 		7EDFB6F61CDFAFD30013D89A /* SearchForNameTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchForNameTableViewController.swift; sourceTree = "<group>"; };
-		7EDFB6F81CDFC20C0013D89A /* Candy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Candy.swift; sourceTree = "<group>"; };
 		7EE7526C1CF10079007188B7 /* CreateArcadeMachineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateArcadeMachineViewController.swift; sourceTree = "<group>"; };
 		7EE87EFB1CCDCB7200E282B8 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		7EE87EFD1CCDCB9700E282B8 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -344,7 +348,8 @@
 			children = (
 				7EE87EFF1CCDCBEE00E282B8 /* ArcadeMachine.swift */,
 				7E519C7B1CDDCE0300030680 /* ArcadeMachineMkCircle.swift */,
-				7EDFB6F81CDFC20C0013D89A /* Candy.swift */,
+				7E188FCF1D06977E009187ED /* ArcadeMachineType.swift */,
+				7E188FD11D0697AE009187ED /* Arcade.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -406,6 +411,7 @@
 				7EF8AE401CBB65B20003BA99 /* ViewController.swift */,
 				7EF8AE421CBB65B20003BA99 /* Main.storyboard */,
 				7EF8AE451CBB65B20003BA99 /* Assets.xcassets */,
+				7E188FCD1D0162A3009187ED /* Images.xcassets */,
 				7EF8AE471CBB65B20003BA99 /* LaunchScreen.storyboard */,
 				7EF8AE4A1CBB65B20003BA99 /* Info.plist */,
 				7EF8B0201CBB69C90003BA99 /* Bridging.h */,
@@ -903,6 +909,7 @@
 			files = (
 				7EF8AE491CBB65B20003BA99 /* LaunchScreen.storyboard in Resources */,
 				7EF8AE461CBB65B20003BA99 /* Assets.xcassets in Resources */,
+				7E188FCE1D0162A3009187ED /* Images.xcassets in Resources */,
 				7E0926591CF7A13000F5E097 /* IMG_1806.jpg in Resources */,
 				7EF8AE441CBB65B20003BA99 /* Main.storyboard in Resources */,
 			);
@@ -935,14 +942,15 @@
 				7EDFB6F21CDEA9130013D89A /* ArcadeTableViewController.swift in Sources */,
 				7EE87EFC1CCDCB7200E282B8 /* MapViewController.swift in Sources */,
 				7EE87F001CCDCBEE00E282B8 /* ArcadeMachine.swift in Sources */,
-				7EDFB6F91CDFC20C0013D89A /* Candy.swift in Sources */,
 				7EE87EFE1CCDCB9700E282B8 /* Colors.swift in Sources */,
 				7EE7526D1CF10079007188B7 /* CreateArcadeMachineViewController.swift in Sources */,
+				7E188FD21D0697AE009187ED /* Arcade.swift in Sources */,
 				7E188FAB1D015F3C009187ED /* FBAnnotationClusterView.swift in Sources */,
 				7E188FAC1D015F3C009187ED /* FBBoundingBox.swift in Sources */,
 				7EF8AE411CBB65B20003BA99 /* ViewController.swift in Sources */,
 				7E188FAA1D015F3C009187ED /* FBAnnotationCluster.swift in Sources */,
 				7EDFB6F51CDEAF6F0013D89A /* ArcadeMachineTableViewCell.swift in Sources */,
+				7E188FD01D06977E009187ED /* ArcadeMachineType.swift in Sources */,
 				7EDFB6F71CDFAFD30013D89A /* SearchForNameTableViewController.swift in Sources */,
 				7EF8AE3F1CBB65B20003BA99 /* AppDelegate.swift in Sources */,
 				7E188FAE1D015F3C009187ED /* FBQuadTree.swift in Sources */,

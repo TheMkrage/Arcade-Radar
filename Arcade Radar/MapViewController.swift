@@ -130,7 +130,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
                     let overlay = ArcadeMachineMkCircle(centerCoordinate: CLLocationCoordinate2D(latitude: ((machine.geoPoint as GeoPoint).latitude as Double), longitude: ((machine.geoPoint as GeoPoint).longitude as Double)), radius: 20)
                     overlay.setArcadeMachine(machine as! ArcadeMachine)
                     var isAlreadyThere = false
-                    for current in self.mapView.overlays as! [ArcadeMachineMkCircle] {
+                    for current in self.clusteringManager.allAnnotations() as! [ArcadeMachineMkCircle] {
                         if current.machine?.geoPoint?.latitude == overlay.machine?.geoPoint?.latitude {
                             if current.machine?.geoPoint?.longitude == overlay.machine?.geoPoint?.longitude {
                                 if current.machine?.name == overlay.machine?.name {
@@ -141,8 +141,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
                     }
                     if !isAlreadyThere {
                         dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                            self.mapView.addOverlay(overlay)
-                            self.mapView.addAnnotation(overlay)
+                            //self.mapView.addOverlay(overlay)
+                            //self.mapView.addAnnotation(overlay)
                             self.clusteringManager.addAnnotations([overlay])
                         })
                     }
@@ -214,7 +214,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
         }*/
     }
     
-    func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+   /* func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
         let identifier = "ArcadeMachine"
         
         if ((annotation as? ArcadeMachineMkCircle) != nil) {
@@ -231,9 +231,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
             return annotationView
         }
         return nil
-    }
+    }*/
     
-    func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!, calloutAccessoryControlTapped control: UIControl!) {
+    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         let vc = self.storyboard?.instantiateViewControllerWithIdentifier("ArcadeMachineProfile") as! ArcadeMachineProfileViewController
         vc.arcadeMachine = (view.annotation as! ArcadeMachineMkCircle).machine as ArcadeMachine!
         self.showViewController(vc, sender: self)
