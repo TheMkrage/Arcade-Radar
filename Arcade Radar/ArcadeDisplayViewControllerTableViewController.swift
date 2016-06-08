@@ -29,6 +29,13 @@ class ArcadeDisplayViewControllerTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ArcadeProfile") as! ArcadeProfileViewController
+        vc.arcade = self.arcades[indexPath.row]
+        self.showViewController(vc, sender: self)
+    }
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }

@@ -57,7 +57,6 @@ class ArcadeMachineProfileViewController: ViewController {
     }
     
     func findIfReported() {
-        
         // Try to Read, if not make array
         if let testArray : AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey(key) as? [NSString] {
             let readArray : [NSString] = testArray! as! [NSString]

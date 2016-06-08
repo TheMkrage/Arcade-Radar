@@ -375,6 +375,7 @@
 				7EE87EFB1CCDCB7200E282B8 /* MapViewController.swift */,
 				7E09265A1CF7A1F700F5E097 /* SearchForArcadeViewController.swift */,
 				7EE87F011CCDD55F00E282B8 /* ArcadeMachineProfileViewController.swift */,
+				7E188FDD1D072FE3009187ED /* ArcadeProfileViewController.swift */,
 				7EDFB6F11CDEA9130013D89A /* ArcadeTableViewController.swift */,
 				7EDFB6F61CDFAFD30013D89A /* SearchForNameTableViewController.swift */,
 				7EE7526C1CF10079007188B7 /* CreateArcadeMachineViewController.swift */,
@@ -384,7 +385,6 @@
 				7E188FDF1D073369009187ED /* Map Image.png */,
 				7E188FE01D073369009187ED /* URL Image.jpeg */,
 				7E188FDB1D06B27D009187ED /* ArcadeDisplayViewControllerTableViewController.swift */,
-				7E188FDD1D072FE3009187ED /* ArcadeProfileViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";

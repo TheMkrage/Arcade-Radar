@@ -974,7 +974,7 @@
         <!--Arcade Profile View Controller-->
         <scene sceneID="SRF-DF-hmf">
             <objects>
-                <viewController id="ETM-GK-JcK" customClass="ArcadeProfileViewController" customModule="Arcade_Radar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ArcadeProfile" id="ETM-GK-JcK" customClass="ArcadeProfileViewController" customModule="Arcade_Radar" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hYv-Uk-Xo9"/>
                         <viewControllerLayoutGuide type="bottom" id="0rc-uk-zU0"/>
@@ -1026,6 +1026,9 @@
                                         <include reference="eE4-TG-P5C"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="bringToMapButton:" destination="ETM-GK-JcK" eventType="touchUpInside" id="38h-Mr-bKe"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P3h-zE-0jd">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -1046,6 +1049,9 @@
                                         <include reference="BaK-ls-ROH"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="bringToWebsite:" destination="ETM-GK-JcK" eventType="touchUpInside" id="IDR-Ee-KXS"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F4P-B5-zIv">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -1255,6 +1261,16 @@
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="arcadeLabel" destination="dEo-T7-82c" id="LxO-dK-o2M"/>
+                        <outlet property="bringToWebsiteButton" destination="P3h-zE-0jd" id="z8k-0M-5jz"/>
+                        <outlet property="lastSeenLabel" destination="He3-kj-EWF" id="xPg-P3-5hJ"/>
+                        <outlet property="noButton" destination="opE-O7-gpz" id="SwK-7P-2N5"/>
+                        <outlet property="noCountLabel" destination="aNh-s7-s0k" id="8yo-Pq-MWL"/>
+                        <outlet property="percentLabel" destination="FfK-4d-0Y4" id="WJd-yY-rIm"/>
+                        <outlet property="yesButton" destination="F4P-B5-zIv" id="qQL-U5-1Ee"/>
+                        <outlet property="yesCountLabel" destination="Tne-LV-Shf" id="cxM-Sf-WXm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="63J-3f-6Kd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
