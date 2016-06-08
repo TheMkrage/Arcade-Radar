@@ -233,6 +233,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
         if (view.tag == 0) { // is a cluster object
             let vc = ArcadeDisplayViewControllerTableViewController()
             vc.arcades = ((view.annotation as! FBAnnotationCluster).annotations as! [ArcadeMkCircle]).map({ $0.arcade})
+            vc.title = (view.annotation?.title)!
             self.showViewController(vc, sender: self)
         }else if (view.tag == 1) {
             let vc = self.storyboard?.instantiateViewControllerWithIdentifier("ArcadeMachineProfile") as! ArcadeMachineProfileViewController
