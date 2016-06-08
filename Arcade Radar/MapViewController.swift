@@ -108,7 +108,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
             //var query2 = BackendlessDataQuery
             let queryOptions = QueryOptions()
             queryOptions.addRelated("geoPoint")
-            queryOptions.pageSize = 50
+            queryOptions.pageSize = 100
             //queryOptions.so
             let query = BackendlessDataQuery()
             query.queryOptions = queryOptions
@@ -130,23 +130,35 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
                     let overlay = ArcadeMkCircle(centerCoordinate: CLLocationCoordinate2D(latitude: ((arcade.geoPoint as GeoPoint).latitude as Double), longitude: ((arcade.geoPoint as GeoPoint).longitude as Double)), radius: 20)
                     overlay.setArcadeToDisplay(arcade as! Arcade)
                     var isAlreadyThere = false
-                    for current in self.clusteringManager.allAnnotations() as! [ArcadeMkCircle] {
-                        if current.arcade?.geoPoint?.latitude == overlay.arcade?.geoPoint?.latitude {
-                            if current.arcade?.geoPoint?.longitude == overlay.arcade?.geoPoint?.longitude {
-                                if current.arcade?.name == overlay.arcade?.name {
-                                    isAlreadyThere = true
-                                }
-                            }
-                        }
+                    if (self.clusteringManager.allAnnotations() as! [ArcadeMkCircle]).contains({ (arcade1: ArcadeMkCircle) -> Bool in
+                        return arcade1.arcade.geoPoint?.latitude == overlay.arcade.geoPoint?.latitude && arcade1.arcade.geoPoint?.longitude == overlay.arcade.geoPoint?.longitude && arcade1.arcade.name == overlay.arcade.name
+                    }) {
+                        isAlreadyThere = true
                     }
+                    
                     if !isAlreadyThere {
                         dispatch_async(dispatch_get_main_queue(), { () -> Void in
                             //self.mapView.addOverlay(overlay)
                             //self.mapView.addAnnotation(overlay)
                             self.clusteringManager.addAnnotations([overlay])
+                            NSOperationQueue().addOperationWithBlock({
+                                print("Doing thing")
+                                let mapBoundsWidth = Double(self.mapView.bounds.size.width)
+                                
+                                let mapRectWidth:Double = self.mapView.visibleMapRect.size.width
+                                
+                                let scale:Double = mapBoundsWidth / mapRectWidth
+                                
+                                let annotationArray = self.clusteringManager.clusteredAnnotationsWithinMapRect(self.mapView.visibleMapRect, withZoomScale:scale)
+                                
+                                self.clusteringManager.displayAnnotations(annotationArray, onMapView:self.mapView)
+                                
+                            })
+
                         })
                     }
                 }
+                    
                 }, catchblock: { (exception) -> Void in
                     print(exception)
                 })
@@ -236,8 +248,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
             vc.title = (view.annotation?.title)!
             self.showViewController(vc, sender: self)
         }else if (view.tag == 1) {
-            let vc = self.storyboard?.instantiateViewControllerWithIdentifier("ArcadeMachineProfile") as! ArcadeMachineProfileViewController
-            vc.arcadeMachine = (view.annotation as! ArcadeMachineMkCircle).machine as ArcadeMachine!
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ArcadeProfile") as! ArcadeProfileViewController
+            vc.arcade = (view.annotation as! ArcadeMkCircle).arcade as Arcade!
             self.showViewController(vc, sender: self)
         }
     }

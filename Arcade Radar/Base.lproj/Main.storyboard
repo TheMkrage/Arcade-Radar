@@ -84,7 +84,7 @@
         <scene sceneID="aTh-vD-geR">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ao4-nr-Rai" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Map" id="6Xa-Ck-3YN"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="Map Image Tab Bar.png" selectedImage="Map Image Tab Bar.png" id="6Xa-Ck-3YN"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="wOl-kE-C8u">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -123,7 +123,7 @@
                                                     <constraint firstAttribute="height" constant="83" id="czC-E5-a2F"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="23"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                                 <variation key="default">
                                                     <mask key="constraints">
@@ -139,7 +139,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last seen on December 25, 2008" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YfX-lH-XdR">
                                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="13"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1.00 for 3 songs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jUp-RX-DDO">
@@ -149,7 +149,7 @@
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="viR-U4-3av"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                                 <variation key="default">
                                                     <mask key="constraints">
@@ -211,7 +211,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Were you able to find this machine?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y2k-Jk-M65">
                                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rYu-Ey-8GM">
@@ -281,7 +281,7 @@
                                                     <constraint firstAttribute="height" constant="21" id="KmM-ci-p65"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                                 <variation key="default">
                                                     <mask key="constraints">
@@ -467,7 +467,7 @@
                                                 <constraint firstAttribute="height" constant="26" id="wAb-OB-aUE"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="21"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="default">
                                                 <mask key="constraints">
@@ -486,7 +486,7 @@
                                                 <constraint firstAttribute="height" constant="21" id="qh6-qu-3s7"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="default">
                                                 <mask key="constraints">
@@ -577,7 +577,7 @@
                                                 <constraint firstAttribute="height" constant="26" id="rrD-cg-Lvv"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="21"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="default">
                                                 <mask key="constraints">
@@ -596,7 +596,7 @@
                                                 <constraint firstAttribute="height" constant="21" id="TO8-uZ-Zv0"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="default">
                                                 <mask key="constraints">
@@ -701,7 +701,7 @@
                                                     <constraint firstAttribute="width" constant="304" id="cGJ-O4-WpK"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                                 <variation key="default">
                                                     <mask key="constraints">
@@ -765,7 +765,7 @@
                                                     <constraint firstAttribute="height" constant="21" id="ciQ-Gd-Uwj"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                                 <variation key="default">
                                                     <mask key="constraints">
@@ -980,6 +980,7 @@
                         <viewControllerLayoutGuide type="bottom" id="0rc-uk-zU0"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="RPJ-Vh-3qG">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arcade Machine Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dEo-T7-82c">
@@ -988,7 +989,7 @@
                                     <constraint firstAttribute="height" constant="83" id="TKz-Fl-188"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="23"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -1004,7 +1005,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last seen on December 25, 2008" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="He3-kj-EWF">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="13"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XVa-VJ-Pdk">
@@ -1079,7 +1080,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Were you able to find this arcade?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIg-7u-BUS">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="opE-O7-gpz">
@@ -1149,7 +1150,7 @@
                                     <constraint firstAttribute="height" constant="21" id="fn5-vV-aci"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -1200,26 +1201,26 @@
                                 <exclude reference="FfK-4d-0Y4"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="eY5-Ou-8SU"/>
-                                <exclude reference="p3z-0S-x5k"/>
-                                <exclude reference="kJL-JH-O6V"/>
-                                <exclude reference="nBR-pu-uH0"/>
-                                <exclude reference="0iw-FU-zry"/>
-                                <exclude reference="2vk-TO-8Yy"/>
-                                <exclude reference="C4V-hq-TXZ"/>
-                                <exclude reference="zyW-97-pyT"/>
+                                <exclude reference="xBp-LI-tRh"/>
                                 <exclude reference="pcG-84-tqQ"/>
                                 <exclude reference="raN-6s-00j"/>
-                                <exclude reference="xBp-LI-tRh"/>
+                                <exclude reference="0iw-FU-zry"/>
+                                <exclude reference="2vk-TO-8Yy"/>
+                                <exclude reference="kGr-Tv-cNX"/>
+                                <exclude reference="x2C-2C-6Zy"/>
                                 <exclude reference="JX9-0m-6ZB"/>
                                 <exclude reference="bC2-ej-VWK"/>
                                 <exclude reference="gi5-QS-Ts0"/>
-                                <exclude reference="kGr-Tv-cNX"/>
-                                <exclude reference="x2C-2C-6Zy"/>
+                                <exclude reference="kJL-JH-O6V"/>
+                                <exclude reference="nBR-pu-uH0"/>
                                 <exclude reference="bOE-ou-ag3"/>
                                 <exclude reference="yw9-4W-WrJ"/>
                                 <exclude reference="Sjh-GE-xoz"/>
                                 <exclude reference="vaQ-dp-nfm"/>
+                                <exclude reference="eY5-Ou-8SU"/>
+                                <exclude reference="p3z-0S-x5k"/>
+                                <exclude reference="C4V-hq-TXZ"/>
+                                <exclude reference="zyW-97-pyT"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -1236,26 +1237,26 @@
                                 <include reference="FfK-4d-0Y4"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="eY5-Ou-8SU"/>
-                                <include reference="p3z-0S-x5k"/>
-                                <include reference="kJL-JH-O6V"/>
-                                <include reference="nBR-pu-uH0"/>
-                                <include reference="0iw-FU-zry"/>
-                                <include reference="2vk-TO-8Yy"/>
-                                <include reference="C4V-hq-TXZ"/>
-                                <include reference="zyW-97-pyT"/>
+                                <include reference="xBp-LI-tRh"/>
                                 <include reference="pcG-84-tqQ"/>
                                 <include reference="raN-6s-00j"/>
-                                <include reference="xBp-LI-tRh"/>
+                                <include reference="0iw-FU-zry"/>
+                                <include reference="2vk-TO-8Yy"/>
+                                <include reference="kGr-Tv-cNX"/>
+                                <include reference="x2C-2C-6Zy"/>
                                 <include reference="JX9-0m-6ZB"/>
                                 <include reference="bC2-ej-VWK"/>
                                 <include reference="gi5-QS-Ts0"/>
-                                <include reference="kGr-Tv-cNX"/>
-                                <include reference="x2C-2C-6Zy"/>
+                                <include reference="kJL-JH-O6V"/>
+                                <include reference="nBR-pu-uH0"/>
                                 <include reference="bOE-ou-ag3"/>
                                 <include reference="yw9-4W-WrJ"/>
                                 <include reference="Sjh-GE-xoz"/>
                                 <include reference="vaQ-dp-nfm"/>
+                                <include reference="eY5-Ou-8SU"/>
+                                <include reference="p3z-0S-x5k"/>
+                                <include reference="C4V-hq-TXZ"/>
+                                <include reference="zyW-97-pyT"/>
                             </mask>
                         </variation>
                     </view>
@@ -1306,7 +1307,7 @@
                                                 <constraint firstAttribute="height" constant="26" id="W8A-Ie-17T"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="21"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="default">
                                                 <mask key="constraints">
@@ -1325,7 +1326,7 @@
                                                 <constraint firstAttribute="height" constant="21" id="t8E-AH-Iny"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="default">
                                                 <mask key="constraints">
@@ -1408,6 +1409,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Map Image Tab Bar.png" width="40" height="40"/>
         <image name="Map Image.png" width="122" height="122"/>
         <image name="URL Image.jpeg" width="120" height="120"/>
     </resources>
