@@ -24,6 +24,9 @@ class ArcadeProfileViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         findIfReported()
+        if self.arcade.URL.isEmpty {
+            self.bringToWebsiteButton.hidden = true
+        }
         self.arcadeLabel.text = self.arcade.name
         self.lastSeenLabel.text = "Last Seen on \(self.arcade.lastSeen)"
         self.yesCountLabel.text = String(format: "%7.0f", self.arcade.finds).stringByReplacingOccurrencesOfString(" ", withString: "")
@@ -69,6 +72,7 @@ class ArcadeProfileViewController: ViewController {
     
     @IBOutlet var bringToWebsiteButton: UIButton!
     @IBAction func bringToWebsite(sender: AnyObject) {
+        UIApplication.sharedApplication().openURL(NSURL(string:self.arcade.URL)!)
     }
     
     @IBAction func bringToMapButton(sender: AnyObject) {
