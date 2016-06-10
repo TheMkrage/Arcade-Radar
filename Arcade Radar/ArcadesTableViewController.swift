@@ -1,55 +1,25 @@
 //
-//  ArcadeTableViewController.swift
+//  ArcadeDisplayViewControllerTableViewController.swift
 //  Arcade Radar
 //
-//  Created by Matthew Krager on 5/7/16.
+//  Created by Matthew Krager on 6/7/16.
 //  Copyright © 2016 Matthew Krager. All rights reserved.
 //
 
 import UIKit
 
-class ArcadeTableViewController: UITableViewController {
-    var arcadeName: String = ""
-    var sentMachine: ArcadeMachine = ArcadeMachine()
-    var machines: [ArcadeMachine] = []
-    var backendless = Backendless()
-    let locationManager = CLLocationManager()
+class ArcadesTableViewController: UITableViewController {
+
+    var arcades: [Arcade] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let queryOptions = QueryOptions()
-        
-        queryOptions.addRelated("geoPoint")
-        //queryOptions.so
-        let query = BackendlessDataQuery()
-        query.queryOptions = queryOptions
-        let latitude = Double(self.sentMachine.geoPoint!.latitude)
-        let longitude = Double(self.sentMachine.geoPoint!.longitude)
-        
-        query.whereClause = "geoPoint.latitude < \(latitude + 0.06) AND geoPoint.latitude > \(latitude - 0.06) AND geoPoint.longitude > \(longitude - 0.04) AND geoPoint.longitude < \(longitude + 0.04) AND arcadeName = '\(arcadeName)'"
-        
-        backendless.persistenceService.of(ArcadeMachine.ofClass()).find(
-            query,
-            response: { ( machinesSearched : BackendlessCollection!) -> () in
-                let currentPage = machinesSearched.getCurrentPage()
-                print(machinesSearched.totalObjects)
-                self.machines = currentPage as! [ArcadeMachine]
-                print(self.machines)
-                self.tableView.reloadData()
-            },
-            error: { ( fault : Fault!) -> () in
-                print("Server reported an error: \(fault)")
-            })
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -59,30 +29,26 @@ class ArcadeTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ArcadeProfile") as! ArcadeProfileViewController
+        vc.arcade = self.arcades[indexPath.row]
+        self.showViewController(vc, sender: self)
+    }
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.machines.count
+        return arcades.count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ArcadeMachineCell", forIndexPath: indexPath) as! ArcadeMachineTableViewCell
-        let machine = self.machines[indexPath.row]
-        cell.pricePerPlayLabel.text = "$\(machine.price) for \(machine.numOfPlays) \(machine.whatPriceIsFor)"
-        cell.machineNameLabel.text = self.machines[indexPath.row].name
-        // Configure the cell...
-
+        let cell = UITableViewCell()
+        cell.textLabel?.text = self.arcades[indexPath.row].name
         return cell
-    }
-    
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("ArcadeMachineProfile") as! ArcadeMachineProfileViewController
-        vc.arcadeMachine = self.machines[indexPath.row]
-        self.showViewController(vc, sender: self)
-
     }
     
 

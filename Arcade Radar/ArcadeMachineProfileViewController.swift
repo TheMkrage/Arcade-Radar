@@ -84,9 +84,9 @@ class ArcadeMachineProfileViewController: ViewController {
     }
     
     @IBAction func bringToMap(sender: AnyObject) {
-        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("ArcadeTable") as! ArcadeTableViewController
-        vc.arcadeName = self.arcadeMachine.arcadeName
-        vc.sentMachine = self.arcadeMachine
+        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("ArcadeProfile") as! ArcadeProfileViewController
+        vc.geoPointOfArcade = self.arcadeMachine.geoPoint
+        vc.nameOfArcade = self.arcadeMachine.arcadeName
         self.showViewController(vc, sender: self)
     }
     

@@ -13,6 +13,9 @@ class ArcadeProfileViewController: ViewController {
     var hasAlreadyReported = false
     var IDArray:[NSString]!
     var arcade:Arcade!
+    var nameOfArcade:String?
+    var geoPointOfArcade:GeoPoint?
+    var backendless = Backendless()
     @IBOutlet var arcadeLabel: UILabel!
     @IBOutlet var lastSeenLabel: UILabel!
     @IBOutlet var percentLabel: UILabel!
@@ -24,6 +27,9 @@ class ArcadeProfileViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         findIfReported()
+        if ((self.nameOfArcade?.isEmpty) != nil) {
+            findArcade()
+        }
         if self.arcade.URL.isEmpty {
             self.bringToWebsiteButton.hidden = true
         }
@@ -64,7 +70,7 @@ class ArcadeProfileViewController: ViewController {
         print(self.IDArray)
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -76,16 +82,48 @@ class ArcadeProfileViewController: ViewController {
     }
     
     @IBAction func bringToMapButton(sender: AnyObject) {
+        if let x = (self.navigationController?.viewControllers[0] as? MapViewController){
+            x.startingGeoPoint = self.arcade.geoPoint
+        }else {
+            self.tabBarController?.selectedIndex = 0
+        }
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
-
+    
+    @IBAction func bringToArcadeGames(sender: UIButton) {
+        let vc = ArcadeMachinesTableViewController()
+       // vc.arcade = self.arcade
+        vc.arcade = self.arcade
+        self.showViewController(vc, sender: self)
+        
+    }
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
+    func findArcade() {
+        let queryOptions = QueryOptions()
+        queryOptions.addRelated("geoPoint")
+        queryOptions.pageSize = 1
+        //queryOptions.so
+        let query = BackendlessDataQuery()
+        query.queryOptions = queryOptions
+        let gp = self.geoPointOfArcade
+        let latitude = Double(gp!.latitude)
+        let longitude = Double(gp!.longitude)
+        print(self.nameOfArcade)
+        print(self.geoPointOfArcade)
+        query.whereClause = "distance( \(latitude), \(longitude), geoPoint.latitude, geoPoint.longitude ) < .006 AND name LIKE '\(self.nameOfArcade!)'"
+        Types.tryblock({ () -> Void in
+             let arcadesSearched: BackendlessCollection! = self.backendless.data.of(Arcade.ofClass()).find(query)
+            self.arcade = arcadesSearched.getCurrentPage()[0] as! Arcade
+            }, catchblock: { (exception) -> Void in
+                print(exception)
+        })
+    }
 }

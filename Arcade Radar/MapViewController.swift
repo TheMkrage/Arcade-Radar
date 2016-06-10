@@ -18,8 +18,20 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
     @IBOutlet var mapView: MKMapView!
     let locationManager = CLLocationManager()
     
+    var startingGeoPoint:GeoPoint?
+    
     override func viewDidAppear(animated: Bool) {
         self.refresh()
+        if self.startingGeoPoint != nil {
+            let latitude = self.startingGeoPoint?.latitude
+            let longitude = self.startingGeoPoint?.longitude
+            let latDelta:CLLocationDegrees = 0.03
+            let lonDelta:CLLocationDegrees = 0.03
+            let span:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, lonDelta)
+            let location:CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude as! CLLocationDegrees, longitude as! CLLocationDegrees)
+            let region:MKCoordinateRegion = MKCoordinateRegionMake(location, span)
+            mapView.setRegion(region, animated: true)
+        }
     }
     
     override func viewDidLoad() {
@@ -175,7 +187,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
     
     func didTapMap(gestureRecognizer: UIGestureRecognizer) {
         // Only register when a tap has ended
-        if gestureRecognizer.state == .Ended {
+       /* if gestureRecognizer.state == .Ended {
             // Convert the tap into lat and long
             let tapPoint: CGPoint = gestureRecognizer.locationInView(self.mapView)
             let tapCoordinate = self.mapView.convertPoint(tapPoint, toCoordinateFromView: self.mapView)
@@ -194,7 +206,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
                     }
                 }
             }
-        }
+        }*/
     }
     
     func getPlacemarkFromLocation(location: CLLocation){
@@ -243,7 +255,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
     
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if (view.tag == 0) { // is a cluster object
-            let vc = ArcadeDisplayViewControllerTableViewController()
+            let vc = ArcadesTableViewController()
             vc.arcades = ((view.annotation as! FBAnnotationCluster).annotations as! [ArcadeMkCircle]).map({ $0.arcade})
             vc.title = (view.annotation?.title)!
             self.showViewController(vc, sender: self)

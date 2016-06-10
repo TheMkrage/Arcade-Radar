@@ -1,25 +1,54 @@
 //
-//  ArcadeDisplayViewControllerTableViewController.swift
+//  ArcadeTableViewController.swift
 //  Arcade Radar
 //
-//  Created by Matthew Krager on 6/7/16.
+//  Created by Matthew Krager on 5/7/16.
 //  Copyright © 2016 Matthew Krager. All rights reserved.
 //
 
 import UIKit
 
-class ArcadeDisplayViewControllerTableViewController: UITableViewController {
-
-    var arcades: [Arcade] = []
+class ArcadeMachinesTableViewController: UITableViewController {
+    var arcade:Arcade!
+    var machines: [ArcadeMachine] = []
+    var backendless = Backendless()
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        if ((arcade) != nil) { // if given an Arcade Object
+            EZLoadingActivity.show("", disableUI: true)
+            let queryOptions = QueryOptions()
+            queryOptions.addRelated("geoPoint")
+            queryOptions.sortBy = ["name"]
+            //queryOptions.so
+            let query = BackendlessDataQuery()
+            query.queryOptions = queryOptions
+            let latitude = Double(self.arcade.geoPoint!.latitude)
+            let longitude = Double(self.arcade.geoPoint!.longitude)
+            
+            query.whereClause = "geoPoint.latitude < \(latitude + 0.002) AND geoPoint.latitude > \(latitude - 0.002) AND geoPoint.longitude > \(longitude - 0.002) AND geoPoint.longitude < \(longitude + 0.002) AND arcadeName = '\(arcade.name)'"
+            
+            backendless.persistenceService.of(ArcadeMachine.ofClass()).find(
+                query,
+                response: { ( machinesSearched : BackendlessCollection!) -> () in
+                    let currentPage = machinesSearched.getCurrentPage()
+                    print(machinesSearched.totalObjects)
+                    self.machines = currentPage as! [ArcadeMachine]
+                    EZLoadingActivity.hide(success: true, animated: true)
+                    self.tableView.reloadData()
+                },
+                error: { ( fault : Fault!) -> () in
+                    print("Server reported an error: \(fault)")
+            })
+        }else {
+            print("no Tacos")
+        }
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,26 +58,31 @@ class ArcadeDisplayViewControllerTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ArcadeProfile") as! ArcadeProfileViewController
-        vc.arcade = self.arcades[indexPath.row]
-        self.showViewController(vc, sender: self)
-    }
-    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arcades.count
+        return self.machines.count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.textLabel?.text = self.arcades[indexPath.row].name
+        cell.textLabel!.text = self.machines[indexPath.row].name
+        // Configure the cell...
+        cell.textLabel?.alpha = 0.0
+        UIView.animateWithDuration(0.3, animations: {
+            cell.textLabel?.alpha = 1.0
+        })
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ArcadeMachineProfile") as! ArcadeMachineProfileViewController
+        vc.arcadeMachine = self.machines[indexPath.row]
+        self.showViewController(vc, sender: self)
+
     }
     
 
