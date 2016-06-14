@@ -106,6 +106,49 @@ class ArcadeProfileViewController: ViewController {
     // Pass the selected object to the new view controller.
     }
     */
+    @IBAction func yesButton(sender: AnyObject) {
+        if !self.hasAlreadyReported {
+            self.arcade.finds = arcade.finds + 1
+            self.arcade.lastSeen = NSDate()
+            self.updateAfterNewReport()
+            
+        }
+    }
+    @IBAction func noButton(sender: AnyObject) {
+        if !self.hasAlreadyReported {
+            
+            self.arcade.notFinds = self.arcade.notFinds + 1
+            self.updateAfterNewReport()
+            
+        }
+    }
+    
+    func updateAfterNewReport() {
+        self.hasAlreadyReported = true
+        self.IDArray?.append((self.arcade as AnyObject).objectId)
+        self.yesCountLabel.text = String(format: "%7.0f", self.arcade.finds).stringByReplacingOccurrencesOfString(" ", withString: "")
+        self.noCountLabel.text = String(format: "%7.0f", self.arcade.notFinds).stringByReplacingOccurrencesOfString(" ", withString: "")
+        if (self.arcade.finds != 0) {
+            let percent:Double = (self.arcade.finds)/(self.arcade.finds + self.arcade.notFinds)
+            print(percent)
+            
+            self.percentLabel.text = String(format: "%3.0f%%", (percent * 100.0))
+        }else {
+            self.percentLabel.text = "0%"
+        }
+        
+        backendless.persistenceService.of(Arcade.ofClass()).save(self.arcade,
+            response: { ( point : AnyObject!) -> Void in
+                print("ASYNC: geo point saved. Object ID - \(point.objectId)")
+            },
+            error: { ( fault : Fault!) -> () in
+                print("Server reported an error: \(fault)")
+            }
+        )
+        NSUserDefaults.standardUserDefaults().setObject(self.IDArray, forKey: key)
+        NSUserDefaults.standardUserDefaults().synchronize()
+    }
+
     func findArcade() {
         let queryOptions = QueryOptions()
         queryOptions.addRelated("geoPoint")

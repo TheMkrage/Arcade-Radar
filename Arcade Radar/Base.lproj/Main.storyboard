@@ -984,6 +984,7 @@
                                 </variation>
                                 <connections>
                                     <action selector="no:" destination="2t2-Vq-VgS" eventType="touchUpInside" id="BKI-PL-Rf6"/>
+                                    <action selector="noButton:" destination="ETM-GK-JcK" eventType="touchUpInside" id="7NY-4l-D6G"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tne-LV-Shf">
@@ -1096,6 +1097,7 @@
                                 </variation>
                                 <connections>
                                     <action selector="yes:" destination="2t2-Vq-VgS" eventType="touchUpInside" id="QaW-ME-fuw"/>
+                                    <action selector="yesButton:" destination="ETM-GK-JcK" eventType="touchUpInside" id="707-Dt-rSm"/>
                                 </connections>
                             </button>
                         </subviews>
