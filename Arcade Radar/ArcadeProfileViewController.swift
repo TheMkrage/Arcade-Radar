@@ -29,17 +29,6 @@ class ArcadeProfileViewController: ViewController {
     @IBOutlet var noButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        /*self.IDArrayNotSeen = [NSString]()
-        //save
-        NSUserDefaults.standardUserDefaults().setObject(self.IDArrayNotSeen, forKey: keyNotSeen)
-        NSUserDefaults.standardUserDefaults().synchronize()
-        self.IDArrayNotSeen = [NSString]()
-        //save
-        NSUserDefaults.standardUserDefaults().setObject(self.IDArrayNotSeen, forKey: keySeen)
-        NSUserDefaults.standardUserDefaults().synchronize()
-        */
-        
-        
         findIfReported()
         if ((self.nameOfArcade?.isEmpty) != nil) {
             findArcade()
