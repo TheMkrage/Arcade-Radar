@@ -25,7 +25,6 @@
 		7E188FDC1D06B27D009187ED /* ArcadesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E188FDB1D06B27D009187ED /* ArcadesTableViewController.swift */; };
 		7E188FDE1D072FE3009187ED /* ArcadeProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E188FDD1D072FE3009187ED /* ArcadeProfileViewController.swift */; };
 		7E188FE11D073369009187ED /* Map Image.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E188FDF1D073369009187ED /* Map Image.png */; };
-		7E188FE21D073369009187ED /* URL Image.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 7E188FE01D073369009187ED /* URL Image.jpeg */; };
 		7E519C7C1CDDCE0300030680 /* ArcadeMachineMkCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E519C7B1CDDCE0300030680 /* ArcadeMachineMkCircle.swift */; };
 		7EB46E071D09FBC50052F2A4 /* EZLoadingActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB46E061D09FBC50052F2A4 /* EZLoadingActivity.swift */; };
 		7EB46E0C1D0AA35E0052F2A4 /* thumbsDownFilled.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EB46E081D0AA35E0052F2A4 /* thumbsDownFilled.png */; };
@@ -37,6 +36,7 @@
 		7EDFB6F21CDEA9130013D89A /* ArcadeMachinesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDFB6F11CDEA9130013D89A /* ArcadeMachinesTableViewController.swift */; };
 		7EDFB6F51CDEAF6F0013D89A /* ArcadeMachineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDFB6F41CDEAF6F0013D89A /* ArcadeMachineTableViewCell.swift */; };
 		7EDFB6F71CDFAFD30013D89A /* SearchForNameTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDFB6F61CDFAFD30013D89A /* SearchForNameTableViewController.swift */; };
+		7EDFFFC51D146C51005F789F /* URL Image.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EDFFFC41D146C51005F789F /* URL Image.png */; };
 		7EE7526D1CF10079007188B7 /* CreateArcadeMachineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE7526C1CF10079007188B7 /* CreateArcadeMachineViewController.swift */; };
 		7EE87EFC1CCDCB7200E282B8 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE87EFB1CCDCB7200E282B8 /* MapViewController.swift */; };
 		7EE87EFE1CCDCB9700E282B8 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE87EFD1CCDCB9700E282B8 /* Colors.swift */; };
@@ -101,7 +101,6 @@
 		7E188FDB1D06B27D009187ED /* ArcadesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcadesTableViewController.swift; sourceTree = "<group>"; };
 		7E188FDD1D072FE3009187ED /* ArcadeProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcadeProfileViewController.swift; sourceTree = "<group>"; };
 		7E188FDF1D073369009187ED /* Map Image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Map Image.png"; sourceTree = "<group>"; };
-		7E188FE01D073369009187ED /* URL Image.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "URL Image.jpeg"; sourceTree = "<group>"; };
 		7E519C7B1CDDCE0300030680 /* ArcadeMachineMkCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcadeMachineMkCircle.swift; sourceTree = "<group>"; };
 		7EB46E061D09FBC50052F2A4 /* EZLoadingActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZLoadingActivity.swift; sourceTree = "<group>"; };
 		7EB46E081D0AA35E0052F2A4 /* thumbsDownFilled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumbsDownFilled.png; sourceTree = "<group>"; };
@@ -113,6 +112,7 @@
 		7EDFB6F11CDEA9130013D89A /* ArcadeMachinesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcadeMachinesTableViewController.swift; sourceTree = "<group>"; };
 		7EDFB6F41CDEAF6F0013D89A /* ArcadeMachineTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcadeMachineTableViewCell.swift; sourceTree = "<group>"; };
 		7EDFB6F61CDFAFD30013D89A /* SearchForNameTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchForNameTableViewController.swift; sourceTree = "<group>"; };
+		7EDFFFC41D146C51005F789F /* URL Image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "URL Image.png"; sourceTree = "<group>"; };
 		7EE7526C1CF10079007188B7 /* CreateArcadeMachineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateArcadeMachineViewController.swift; sourceTree = "<group>"; };
 		7EE87EFB1CCDCB7200E282B8 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		7EE87EFD1CCDCB9700E282B8 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -400,7 +400,7 @@
 				7E188FD51D06A46B009187ED /* Arcade Icon.png */,
 				7EDB23491D07F41E00D5A432 /* Map Image Tab Bar.png */,
 				7E188FDF1D073369009187ED /* Map Image.png */,
-				7E188FE01D073369009187ED /* URL Image.jpeg */,
+				7EDFFFC41D146C51005F789F /* URL Image.png */,
 				7EB46E081D0AA35E0052F2A4 /* thumbsDownFilled.png */,
 				7EB46E091D0AA35E0052F2A4 /* thumbsDownHollow.png */,
 				7EB46E0A1D0AA35E0052F2A4 /* thumbsUpFilled.png */,
@@ -955,6 +955,7 @@
 				7E188FE11D073369009187ED /* Map Image.png in Resources */,
 				7EB46E0F1D0AA35E0052F2A4 /* thumbsUpHollow.png in Resources */,
 				7EF8AE461CBB65B20003BA99 /* Assets.xcassets in Resources */,
+				7EDFFFC51D146C51005F789F /* URL Image.png in Resources */,
 				7E188FCE1D0162A3009187ED /* Images.xcassets in Resources */,
 				7E188FD61D06A46B009187ED /* Arcade Icon.png in Resources */,
 				7E0926591CF7A13000F5E097 /* IMG_1806.jpg in Resources */,
@@ -962,7 +963,6 @@
 				7EB46E0E1D0AA35E0052F2A4 /* thumbsUpFilled.png in Resources */,
 				7EDB234C1D093D4900D5A432 /* cabinetFacingButton.png in Resources */,
 				7EF8AE441CBB65B20003BA99 /* Main.storyboard in Resources */,
-				7E188FE21D073369009187ED /* URL Image.jpeg in Resources */,
 				7EB46E0D1D0AA35E0052F2A4 /* thumbsDownHollow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

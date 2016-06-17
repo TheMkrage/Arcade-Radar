@@ -941,7 +941,7 @@
                                     <constraint firstAttribute="height" constant="50" id="9aU-dT-aff"/>
                                     <constraint firstAttribute="width" constant="50" id="BaK-ls-ROH"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="URL Image.jpeg"/>
+                                <state key="normal" title="Button" image="URL Image.png"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="9aU-dT-aff"/>
@@ -1381,7 +1381,7 @@
     <resources>
         <image name="Map Image Tab Bar.png" width="40" height="40"/>
         <image name="Map Image.png" width="122" height="122"/>
-        <image name="URL Image.jpeg" width="120" height="120"/>
+        <image name="URL Image.png" width="120" height="120"/>
         <image name="cabinetFacingButton.png" width="200" height="200"/>
         <image name="thumbsDownHollow.png" width="225" height="225"/>
         <image name="thumbsUpHollow.png" width="225" height="225"/>
