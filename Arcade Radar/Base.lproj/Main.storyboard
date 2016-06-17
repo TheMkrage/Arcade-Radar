@@ -967,7 +967,7 @@
                                     <constraint firstAttribute="width" constant="100" id="udg-ox-Vhd"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-UltraLightItalic" family="Helvetica Neue" pointSize="60"/>
-                                <state key="normal" title="No" image="thumbsDownHollow.png">
+                                <state key="normal" image="thumbsDownHollow.png">
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <variation key="default">
@@ -983,8 +983,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <action selector="no:" destination="2t2-Vq-VgS" eventType="touchUpInside" id="BKI-PL-Rf6"/>
-                                    <action selector="noButton:" destination="ETM-GK-JcK" eventType="touchUpInside" id="7NY-4l-D6G"/>
+                                    <action selector="noButton:" destination="ETM-GK-JcK" eventType="touchUpInside" id="4Uz-UP-FhH"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tne-LV-Shf">
@@ -1029,6 +1028,7 @@
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="fn5-vV-aci"/>
+                                    <constraint firstAttribute="width" constant="41" id="sAv-9B-CUZ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1036,11 +1036,13 @@
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="fn5-vV-aci"/>
+                                        <exclude reference="sAv-9B-CUZ"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="fn5-vV-aci"/>
+                                        <include reference="sAv-9B-CUZ"/>
                                     </mask>
                                 </variation>
                             </label>
@@ -1096,7 +1098,6 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <action selector="yes:" destination="2t2-Vq-VgS" eventType="touchUpInside" id="QaW-ME-fuw"/>
                                     <action selector="yesButton:" destination="ETM-GK-JcK" eventType="touchUpInside" id="707-Dt-rSm"/>
                                 </connections>
                             </button>

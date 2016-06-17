@@ -9,9 +9,12 @@
 import UIKit
 
 class ArcadeProfileViewController: ViewController {
-    var key = "arcadesReported"
-    var hasAlreadyReported = false
-    var IDArray:[NSString]!
+    var keySeen = "arcadesReportedSeen"
+    var keyNotSeen = "arcadesReportedNotSeen"
+    var hasAlreadyReportedSeen = false
+    var hasAlreadyReportedNotSeen = false
+    var IDArraySeen:[NSString]!
+    var IDArrayNotSeen:[NSString]!
     var arcade:Arcade!
     var nameOfArcade:String?
     var geoPointOfArcade:GeoPoint?
@@ -26,6 +29,17 @@ class ArcadeProfileViewController: ViewController {
     @IBOutlet var noButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        /*self.IDArrayNotSeen = [NSString]()
+        //save
+        NSUserDefaults.standardUserDefaults().setObject(self.IDArrayNotSeen, forKey: keyNotSeen)
+        NSUserDefaults.standardUserDefaults().synchronize()
+        self.IDArrayNotSeen = [NSString]()
+        //save
+        NSUserDefaults.standardUserDefaults().setObject(self.IDArrayNotSeen, forKey: keySeen)
+        NSUserDefaults.standardUserDefaults().synchronize()
+        */
+        
+        
         findIfReported()
         if ((self.nameOfArcade?.isEmpty) != nil) {
             findArcade()
@@ -46,28 +60,44 @@ class ArcadeProfileViewController: ViewController {
     }
     
     func findIfReported() {
-        // Try to Read, if not make array
-        if let testArray : AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey(key) as? [NSString] {
+        // Try to Read Seen Data, if not make array
+        if let testArray : AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey(keySeen) as? [NSString] {
             let readArray : [NSString] = testArray! as! [NSString]
-            self.IDArray = readArray
+            self.IDArraySeen = readArray
             for string in readArray {
                 print(string)
                 print((self.arcade as AnyObject).objectId)
                 if string == (self.arcade as AnyObject).objectId {
-                    self.hasAlreadyReported = true
-                    self.yesButton.setTitleColor(UIColor.lightGrayColor(), forState: .Normal)
-                    self.noButton.setTitleColor(UIColor.lightGrayColor(), forState: .Normal)
+                    self.hasAlreadyReportedSeen = true
+                    self.yesButton.setImage(UIImage(named: "thumbsUpFilled.png"), forState: .Normal)
                 }
             }
         }else {
-            print("INITIAL TIME, MAKING ARRAY")
-            let array1: [NSString] = [NSString]()
-            self.IDArray = array1
+            print("INITIAL TIME, MAKING Seen ARRAY")
+            self.IDArraySeen = [NSString]()
             //save
-            NSUserDefaults.standardUserDefaults().setObject(array1, forKey: key)
+            NSUserDefaults.standardUserDefaults().setObject(self.IDArraySeen, forKey: keySeen)
             NSUserDefaults.standardUserDefaults().synchronize()
         }
-        print(self.IDArray)
+        // Try to read notSeen Data
+        if let testArray : AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey(keyNotSeen) as? [NSString] {
+            let readArray : [NSString] = testArray! as! [NSString]
+            self.IDArrayNotSeen = readArray
+            for string in readArray {
+                print(string)
+                print((self.arcade as AnyObject).objectId)
+                if string == (self.arcade as AnyObject).objectId {
+                    self.hasAlreadyReportedNotSeen = true
+                    self.noButton.setImage(UIImage(named: "thumbsDownFilled.png"), forState: .Normal)
+                }
+            }
+        }else {
+            print("INITIAL TIME, MAKING NotSeen ARRAY")
+            self.IDArrayNotSeen = [NSString]()
+            //save
+            NSUserDefaults.standardUserDefaults().setObject(self.IDArrayNotSeen, forKey: keyNotSeen)
+            NSUserDefaults.standardUserDefaults().synchronize()
+        }
         
     }
     
@@ -106,26 +136,60 @@ class ArcadeProfileViewController: ViewController {
     // Pass the selected object to the new view controller.
     }
     */
+    
+    func reportSeen() {
+        self.arcade.finds = arcade.finds + 1
+        self.hasAlreadyReportedSeen = true
+        self.arcade.lastSeen = NSDate()
+        self.IDArraySeen?.append((self.arcade as AnyObject).objectId)
+        self.yesButton.setImage(UIImage(named: "thumbsUpFilled.png"), forState: .Normal)
+    }
+    
+    func unreportSeen() {
+        self.arcade.finds = arcade.finds - 1
+        self.hasAlreadyReportedSeen = false
+        self.IDArraySeen = self.IDArraySeen.filter{$0 != ((self.arcade as AnyObject).objectId)}
+        self.yesButton.setImage(UIImage(named: "thumbsUpHollow.png"), forState: .Normal)
+    }
+    
+    func reportNotSeen() {
+        self.IDArrayNotSeen?.append((self.arcade as AnyObject).objectId)
+        self.arcade.notFinds = self.arcade.notFinds + 1
+        self.hasAlreadyReportedNotSeen = true
+        self.noButton.setImage(UIImage(named: "thumbsDownFilled.png"), forState: .Normal)
+    }
+    
+    func unreportNotSeen() {
+        self.IDArrayNotSeen = self.IDArrayNotSeen.filter{$0 != ((self.arcade as AnyObject).objectId)}
+        self.arcade.notFinds = self.arcade.notFinds - 1
+        self.hasAlreadyReportedNotSeen = false
+        self.noButton.setImage(UIImage(named: "thumbsDownHollow.png"), forState: .Normal)
+    }
     @IBAction func yesButton(sender: AnyObject) {
-        if !self.hasAlreadyReported {
-            self.arcade.finds = arcade.finds + 1
-            self.arcade.lastSeen = NSDate()
-            self.updateAfterNewReport()
-            
+        if !self.hasAlreadyReportedSeen {
+            reportSeen()
+            if self.hasAlreadyReportedNotSeen{
+                unreportNotSeen()
+            }
+        }else {
+            unreportSeen()
         }
+        self.updateAfterNewReport()
     }
     @IBAction func noButton(sender: AnyObject) {
-        if !self.hasAlreadyReported {
-            
-            self.arcade.notFinds = self.arcade.notFinds + 1
-            self.updateAfterNewReport()
-            
+        if !self.hasAlreadyReportedNotSeen {
+            reportNotSeen()
+            if self.hasAlreadyReportedSeen{
+                unreportSeen()
+            }
+        }else {
+            unreportNotSeen()
         }
+        self.updateAfterNewReport()
     }
     
     func updateAfterNewReport() {
-        self.hasAlreadyReported = true
-        self.IDArray?.append((self.arcade as AnyObject).objectId)
+        
         self.yesCountLabel.text = String(format: "%7.0f", self.arcade.finds).stringByReplacingOccurrencesOfString(" ", withString: "")
         self.noCountLabel.text = String(format: "%7.0f", self.arcade.notFinds).stringByReplacingOccurrencesOfString(" ", withString: "")
         if (self.arcade.finds != 0) {
@@ -133,10 +197,11 @@ class ArcadeProfileViewController: ViewController {
             print(percent)
             
             self.percentLabel.text = String(format: "%3.0f%%", (percent * 100.0))
+            self.lastSeenLabel.text = "Last seen on \(self.arcade.lastSeen)"
         }else {
             self.percentLabel.text = "0%"
         }
-        
+        // Update Counts online
         backendless.persistenceService.of(Arcade.ofClass()).save(self.arcade,
             response: { ( point : AnyObject!) -> Void in
                 print("ASYNC: geo point saved. Object ID - \(point.objectId)")
@@ -145,7 +210,8 @@ class ArcadeProfileViewController: ViewController {
                 print("Server reported an error: \(fault)")
             }
         )
-        NSUserDefaults.standardUserDefaults().setObject(self.IDArray, forKey: key)
+        NSUserDefaults.standardUserDefaults().setObject(self.IDArraySeen, forKey: keySeen)
+        NSUserDefaults.standardUserDefaults().setObject(self.IDArrayNotSeen, forKey: keyNotSeen)
         NSUserDefaults.standardUserDefaults().synchronize()
     }
 
