@@ -17,6 +17,8 @@ class ArcadeMachinesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if ((arcade) != nil) { // if given an Arcade Object
+            // need add button because you are viewing from arcade
+            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addNewArcadeMachine")
             EZLoadingActivity.show("", disableUI: true)
             let queryOptions = QueryOptions()
             queryOptions.addRelated("geoPoint")
@@ -85,7 +87,10 @@ class ArcadeMachinesTableViewController: UITableViewController {
 
     }
     
-
+    func addNewArcadeMachine() {
+        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("SearchForName") as! SearchForNameTableViewController
+        self.showViewController(vc, sender: self)
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

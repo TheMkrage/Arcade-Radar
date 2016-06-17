@@ -494,40 +494,16 @@
                                                 </mask>
                                             </variation>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1.00 for 3 plays" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G4Y-bT-Rev">
-                                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="TO8-uZ-Zv0"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="TO8-uZ-Zv0"/>
-                                                </mask>
-                                            </variation>
-                                            <variation key="widthClass=compact">
-                                                <mask key="constraints">
-                                                    <include reference="TO8-uZ-Zv0"/>
-                                                </mask>
-                                            </variation>
-                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="XsZ-it-rTr" firstAttribute="leading" secondItem="QFj-dS-aG6" secondAttribute="leadingMargin" id="7CK-NJ-EgT"/>
-                                        <constraint firstItem="G4Y-bT-Rev" firstAttribute="trailing" secondItem="QFj-dS-aG6" secondAttribute="trailingMargin" id="Bf6-Wb-8EH"/>
                                         <constraint firstItem="XsZ-it-rTr" firstAttribute="centerY" secondItem="QFj-dS-aG6" secondAttribute="centerY" id="Mv7-4d-bzj"/>
-                                        <constraint firstItem="G4Y-bT-Rev" firstAttribute="centerY" secondItem="QFj-dS-aG6" secondAttribute="centerY" id="p50-P4-pDc"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="subviews">
                                             <exclude reference="XsZ-it-rTr"/>
-                                            <exclude reference="G4Y-bT-Rev"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <exclude reference="Bf6-Wb-8EH"/>
-                                            <exclude reference="p50-P4-pDc"/>
                                             <exclude reference="7CK-NJ-EgT"/>
                                             <exclude reference="Mv7-4d-bzj"/>
                                         </mask>
@@ -535,11 +511,8 @@
                                     <variation key="widthClass=compact">
                                         <mask key="subviews">
                                             <include reference="XsZ-it-rTr"/>
-                                            <include reference="G4Y-bT-Rev"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <include reference="Bf6-Wb-8EH"/>
-                                            <include reference="p50-P4-pDc"/>
                                             <include reference="7CK-NJ-EgT"/>
                                             <include reference="Mv7-4d-bzj"/>
                                         </mask>
@@ -547,7 +520,6 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="machineNameLabel" destination="XsZ-it-rTr" id="jix-zw-fUs"/>
-                                    <outlet property="pricePerPlayLabel" destination="G4Y-bT-Rev" id="JwF-tu-CmG"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

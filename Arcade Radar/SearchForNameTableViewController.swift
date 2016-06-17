@@ -12,7 +12,7 @@ class SearchForNameTableViewController: UITableViewController {
     
     // MARK: - Properties
     var backendless = Backendless()
-    var filteredMachines = [ArcadeMachine]()
+    var filteredMachines = [ArcadeMachineType]()
     let searchController = UISearchController(searchResultsController: nil)
     
     // MARK: - View Setup
@@ -59,14 +59,14 @@ class SearchForNameTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ArcadeMachineCell", forIndexPath: indexPath) as! ArcadeMachineTableViewCell
-        let machine: ArcadeMachine
+        let cell = UITableViewCell()
+        let machine: ArcadeMachineType
         if searchController.active && searchController.searchBar.text != "" && indexPath.row < self.filteredMachines.count {
             machine = filteredMachines[indexPath.row]
-            cell.machineNameLabel.text = machine.name
-            cell.pricePerPlayLabel.text = "$\(machine.price) for \(machine.numOfPlays) \(machine.whatPriceIsFor)s"
+            cell.textLabel!.text = machine.name
         } else {
-            cell.machineNameLabel.text = "Not Listed"
+            
+            cell.textLabel!.text = "Not Listed"
         }
         
         return cell
@@ -89,21 +89,19 @@ class SearchForNameTableViewController: UITableViewController {
             }
             print(whereClause)
             query.whereClause = whereClause
-            backendless.persistenceService.of(ArcadeMachine.ofClass()).find(
-                query,
-                response: { ( machinesSearched : BackendlessCollection!) -> () in
-                    let currentPage = machinesSearched.getCurrentPage()
-                    print("SEARCHED: Loaded \(currentPage.count) machine objects")
-                    var tempArray = [ArcadeMachine]()
-                    for machine in currentPage {
-                        print("SEARCHED! name = \(machine.name)")
-                        tempArray.append(machine as! ArcadeMachine)
-                    }
-                    self.filteredMachines = tempArray
+            dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0), { () -> Void in
+                let machinesSearched: BackendlessCollection! = self.backendless.data.of(ArcadeMachineType.ofClass()).find(query)
+                let currentPage = machinesSearched.getCurrentPage() as! [ArcadeMachineType]
+                print("SEARCHED: Loaded \(currentPage.count) machine objects")
+                var tempArray = [ArcadeMachineType]()
+                for machine in currentPage {
+                    print("SEARCHED! name = \(machine.name)")
+                    tempArray.append(machine )
+                }
+                self.filteredMachines = tempArray
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     self.tableView.reloadData()
-                },
-                error: { ( fault : Fault!) -> () in
-                    print("Server reported an error: \(fault)")
+                    })
                 }
             )
         }
