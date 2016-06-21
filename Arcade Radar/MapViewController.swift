@@ -147,11 +147,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
                                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                                     self.clusteringManager.addAnnotations([overlay])
                                     NSOperationQueue().addOperationWithBlock({
-                                        print("Doing thing")
+                                        
                                         let mapBoundsWidth = Double(self.mapView.bounds.size.width)
                                         let mapRectWidth:Double = self.mapView.visibleMapRect.size.width
                                         let scale:Double = mapBoundsWidth / mapRectWidth
                                         let annotationArray = self.clusteringManager.clusteredAnnotationsWithinMapRect(self.mapView.visibleMapRect, withZoomScale:scale)
+                                        print(annotationArray)
                                         self.clusteringManager.displayAnnotations(annotationArray, onMapView:self.mapView)
                                     })
                                 })
@@ -184,7 +185,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
                                     
                                     self.clusteringManager.addAnnotations([overlay])
                                     NSOperationQueue().addOperationWithBlock({
-                                        print("Doing thing")
                                         let mapBoundsWidth = Double(self.mapView.bounds.size.width)
                                         
                                         let mapRectWidth:Double = self.mapView.visibleMapRect.size.width
@@ -192,7 +192,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
                                         let scale:Double = mapBoundsWidth / mapRectWidth
                                         
                                         let annotationArray = self.clusteringManager.clusteredAnnotationsWithinMapRect(self.mapView.visibleMapRect, withZoomScale:scale)
-                                        
+                                        print(annotationArray)
                                         self.clusteringManager.displayAnnotations(annotationArray, onMapView:self.mapView)
                                         
                                     })
@@ -286,10 +286,17 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
     
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if (view.tag == 0) { // is a cluster object
-            let vc = ArcadesTableViewController()
-            vc.arcades = ((view.annotation as! FBAnnotationCluster).annotations as! [ArcadeMkCircle]).map({ $0.arcade})
-            vc.title = (view.annotation?.title)!
-            self.showViewController(vc, sender: self)
+            if !self.arcadeMachineWhereClauseExtension.isEmpty {
+                let vc = ArcadeMachinesTableViewController()
+                vc.machines = ((view.annotation as! FBAnnotationCluster).annotations as! [ArcadeMachineMkCircle]).map({ $0.machine!})
+                vc.title = (view.annotation?.title)!
+                self.showViewController(vc, sender: self)
+            }else {
+                let vc = ArcadesTableViewController()
+                vc.arcades = ((view.annotation as! FBAnnotationCluster).annotations as! [ArcadeMkCircle]).map({ $0.arcade})
+                vc.title = (view.annotation?.title)!
+                self.showViewController(vc, sender: self)
+            }
         }else if (view.tag == 1) {
             if let _ = view.annotation as? ArcadeMachineMkCircle {
                 let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ArcadeMachineProfile") as! ArcadeMachineProfileViewController

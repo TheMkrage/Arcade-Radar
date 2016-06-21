@@ -135,7 +135,7 @@ extension SearchForNameTableViewController: UISearchBarDelegate {
                 }
             }
             
-            vc.arcadeMachineWhereClauseExtension = "AND \(whereClause)"
+            vc.arcadeMachineWhereClauseExtension = "AND (\(whereClause))"
             self.showViewController(vc, sender: self)
             
         }

@@ -509,7 +509,7 @@
                             <outlet property="delegate" destination="Yi7-m1-cv1" id="fZG-N9-HlO"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Nrm-xJ-i1C"/>
+                    <navigationItem key="navigationItem" title="Search For Arcade Machine" id="Nrm-xJ-i1C"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="mKw-9k-jYe" id="mLU-X7-siL"/>
                     </connections>

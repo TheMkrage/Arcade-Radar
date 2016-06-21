@@ -29,9 +29,12 @@ class ArcadeProfileViewController: ViewController {
     @IBOutlet var noButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        findIfReported()
+        
         if ((self.nameOfArcade?.isEmpty) != nil) {
             findArcade()
+            findIfReported()
+        }else {
+            findIfReported()
         }
         if self.arcade.URL.isEmpty {
             self.bringToWebsiteButton.hidden = true
