@@ -14,7 +14,7 @@ class ArcadeMachineMkCircle: MKCircle {
     func setArcadeMachine(machine: ArcadeMachine) {
         self.machine = machine;
         self.title = "\(machine.name)"
-        self.subtitle = "Last Seen: \(machine.lastSeen)"
+        self.subtitle = "Arcade: \(self.machine!.arcadeName)\nLast Seen: \(machine.lastSeen)"
     }
     
 }

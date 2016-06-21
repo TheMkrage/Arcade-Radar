@@ -11,7 +11,7 @@ import UIKit
 class SearchForNameTableViewController: UITableViewController {
     
     // MARK: - Properties
-    var isSendingToMap = false
+    var isSendingToMap = true
     var backendless = Backendless()
     var filteredMachines = [ArcadeMachineType]()
     let searchController = UISearchController(searchResultsController: nil)
@@ -55,7 +55,9 @@ class SearchForNameTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if self.isSendingToMap {
-            
+            let vc = self.storyboard?.instantiateViewControllerWithIdentifier("map") as! MapViewController
+            vc.arcadeMachineWhereClauseExtension = "AND name = '\(self.filteredMachines[indexPath.row].name)'"
+            self.showViewController(vc, sender: self)
         }else {
             let createViewController = self.storyboard?.instantiateViewControllerWithIdentifier("Create") as! CreateArcadeMachineViewController
             createViewController.nameOfMachine = filteredMachines[indexPath.row].name
@@ -92,7 +94,6 @@ class SearchForNameTableViewController: UITableViewController {
                     whereClause = "\(whereClause) OR name LIKE '%\(x)%'"
                 }
             }
-            print(whereClause)
             query.whereClause = whereClause
             dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0), { () -> Void in
                 let machinesSearched: BackendlessCollection! = self.backendless.data.of(ArcadeMachineType.ofClass()).find(query)
@@ -117,6 +118,28 @@ extension SearchForNameTableViewController: UISearchBarDelegate {
     // MARK: - UISearchBar Delegate
     func searchBar(searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         filterContentForSearchText(searchBar.text!, scope: searchBar.scopeButtonTitles![selectedScope])
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        if self.isSendingToMap {
+            let vc = self.storyboard?.instantiateViewControllerWithIdentifier("map") as! MapViewController
+            let searchText = searchBar.text!
+            
+            let pointsArr = searchText.componentsSeparatedByString(" ")
+            var whereClause = "name LIKE '%\(searchText)%'"
+            if pointsArr.count > 1 {
+                for x in pointsArr {
+                    if x != "" {
+                        whereClause = "\(whereClause) OR name LIKE '%\(x)%'"
+                    }
+                }
+            }
+            
+            vc.arcadeMachineWhereClauseExtension = "AND \(whereClause)"
+            self.showViewController(vc, sender: self)
+            
+        }
+        print("Taco")
     }
     
 }

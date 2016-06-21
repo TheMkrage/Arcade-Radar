@@ -163,7 +163,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
                 })
             }else { // if the map is searching for arcade machines
                 query.whereClause = "geoPoint.latitude < \(nwCoord.latitude) AND geoPoint.latitude > \(seCoord.latitude) AND geoPoint.longitude > \(nwCoord.longitude) AND geoPoint.longitude < \(seCoord.longitude) \(self.arcadeMachineWhereClauseExtension)"
-                
+                print(query.whereClause)
                 dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0), { () -> Void in
                     Types.tryblock({ () -> Void in
                         let arcadeMachinesSearched: BackendlessCollection! = self.backendless.data.of(ArcadeMachine.ofClass()).find(query)
@@ -291,9 +291,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
             vc.title = (view.annotation?.title)!
             self.showViewController(vc, sender: self)
         }else if (view.tag == 1) {
-            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ArcadeProfile") as! ArcadeProfileViewController
-            vc.arcade = (view.annotation as! ArcadeMkCircle).arcade as Arcade!
-            self.showViewController(vc, sender: self)
+            if let _ = view.annotation as? ArcadeMachineMkCircle {
+                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ArcadeMachineProfile") as! ArcadeMachineProfileViewController
+                vc.arcadeMachine = (view.annotation as! ArcadeMachineMkCircle).machine as ArcadeMachine!
+                self.showViewController(vc, sender: self)
+            }else {
+                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ArcadeProfile") as! ArcadeProfileViewController
+                vc.arcade = (view.annotation as! ArcadeMkCircle).arcade as Arcade!
+                self.showViewController(vc, sender: self)
+            }
         }
     }
     

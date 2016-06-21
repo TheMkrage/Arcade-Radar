@@ -10,7 +10,7 @@
         <!--The Map-->
         <scene sceneID="3Ft-iB-nPW">
             <objects>
-                <viewController id="8Fq-UF-ClO" customClass="MapViewController" customModule="Arcade_Radar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="map" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8Fq-UF-ClO" customClass="MapViewController" customModule="Arcade_Radar" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Y1V-uf-OUG"/>
                         <viewControllerLayoutGuide type="bottom" id="dnk-IO-tdQ"/>
@@ -43,25 +43,6 @@
             </objects>
             <point key="canvasLocation" x="559.5" y="-197"/>
         </scene>
-        <!--Item 2-->
-        <scene sceneID="64L-Ke-bVO">
-            <objects>
-                <viewController id="gBX-e4-2bw" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="8hV-WK-qsR"/>
-                        <viewControllerLayoutGuide type="bottom" id="Xn1-qI-Qyv"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="dKy-2c-AX3">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="SkN-ri-JQc"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Kfu-5K-iIl" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-337.5" y="734"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="EK9-lW-b3t">
             <objects>
@@ -73,7 +54,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="Ao4-nr-Rai" kind="relationship" relationship="viewControllers" id="K4B-bW-XdS"/>
-                        <segue destination="gBX-e4-2bw" kind="relationship" relationship="viewControllers" id="njU-t9-Ojd"/>
+                        <segue destination="uOl-dj-glw" kind="relationship" relationship="viewControllers" id="Mjy-o8-K9b"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z98-PI-far" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -528,6 +509,7 @@
                             <outlet property="delegate" destination="Yi7-m1-cv1" id="fZG-N9-HlO"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="Nrm-xJ-i1C"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="mKw-9k-jYe" id="mLU-X7-siL"/>
                     </connections>
@@ -551,7 +533,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="2241" y="-1181"/>
+            <point key="canvasLocation" x="559.5" y="515"/>
         </scene>
         <!--Machine Information-->
         <scene sceneID="cvd-9I-jdT">
@@ -845,7 +827,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cye-i1-Xzy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1536" y="-209"/>
+            <point key="canvasLocation" x="2454" y="-209"/>
         </scene>
         <!--Arcade Profile View Controller-->
         <scene sceneID="SRF-DF-hmf">
@@ -1348,6 +1330,25 @@
                 </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="2895" y="-1195"/>
+        </scene>
+        <!--Search-->
+        <scene sceneID="unH-pQ-MXJ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uOl-dj-glw" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Search" id="D9X-hY-dsA"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aDk-w6-5jb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Yi7-m1-cv1" kind="relationship" relationship="rootViewController" id="fzl-7z-Wrl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ABE-Th-8y8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-309" y="490"/>
         </scene>
     </scenes>
     <resources>
