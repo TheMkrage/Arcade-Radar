@@ -11,6 +11,7 @@ import UIKit
 class SearchForNameTableViewController: UITableViewController {
     
     // MARK: - Properties
+    var isSendingToMap = false
     var backendless = Backendless()
     var filteredMachines = [ArcadeMachineType]()
     let searchController = UISearchController(searchResultsController: nil)
@@ -53,9 +54,13 @@ class SearchForNameTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let createViewController = self.storyboard?.instantiateViewControllerWithIdentifier("Create") as! CreateArcadeMachineViewController
-        createViewController.nameOfMachine = filteredMachines[indexPath.row].name
-        self.showViewController(createViewController, sender: self)
+        if self.isSendingToMap {
+            
+        }else {
+            let createViewController = self.storyboard?.instantiateViewControllerWithIdentifier("Create") as! CreateArcadeMachineViewController
+            createViewController.nameOfMachine = filteredMachines[indexPath.row].name
+            self.showViewController(createViewController, sender: self)
+        }
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -101,7 +106,7 @@ class SearchForNameTableViewController: UITableViewController {
                 self.filteredMachines = tempArray
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     self.tableView.reloadData()
-                    })
+                })
                 }
             )
         }

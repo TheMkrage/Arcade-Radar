@@ -11,6 +11,7 @@ import MapKit
 
 class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureRecognizerDelegate {
     
+    var arcadeMachineWhereClauseExtension = ""
     var backendless = Backendless()
     var machines: NSMutableArray = NSMutableArray()
     let clusteringManager = FBClusteringManager()
@@ -118,63 +119,93 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
             //print(seCoord)
             // Search backendless for machines in the view
             //var query2 = BackendlessDataQuery
+            
             let queryOptions = QueryOptions()
             queryOptions.addRelated("geoPoint")
             queryOptions.pageSize = 100
             //queryOptions.so
             let query = BackendlessDataQuery()
             query.queryOptions = queryOptions
-            query.whereClause = "geoPoint.latitude < \(nwCoord.latitude) AND geoPoint.latitude > \(seCoord.latitude) AND geoPoint.longitude > \(nwCoord.longitude) AND geoPoint.longitude < \(seCoord.longitude)"
-            
-            dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0), { () -> Void in
-                //print("Taco")
-                Types.tryblock({ () -> Void in
-                let arcadesSearched: BackendlessCollection! = self.backendless.data.of(Arcade.ofClass()).find(query)
-                    
-                    
-                let currentPage = arcadesSearched.getCurrentPage()
-                print("Loaded \(currentPage.count) arcade objects")
-                print("Thread \(NSThread.currentThread())")
-                for arcade in currentPage {
-                    //print("name = \(machine.name)")
-                    //print("\(machine.objectId)")
-                    //print(machine.geoPoint)
-                    let overlay = ArcadeMkCircle(centerCoordinate: CLLocationCoordinate2D(latitude: ((arcade.geoPoint as GeoPoint).latitude as Double), longitude: ((arcade.geoPoint as GeoPoint).longitude as Double)), radius: 20)
-                    overlay.setArcadeToDisplay(arcade as! Arcade)
-                    var isAlreadyThere = false
-                    if (self.clusteringManager.allAnnotations() as! [ArcadeMkCircle]).contains({ (arcade1: ArcadeMkCircle) -> Bool in
-                        return arcade1.arcade.geoPoint?.latitude == overlay.arcade.geoPoint?.latitude && arcade1.arcade.geoPoint?.longitude == overlay.arcade.geoPoint?.longitude && arcade1.arcade.name == overlay.arcade.name
-                    }) {
-                        isAlreadyThere = true
-                    }
-                    
-                    if !isAlreadyThere {
-                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                            //self.mapView.addOverlay(overlay)
-                            //self.mapView.addAnnotation(overlay)
-                            self.clusteringManager.addAnnotations([overlay])
-                            NSOperationQueue().addOperationWithBlock({
-                                print("Doing thing")
-                                let mapBoundsWidth = Double(self.mapView.bounds.size.width)
-                                
-                                let mapRectWidth:Double = self.mapView.visibleMapRect.size.width
-                                
-                                let scale:Double = mapBoundsWidth / mapRectWidth
-                                
-                                let annotationArray = self.clusteringManager.clusteredAnnotationsWithinMapRect(self.mapView.visibleMapRect, withZoomScale:scale)
-                                
-                                self.clusteringManager.displayAnnotations(annotationArray, onMapView:self.mapView)
-                                
-                            })
-
-                        })
-                    }
-                }
-                    
-                }, catchblock: { (exception) -> Void in
-                    print(exception)
+            if self.arcadeMachineWhereClauseExtension.isEmpty { // if the map is searching for arcades
+                query.whereClause = "geoPoint.latitude < \(nwCoord.latitude) AND geoPoint.latitude > \(seCoord.latitude) AND geoPoint.longitude > \(nwCoord.longitude) AND geoPoint.longitude < \(seCoord.longitude)"
+                
+                dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0), { () -> Void in
+                    Types.tryblock({ () -> Void in
+                        let arcadesSearched: BackendlessCollection! = self.backendless.data.of(Arcade.ofClass()).find(query)
+                        let currentPage = arcadesSearched.getCurrentPage()
+                        for arcade in currentPage {
+                            let overlay = ArcadeMkCircle(centerCoordinate: CLLocationCoordinate2D(latitude: ((arcade.geoPoint as GeoPoint).latitude as Double), longitude: ((arcade.geoPoint as GeoPoint).longitude as Double)), radius: 20)
+                            overlay.setArcadeToDisplay(arcade as! Arcade)
+                            var isAlreadyThere = false
+                            if (self.clusteringManager.allAnnotations() as! [ArcadeMkCircle]).contains({ (arcade1: ArcadeMkCircle) -> Bool in
+                                return arcade1.arcade.geoPoint?.latitude == overlay.arcade.geoPoint?.latitude && arcade1.arcade.geoPoint?.longitude == overlay.arcade.geoPoint?.longitude && arcade1.arcade.name == overlay.arcade.name
+                            }) {
+                                isAlreadyThere = true
+                            }
+                            
+                            if !isAlreadyThere {
+                                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                                    self.clusteringManager.addAnnotations([overlay])
+                                    NSOperationQueue().addOperationWithBlock({
+                                        print("Doing thing")
+                                        let mapBoundsWidth = Double(self.mapView.bounds.size.width)
+                                        let mapRectWidth:Double = self.mapView.visibleMapRect.size.width
+                                        let scale:Double = mapBoundsWidth / mapRectWidth
+                                        let annotationArray = self.clusteringManager.clusteredAnnotationsWithinMapRect(self.mapView.visibleMapRect, withZoomScale:scale)
+                                        self.clusteringManager.displayAnnotations(annotationArray, onMapView:self.mapView)
+                                    })
+                                })
+                            }
+                        }
+                        }, catchblock: { (exception) -> Void in
+                            print(exception)
+                    })
                 })
-            })
+            }else { // if the map is searching for arcade machines
+                query.whereClause = "geoPoint.latitude < \(nwCoord.latitude) AND geoPoint.latitude > \(seCoord.latitude) AND geoPoint.longitude > \(nwCoord.longitude) AND geoPoint.longitude < \(seCoord.longitude) \(self.arcadeMachineWhereClauseExtension)"
+                
+                dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0), { () -> Void in
+                    Types.tryblock({ () -> Void in
+                        let arcadeMachinesSearched: BackendlessCollection! = self.backendless.data.of(ArcadeMachine.ofClass()).find(query)
+                        let currentPage = arcadeMachinesSearched.getCurrentPage()
+                        for arcadeMachine in currentPage {
+                            let overlay = ArcadeMachineMkCircle(centerCoordinate: CLLocationCoordinate2D(latitude: ((arcadeMachine.geoPoint as GeoPoint).latitude as Double), longitude: ((arcadeMachine.geoPoint as GeoPoint).longitude as Double)), radius: 20)
+                            overlay.setArcadeMachine(arcadeMachine as! ArcadeMachine)
+                            var isAlreadyThere = false
+                            if (self.clusteringManager.allAnnotations() as! [ArcadeMachineMkCircle]).contains({ (arcadeMachine1: ArcadeMachineMkCircle) -> Bool in
+                                return arcadeMachine1.machine!.geoPoint?.latitude == overlay.machine!.geoPoint?.latitude && arcadeMachine1.machine!.geoPoint?.longitude == overlay.machine!.geoPoint?.longitude && arcadeMachine1.machine!.name == overlay.machine!.name
+                                
+                            }) {
+                                isAlreadyThere = true
+                            }
+                            
+                            if !isAlreadyThere {
+                                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                                    
+                                    self.clusteringManager.addAnnotations([overlay])
+                                    NSOperationQueue().addOperationWithBlock({
+                                        print("Doing thing")
+                                        let mapBoundsWidth = Double(self.mapView.bounds.size.width)
+                                        
+                                        let mapRectWidth:Double = self.mapView.visibleMapRect.size.width
+                                        
+                                        let scale:Double = mapBoundsWidth / mapRectWidth
+                                        
+                                        let annotationArray = self.clusteringManager.clusteredAnnotationsWithinMapRect(self.mapView.visibleMapRect, withZoomScale:scale)
+                                        
+                                        self.clusteringManager.displayAnnotations(annotationArray, onMapView:self.mapView)
+                                        
+                                    })
+                                    
+                                })
+                            }
+                        }
+                        
+                        }, catchblock: { (exception) -> Void in
+                            print(exception)
+                    })
+                })
+            }
         }
     }
     
@@ -187,25 +218,25 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
     
     func didTapMap(gestureRecognizer: UIGestureRecognizer) {
         // Only register when a tap has ended
-       /* if gestureRecognizer.state == .Ended {
-            // Convert the tap into lat and long
-            let tapPoint: CGPoint = gestureRecognizer.locationInView(self.mapView)
-            let tapCoordinate = self.mapView.convertPoint(tapPoint, toCoordinateFromView: self.mapView)
-            let tapMapPoint = MKMapPointForCoordinate(tapCoordinate)
-            // Find if we tapped any arcade machines
-            for overlay in self.mapView.overlays{
-                if (overlay.isKindOfClass(MKCircle)) {
-                    let circle = overlay as! MKCircle
-                    let circleCenterMapPoint = MKMapPointForCoordinate(circle.coordinate)
-                    let distanceFromCircleCenter = MKMetersBetweenMapPoints(circleCenterMapPoint, tapMapPoint)
-                    // If we tapped in an arcade machine's range, display some basic info
-                    if distanceFromCircleCenter <= circle.radius {
-                        let annot = overlay as MKAnnotation
-                        self.mapView.selectAnnotation(annot, animated: true)
-                        break
-                    }
-                }
-            }
+        /* if gestureRecognizer.state == .Ended {
+        // Convert the tap into lat and long
+        let tapPoint: CGPoint = gestureRecognizer.locationInView(self.mapView)
+        let tapCoordinate = self.mapView.convertPoint(tapPoint, toCoordinateFromView: self.mapView)
+        let tapMapPoint = MKMapPointForCoordinate(tapCoordinate)
+        // Find if we tapped any arcade machines
+        for overlay in self.mapView.overlays{
+        if (overlay.isKindOfClass(MKCircle)) {
+        let circle = overlay as! MKCircle
+        let circleCenterMapPoint = MKMapPointForCoordinate(circle.coordinate)
+        let distanceFromCircleCenter = MKMetersBetweenMapPoints(circleCenterMapPoint, tapMapPoint)
+        // If we tapped in an arcade machine's range, display some basic info
+        if distanceFromCircleCenter <= circle.radius {
+        let annot = overlay as MKAnnotation
+        self.mapView.selectAnnotation(annot, animated: true)
+        break
+        }
+        }
+        }
         }*/
     }
     
@@ -234,23 +265,23 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
         }*/
     }
     
-   /* func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
-        let identifier = "ArcadeMachine"
-        
-        if ((annotation as? ArcadeMachineMkCircle) != nil) {
-            
-            var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier)
-            if annotationView == nil {
-                annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-                annotationView!.canShowCallout = true
-                
-                let btn = UIButton(type: .DetailDisclosure)
-                annotationView!.rightCalloutAccessoryView = btn
-                
-            }
-            return annotationView
-        }
-        return nil
+    /* func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+    let identifier = "ArcadeMachine"
+    
+    if ((annotation as? ArcadeMachineMkCircle) != nil) {
+    
+    var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier)
+    if annotationView == nil {
+    annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+    annotationView!.canShowCallout = true
+    
+    let btn = UIButton(type: .DetailDisclosure)
+    annotationView!.rightCalloutAccessoryView = btn
+    
+    }
+    return annotationView
+    }
+    return nil
     }*/
     
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
@@ -267,12 +298,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
     }
     
     /*func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
-        if let overlay = overlay as? ArcadeMachineMkCircle {
-            let circleRenderer = MKCircleRenderer(circle: overlay)
-            circleRenderer.alpha = 0.5
-            return circleRenderer
-        }
-        return MKOverlayRenderer()
+    if let overlay = overlay as? ArcadeMachineMkCircle {
+    let circleRenderer = MKCircleRenderer(circle: overlay)
+    circleRenderer.alpha = 0.5
+    return circleRenderer
+    }
+    return MKOverlayRenderer()
     }*/
     
     // CLL Location Delegate
@@ -298,7 +329,7 @@ extension MapViewController : MKMapViewDelegate {
             let scale:Double = mapBoundsWidth / mapRectWidth
             
             let annotationArray = self.clusteringManager.clusteredAnnotationsWithinMapRect(self.mapView.visibleMapRect, withZoomScale:scale)
-        
+            
             self.clusteringManager.displayAnnotations(annotationArray, onMapView:self.mapView)
             
         })
@@ -326,7 +357,7 @@ extension MapViewController : MKMapViewDelegate {
         } else if annotation.isKindOfClass(MKUserLocation){
             return nil
         } else {
-        
+            
             reuseId = "Pin"
             var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as MKAnnotationView?
             if (pinView == nil) {

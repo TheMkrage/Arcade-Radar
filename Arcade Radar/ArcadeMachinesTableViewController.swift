@@ -88,7 +88,7 @@ class ArcadeMachinesTableViewController: UITableViewController {
     }
     
     func addNewArcadeMachine() {
-        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("SearchForName") as! SearchForNameTableViewController
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("SearchForName") as! SearchForNameTableViewController
         self.showViewController(vc, sender: self)
     }
     /*
