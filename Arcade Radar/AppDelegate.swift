@@ -12,10 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    let APP_ID = "FFA992AA-0B7F-8776-FFB4-92B410F98800"
-    let SECRET_KEY = "958B8D5E-0D85-30C8-FF63-A21D5698FF00"
-    let VERSION_NUM = "v1"
-    
+       
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         let backendless = Backendless.sharedInstance()
         backendless.initApp(APP_ID, secret:SECRET_KEY, version:VERSION_NUM)
