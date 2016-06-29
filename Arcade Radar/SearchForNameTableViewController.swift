@@ -114,6 +114,9 @@ class SearchForNameTableViewController: UITableViewController {
                 })
                 }
             )
+        }else { // if not, make nothing show
+            self.filteredMachines = []
+            self.tableView.reloadData()
         }
     }
 }
