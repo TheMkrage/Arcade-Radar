@@ -163,7 +163,7 @@
                                                     </mask>
                                                 </variation>
                                                 <connections>
-                                                    <action selector="bringToMap:" destination="2t2-Vq-VgS" eventType="touchUpInside" id="fXe-pD-UIg"/>
+                                                    <segue destination="ETM-GK-JcK" kind="show" identifier="ShowArcadeProfile" id="eL0-pJ-Q8T"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QLd-26-YIV">
@@ -535,6 +535,23 @@
             </objects>
             <point key="canvasLocation" x="559.5" y="515"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="a9z-FZ-euj">
+            <objects>
+                <viewController storyboardIdentifier="New Arcade" id="Dgt-5q-cla" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="byc-Ue-xmC"/>
+                        <viewControllerLayoutGuide type="bottom" id="jZ0-ZJ-78I"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JHP-1C-nbB">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uRP-DQ-dqT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1582.5" y="520"/>
+        </scene>
         <!--Machine Information-->
         <scene sceneID="cvd-9I-jdT">
             <objects>
@@ -827,7 +844,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cye-i1-Xzy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2454" y="-209"/>
+            <point key="canvasLocation" x="1840.5" y="-89"/>
         </scene>
         <!--Arcade Profile View Controller-->
         <scene sceneID="SRF-DF-hmf">
@@ -841,7 +858,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arcade Machine Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dEo-T7-82c">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arcade Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dEo-T7-82c">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="TKz-Fl-188"/>

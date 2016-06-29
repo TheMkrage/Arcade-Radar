@@ -48,6 +48,9 @@ class SearchForNameTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchController.active && searchController.searchBar.text != "" {
+            if self.isSendingToMap {
+                return filteredMachines.count
+            }
             return filteredMachines.count + 1
         }
         return 0
@@ -57,6 +60,7 @@ class SearchForNameTableViewController: UITableViewController {
         if self.isSendingToMap {
             let vc = self.storyboard?.instantiateViewControllerWithIdentifier("map") as! MapViewController
             vc.arcadeMachineWhereClauseExtension = "AND name = '\(self.filteredMachines[indexPath.row].name)'"
+            vc.hasBackButton = true
             self.showViewController(vc, sender: self)
         }else {
             let createViewController = self.storyboard?.instantiateViewControllerWithIdentifier("Create") as! CreateArcadeMachineViewController

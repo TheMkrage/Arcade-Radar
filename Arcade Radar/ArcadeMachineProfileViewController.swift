@@ -102,12 +102,12 @@ class ArcadeMachineProfileViewController: ViewController {
         
     }
     
-    @IBAction func bringToMap(sender: AnyObject) {
-        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("ArcadeProfile") as! ArcadeProfileViewController
-        vc.geoPointOfArcade = self.arcadeMachine.geoPoint
-        vc.nameOfArcade = self.arcadeMachine.arcadeName
-        print("Made it here")
-        self.showViewController(vc, sender: self)
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ShowArcadeProfile" {
+            let vc = segue.destinationViewController as! ArcadeProfileViewController
+            vc.geoPointOfArcade = self.arcadeMachine.geoPoint
+            vc.nameOfArcade = self.arcadeMachine.arcadeName
+        }
     }
     
     func reportSeen() {

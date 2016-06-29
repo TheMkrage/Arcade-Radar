@@ -13,6 +13,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
     
     var arcadeMachineWhereClauseExtension = ""
     var backendless = Backendless()
+    var hasBackButton = false
     var machines: NSMutableArray = NSMutableArray()
     let clusteringManager = FBClusteringManager()
     
@@ -74,10 +75,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
         // Nav SetUp
         let navigationBar = navigationController!.navigationBar
         navigationBar.tintColor = Colors.colorWithHexString("#00B0FF")
-        
-        navigationItem.leftBarButtonItems = [UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Refresh, target: self, action: "refresh"), MKUserTrackingBarButtonItem(mapView: self.mapView)]
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addNewArcadeMachine")
-        
+        if hasBackButton {
+            navigationItem.leftBarButtonItems = nil
+            navigationItem.rightBarButtonItems = nil
+        }else {
+            navigationItem.leftBarButtonItems = [UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Refresh, target: self, action: "refresh"), MKUserTrackingBarButtonItem(mapView: self.mapView)]
+            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addNewArcade")
+        }
         /* let machine = ArcadeMachine()
         machine.name = "DDR Mega Mix "
         machine.arcadeName = "Kragers Arcade"
@@ -98,8 +102,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
         //backendless.persistenceService.of(ArcadeMachine.ofClass()).sa
     }
     
-    func addNewArcadeMachine() {
-        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("SearchForName") as! SearchForNameTableViewController
+    func addNewArcade() {
+        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("New Arcade") as! SearchForNameTableViewController
         self.showViewController(vc, sender: self)
     }
     
