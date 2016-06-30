@@ -91,7 +91,8 @@ class ArcadeMachinesTableViewController: UITableViewController {
     func addNewArcadeMachine() {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("SearchForName") as! SearchForNameTableViewController
         vc.isSendingToMap = false
-        self.showViewController(vc, sender: self)
+        let nav = UINavigationController(rootViewController: vc)
+        self.presentViewController(nav, animated: true, completion: nil)
     }
     /*
     // Override to support conditional editing of the table view.
