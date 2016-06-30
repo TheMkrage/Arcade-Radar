@@ -103,8 +103,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
     }
     
     func addNewArcade() {
-        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("New Arcade") as! SearchForNameTableViewController
-        self.showViewController(vc, sender: self)
+        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("NewArcade") as! NewArcadeViewController
+        self.presentViewController(vc, animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {

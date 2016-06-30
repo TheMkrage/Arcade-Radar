@@ -131,7 +131,6 @@ extension SearchForNameTableViewController: UISearchBarDelegate {
         if self.isSendingToMap {
             let vc = self.storyboard?.instantiateViewControllerWithIdentifier("map") as! MapViewController
             let searchText = searchBar.text!
-            
             let pointsArr = searchText.componentsSeparatedByString(" ")
             var whereClause = "name LIKE '%\(searchText)%'"
             if pointsArr.count > 1 {
@@ -141,14 +140,10 @@ extension SearchForNameTableViewController: UISearchBarDelegate {
                     }
                 }
             }
-            
             vc.arcadeMachineWhereClauseExtension = "AND (\(whereClause))"
             self.showViewController(vc, sender: self)
-            
         }
-        print("Taco")
     }
-    
 }
 
 extension SearchForNameTableViewController: UISearchResultsUpdating {
