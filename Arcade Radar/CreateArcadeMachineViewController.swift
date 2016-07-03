@@ -15,14 +15,17 @@ class CreateArcadeMachineViewController: UIViewController, UIPickerViewDataSourc
     
     let plays = ["Play(s)", "Song(s)", "Life/Lives", "Try/Tries", "Other"]
     
+    var backendless = Backendless()
     @IBOutlet weak var priceTextField: UITextField!
     
     @IBOutlet weak var currencyTextField: UITextField!
     @IBOutlet weak var numOfPlaysTextField: UITextField!
     @IBOutlet weak var playsTextField: UITextField!
+    @IBOutlet weak var arcadeTextField:UITextField!
     @IBOutlet var nameLabel: UILabel!
     
     @IBOutlet weak var scrollView: UIScrollView!
+    var arcadeName:String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +50,9 @@ class CreateArcadeMachineViewController: UIViewController, UIPickerViewDataSourc
         
         playsTextField.inputView = playsPickerView
         
+        if let x = self.arcadeName as String! {
+            self.arcadeTextField.text = x
+        }
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -89,7 +95,6 @@ class CreateArcadeMachineViewController: UIViewController, UIPickerViewDataSourc
         
         if pickerView.tag == 1 {
             if currencies[row] == "Other" {
-                print("TACO")
                 pickerView.endEditing(true)
                 currencyTextField.inputView = nil
                 currencyTextField.reloadInputViews()
@@ -109,8 +114,24 @@ class CreateArcadeMachineViewController: UIViewController, UIPickerViewDataSourc
         }
     }
     
+    @IBAction func createNewMachine() {
+        let newMachine = ArcadeMachine()
+        newMachine.arcadeName = self.arcadeTextField.text!
+        newMachine.price = Double(self.priceTextField.text!)!
+        
+        newMachine.whatPriceIsFor = self.playsTextField.text!
+        newMachine.numOfPlays =  Int(self.numOfPlaysTextField.text!)!
+        newMachine.currency = self.currencyTextField.text!
+        // get the location-
+       
+        self.backendless.persistenceService.save(newMachine, response: { (x: AnyObject!) -> Void in
+            self.navigationController?.popViewControllerAnimated(true)
+        }) { (x: Fault!) -> Void in
+                
+        }
+    }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -118,6 +139,6 @@ class CreateArcadeMachineViewController: UIViewController, UIPickerViewDataSourc
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
 }
