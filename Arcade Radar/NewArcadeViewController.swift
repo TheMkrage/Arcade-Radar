@@ -7,15 +7,17 @@
 //
 
 import UIKit
+import CoreLocation
 
 class NewArcadeViewController: ViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
-
+    
     @IBOutlet var nameTextField:UITextField!
     @IBOutlet var URLTextField:UITextField!
     @IBOutlet var locationTextField:UITextField!
     @IBOutlet var machineTable:UITableView!
     @IBOutlet var addMachineButton:UIButton!
     
+    var currentLocation:CLLocationCoordinate2D!
     var isUsingCurrentLocation = true
     var machines: [ArcadeMachine] = [ArcadeMachine]()
     override func viewDidLoad() {
@@ -41,17 +43,35 @@ class NewArcadeViewController: ViewController, UITableViewDelegate, UITableViewD
     func updateWithNewArcadeMachine(notification:NSNotification) {
         let machine = notification.userInfo!["machine"] as! ArcadeMachine
         self.machines.append(machine)
+        print("taco \(machine.name)")
+        self.machineTable.reloadData()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     @IBAction func addNewMachine() {
+        if !isUsingCurrentLocation {
+            let address = self.locationTextField.text
+            let geocoder = CLGeocoder()
+            
+            geocoder.geocodeAddressString(address!, completionHandler: {(placemarks, error) -> Void in
+                if((error) != nil){
+                    print("Error", error)
+                }
+                if let placemark = placemarks?.first {
+                    self.currentLocation = placemark.location!.coordinate
+                }
+            })
+        }else {
+            self.currentLocation = (self.navigationController?.viewControllers[0] as! MapViewController).locationManager.location?.coordinate
+        }
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("SearchForName") as! SearchForNameTableViewController
         vc.isSendingToMap = false
         vc.arcadeNameForCreating = self.nameTextField.text
+        vc.location = self.currentLocation
         let nav = UINavigationController(rootViewController: vc)
         self.presentViewController(nav, animated: true, completion: nil)
     }
@@ -74,7 +94,7 @@ class NewArcadeViewController: ViewController, UITableViewDelegate, UITableViewD
     @IBAction func createNewArcade() {
         
     }
-
+    
     // MARK: - Table view data source
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -89,11 +109,12 @@ class NewArcadeViewController: ViewController, UITableViewDelegate, UITableViewD
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         cell.textLabel!.text = self.machines[indexPath.row].name
+        print("making cell")
         // Configure the cell...
-        cell.textLabel?.alpha = 0.0
-        UIView.animateWithDuration(0.3, animations: {
-            cell.textLabel?.alpha = 1.0
-        })
+        //cell.textLabel?.alpha = 0.0
+        //UIView.animateWithDuration(0.3, animations: {
+        //  cell.textLabel?.alpha = 1.0
+        //})
         return cell
     }
     
@@ -106,14 +127,14 @@ class NewArcadeViewController: ViewController, UITableViewDelegate, UITableViewD
             self.addMachineButton.hidden = false
         }
     }
-
+    
     
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
     }
     
-
+    
 }

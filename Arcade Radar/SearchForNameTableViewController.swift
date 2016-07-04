@@ -12,6 +12,7 @@ class SearchForNameTableViewController: UITableViewController {
     
     // MARK: - Properties
     var arcadeNameForCreating:String?
+    var location:CLLocationCoordinate2D?
     var isSendingToMap = true
     var backendless = Backendless()
     var filteredMachines = [ArcadeMachineType]()
@@ -73,6 +74,7 @@ class SearchForNameTableViewController: UITableViewController {
             let createViewController = self.storyboard?.instantiateViewControllerWithIdentifier("Create") as! CreateArcadeMachineViewController
             createViewController.nameOfMachine = filteredMachines[indexPath.row].name
             createViewController.arcadeName = self.arcadeNameForCreating
+            
             self.showViewController(createViewController, sender: self)
         }
     }

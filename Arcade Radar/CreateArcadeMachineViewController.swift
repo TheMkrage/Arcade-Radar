@@ -26,7 +26,7 @@ class CreateArcadeMachineViewController: UIViewController, UIPickerViewDataSourc
     
     @IBOutlet weak var scrollView: UIScrollView!
     var arcadeName:String?
-    
+    var location:CLLocationCoordinate2D?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -122,6 +122,7 @@ class CreateArcadeMachineViewController: UIViewController, UIPickerViewDataSourc
     
     @IBAction func createNewMachine() {
         let newMachine = ArcadeMachine()
+        newMachine.name = self.nameOfMachine
         newMachine.arcadeName = self.arcadeTextField.text!
         newMachine.price = Double(self.priceTextField.text!)!
         
@@ -129,13 +130,17 @@ class CreateArcadeMachineViewController: UIViewController, UIPickerViewDataSourc
         newMachine.numOfPlays =  Int(self.numOfPlaysTextField.text!)!
         newMachine.currency = self.currencyTextField.text!
         // get the location-
-       
+        var point = GeoPoint()
+        p = self.location?.latitude
+        newMachine.geoPoint =
         NSNotificationCenter.defaultCenter().postNotificationName("ArcadeMachineAdded", object: nil, userInfo: ["machine" : newMachine])
         self.backendless.persistenceService.save(newMachine, response: { (x: AnyObject!) -> Void in
-            self.navigationController?.popViewControllerAnimated(true)
+            print("Saved")
+            self.dismissViewControllerAnimated(true, completion: nil)
         }) { (x: Fault!) -> Void in
                 
         }
+        //self.navigationController?.popViewControllerAnimated(true)
     }
 
     
