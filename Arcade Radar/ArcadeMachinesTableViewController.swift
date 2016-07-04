@@ -16,10 +16,24 @@ class ArcadeMachinesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //checkIfNeedToSearch()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        checkIfNeedToSearch()
+        
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+      // Dispose of any resources that can be recreated.
+    }
+
+    func checkIfNeedToSearch() {
         if ((arcade) != nil) { // if given an Arcade Object
             // need add button because you are viewing from arcade
             navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addNewArcadeMachine")
-            EZLoadingActivity.show("", disableUI: true)
+            EZLoadingActivity.show("", disableUI: false)
             let queryOptions = QueryOptions()
             queryOptions.addRelated("geoPoint")
             queryOptions.sortBy = ["name"]
@@ -36,9 +50,11 @@ class ArcadeMachinesTableViewController: UITableViewController {
                 response: { ( machinesSearched : BackendlessCollection!) -> () in
                     let currentPage = machinesSearched.getCurrentPage()
                     print(machinesSearched.totalObjects)
-                    self.machines = currentPage as! [ArcadeMachine]
+                    if self.machines.count != currentPage.count {
+                        self.machines = currentPage as! [ArcadeMachine]
+                        self.tableView.reloadData()
+                    }
                     EZLoadingActivity.hide(success: true, animated: true)
-                    self.tableView.reloadData()
                 },
                 error: { ( fault : Fault!) -> () in
                     print("Server reported an error: \(fault)")
@@ -46,18 +62,8 @@ class ArcadeMachinesTableViewController: UITableViewController {
         }else {
             print("no Tacos")
         }
-        
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        
-    }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -92,6 +98,7 @@ class ArcadeMachinesTableViewController: UITableViewController {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("SearchForName") as! SearchForNameTableViewController
         vc.isSendingToMap = false
         vc.arcadeNameForCreating = self.arcade.name
+        vc.location = CLLocationCoordinate2DMake(CLLocationDegrees(self.arcade.geoPoint!.latitude), CLLocationDegrees(self.arcade.geoPoint!.longitude))
         let nav = UINavigationController(rootViewController: vc)
         self.presentViewController(nav, animated: true, completion: nil)
     }

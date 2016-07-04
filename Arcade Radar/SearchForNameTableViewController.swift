@@ -74,7 +74,7 @@ class SearchForNameTableViewController: UITableViewController {
             let createViewController = self.storyboard?.instantiateViewControllerWithIdentifier("Create") as! CreateArcadeMachineViewController
             createViewController.nameOfMachine = filteredMachines[indexPath.row].name
             createViewController.arcadeName = self.arcadeNameForCreating
-            
+            createViewController.location = self.location!
             self.showViewController(createViewController, sender: self)
         }
     }

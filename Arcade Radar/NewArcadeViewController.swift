@@ -19,6 +19,7 @@ class NewArcadeViewController: ViewController, UITableViewDelegate, UITableViewD
     
     var currentLocation:CLLocationCoordinate2D!
     var isUsingCurrentLocation = true
+    var backendless = Backendless()
     var machines: [ArcadeMachine] = [ArcadeMachine]()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,7 @@ class NewArcadeViewController: ViewController, UITableViewDelegate, UITableViewD
         let gestureRecognizer:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "cancelEditing")
         self.view.addGestureRecognizer(gestureRecognizer)
         self.locationTextField.enabled = false
+        updateCurrentLocation()
         // Do any additional setup after loading the view.
     }
     
@@ -52,7 +54,7 @@ class NewArcadeViewController: ViewController, UITableViewDelegate, UITableViewD
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func addNewMachine() {
+    func updateCurrentLocation() {
         if !isUsingCurrentLocation {
             let address = self.locationTextField.text
             let geocoder = CLGeocoder()
@@ -66,8 +68,13 @@ class NewArcadeViewController: ViewController, UITableViewDelegate, UITableViewD
                 }
             })
         }else {
-            self.currentLocation = (self.navigationController?.viewControllers[0] as! MapViewController).locationManager.location?.coordinate
+            self.currentLocation = CLLocationManager().location?.coordinate
         }
+
+    }
+    
+    @IBAction func addNewMachine() {
+        updateCurrentLocation()
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("SearchForName") as! SearchForNameTableViewController
         vc.isSendingToMap = false
         vc.arcadeNameForCreating = self.nameTextField.text
@@ -92,7 +99,14 @@ class NewArcadeViewController: ViewController, UITableViewDelegate, UITableViewD
     }
     
     @IBAction func createNewArcade() {
-        
+        updateCurrentLocation()
+        let arcade = Arcade()
+        arcade.name = self.nameTextField.text
+        arcade.URL = self.URLTextField.text
+        arcade.geoPoint = GeoPoint(point: GEO_POINT(latitude: self.currentLocation.latitude, longitude: self.currentLocation.longitude))
+        backendless.persistenceService.save(arcade, response: { (x:AnyObject!) -> Void in
+            self.dismissViewControllerAnimated(true, completion: nil)
+            }, error: nil)
     }
     
     // MARK: - Table view data source

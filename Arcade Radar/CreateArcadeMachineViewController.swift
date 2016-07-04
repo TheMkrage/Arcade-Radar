@@ -130,9 +130,8 @@ class CreateArcadeMachineViewController: UIViewController, UIPickerViewDataSourc
         newMachine.numOfPlays =  Int(self.numOfPlaysTextField.text!)!
         newMachine.currency = self.currencyTextField.text!
         // get the location-
-        var point = GeoPoint()
-        p = self.location?.latitude
-        newMachine.geoPoint =
+        let point = GeoPoint(point:GEO_POINT(latitude: self.location!.latitude, longitude: self.location!.longitude))
+        newMachine.geoPoint = point
         NSNotificationCenter.defaultCenter().postNotificationName("ArcadeMachineAdded", object: nil, userInfo: ["machine" : newMachine])
         self.backendless.persistenceService.save(newMachine, response: { (x: AnyObject!) -> Void in
             print("Saved")

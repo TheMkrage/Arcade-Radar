@@ -219,7 +219,8 @@ class ArcadeProfileViewController: ViewController {
         let longitude = Double(gp!.longitude)
         print(self.nameOfArcade)
         print(self.geoPointOfArcade)
-        query.whereClause = "distance( \(latitude), \(longitude), geoPoint.latitude, geoPoint.longitude ) < .006 AND name LIKE '\(self.nameOfArcade!)'"
+        query.whereClause = "distance( \(latitude), \(longitude), geoPoint.latitude, geoPoint.longitude ) < 40 AND name LIKE '\(self.nameOfArcade!)'"
+        print(query.whereClause)
         Types.tryblock({ () -> Void in
              let arcadesSearched: BackendlessCollection! = self.backendless.data.of(Arcade.ofClass()).find(query)
             self.arcade = arcadesSearched.getCurrentPage()[0] as! Arcade
