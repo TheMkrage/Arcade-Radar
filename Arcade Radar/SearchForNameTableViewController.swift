@@ -98,22 +98,34 @@ class SearchForNameTableViewController: UITableViewController {
             let queryOptions = QueryOptions()
             //queryOptions.so
             let query = BackendlessDataQuery()
+            queryOptions.pageSize = 40
+            queryOptions.sortBy(["name ASC"])
             query.queryOptions = queryOptions
             print(searchText)
             let pointsArr = searchText.componentsSeparatedByString(" ")
             var whereClause = "name LIKE '%\(searchText)%'"
             print(pointsArr)
+            var firstLetters = [String]()
             for x in pointsArr {
                 if x != "" {
+                    firstLetters.append(x.substringWithRange(Range<String.Index>(start: x.startIndex, end: x.startIndex.advancedBy(1))))
                     whereClause = "\(whereClause) OR name LIKE '%\(x)%'"
                 }
+                if x == "Pacman"{
+                    whereClause = "\(whereClause) OR name LIKE '%Pac-man%'"
+                }
+                if x == "DDR"{
+                    whereClause = "\(whereClause) OR name LIKE '%Dance Dance Revolution%'"
+                }
             }
+            print(firstLetters)
             query.whereClause = whereClause
             dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0), { () -> Void in
                 let machinesSearched: BackendlessCollection! = self.backendless.data.of(ArcadeMachineType.ofClass()).find(query)
                 let currentPage = machinesSearched.getCurrentPage() as! [ArcadeMachineType]
                 print("SEARCHED: Loaded \(currentPage.count) machine objects")
                 var tempArray = [ArcadeMachineType]()
+                
                 for machine in currentPage {
                     print("SEARCHED! name = \(machine.name)")
                     tempArray.append(machine )

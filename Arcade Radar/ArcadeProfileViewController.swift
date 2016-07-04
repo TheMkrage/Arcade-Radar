@@ -100,7 +100,11 @@ class ArcadeProfileViewController: ViewController {
     
     @IBOutlet var bringToWebsiteButton: UIButton!
     @IBAction func bringToWebsite(sender: AnyObject) {
-        UIApplication.sharedApplication().openURL(NSURL(string:self.arcade.URL)!)
+        if !UIApplication.sharedApplication().openURL(NSURL(string:self.arcade.URL)!) {
+            if !UIApplication.sharedApplication().openURL(NSURL(string:"https://www.\(self.arcade.URL)")!) {
+                UIApplication.sharedApplication().openURL(NSURL(string:"https://\(self.arcade.URL)")!)
+            }
+        }
     }
     
     @IBAction func bringToMapButton(sender: AnyObject) {
