@@ -14,12 +14,33 @@ class NewArcadeViewController: ViewController, UITableViewDelegate, UITableViewD
     @IBOutlet var URLTextField:UITextField!
     @IBOutlet var locationTextField:UITextField!
     @IBOutlet var machineTable:UITableView!
+    @IBOutlet var addMachineButton:UIButton!
     
     var isUsingCurrentLocation = true
     var machines: [ArcadeMachine] = [ArcadeMachine]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateWithNewArcadeMachine:", name: "ArcadeMachineAdded", object: nil)
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: "cancel")
+        self.addMachineButton.hidden = true
+        
+        let gestureRecognizer:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "cancelEditing")
+        self.view.addGestureRecognizer(gestureRecognizer)
+        self.locationTextField.enabled = false
         // Do any additional setup after loading the view.
+    }
+    
+    func cancel() {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func cancelEditing() {
+        self.view.endEditing(true)
+    }
+    
+    func updateWithNewArcadeMachine(notification:NSNotification) {
+        let machine = notification.userInfo!["machine"] as! ArcadeMachine
+        self.machines.append(machine)
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,7 +51,7 @@ class NewArcadeViewController: ViewController, UITableViewDelegate, UITableViewD
     @IBAction func addNewMachine() {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("SearchForName") as! SearchForNameTableViewController
         vc.isSendingToMap = false
-        vc
+        vc.arcadeNameForCreating = self.nameTextField.text
         let nav = UINavigationController(rootViewController: vc)
         self.presentViewController(nav, animated: true, completion: nil)
     }
@@ -47,6 +68,7 @@ class NewArcadeViewController: ViewController, UITableViewDelegate, UITableViewD
         self.locationTextField.enabled = true
         self.locationTextField.placeholder = "Address"
         self.locationTextField.text = ""
+        self.locationTextField.becomeFirstResponder()
     }
     
     @IBAction func createNewArcade() {
@@ -77,6 +99,12 @@ class NewArcadeViewController: ViewController, UITableViewDelegate, UITableViewD
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        if textField == self.nameTextField {
+            self.addMachineButton.hidden = false
+        }
     }
 
     

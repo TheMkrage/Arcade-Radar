@@ -391,13 +391,106 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Arcade Radar/CreateArcadeMachineViewController.swift"
-            timestampString = "489271587.30179"
+            timestampString = "489295185.779233"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Arcade Radar/CreateArcadeMachineViewController.swift"
+            timestampString = "489277819.968273"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "CreateArcadeMachineViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Arcade_Radar.CreateArcadeMachineViewController.numOfPlaysTextField.getter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UITextField&gt;"
+                  moduleName = "Arcade Radar"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MatthewKrager/Documents/XCODE/Arcade%20Radar/Arcade%20Radar/CreateArcadeMachineViewController.swift"
+                  timestampString = "489277893.175822"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Arcade_Radar.CreateArcadeMachineViewController.numOfPlaysTextField.setter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UITextField&gt;"
+                  moduleName = "Arcade Radar"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MatthewKrager/Documents/XCODE/Arcade%20Radar/Arcade%20Radar/CreateArcadeMachineViewController.swift"
+                  timestampString = "489277893.176029"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Arcade_Radar.CreateArcadeMachineViewController.numOfPlaysTextField.materializeForSet : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UITextField&gt;"
+                  moduleName = "Arcade Radar"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MatthewKrager/Documents/XCODE/Arcade%20Radar/Arcade%20Radar/CreateArcadeMachineViewController.swift"
+                  timestampString = "489277893.176241"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Arcade_Radar.CreateArcadeMachineViewController.init (Arcade_Radar.CreateArcadeMachineViewController.Type)(nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.NSBundle&gt;) -&gt; Arcade_Radar.CreateArcadeMachineViewController"
+                  moduleName = "Arcade Radar"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MatthewKrager/Documents/XCODE/Arcade%20Radar/Arcade%20Radar/CreateArcadeMachineViewController.swift"
+                  timestampString = "489277893.176474"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "828">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Arcade_Radar.CreateArcadeMachineViewController.init (Arcade_Radar.CreateArcadeMachineViewController.Type)(coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;Arcade_Radar.CreateArcadeMachineViewController&gt;"
+                  moduleName = "Arcade Radar"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MatthewKrager/Documents/XCODE/Arcade%20Radar/Arcade%20Radar/CreateArcadeMachineViewController.swift"
+                  timestampString = "489277893.176666"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "776">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

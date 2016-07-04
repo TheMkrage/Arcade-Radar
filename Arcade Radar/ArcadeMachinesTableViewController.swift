@@ -91,6 +91,7 @@ class ArcadeMachinesTableViewController: UITableViewController {
     func addNewArcadeMachine() {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("SearchForName") as! SearchForNameTableViewController
         vc.isSendingToMap = false
+        vc.arcadeNameForCreating = self.arcade.name
         let nav = UINavigationController(rootViewController: vc)
         self.presentViewController(nav, animated: true, completion: nil)
     }

@@ -27,10 +27,12 @@ class CreateArcadeMachineViewController: UIViewController, UIPickerViewDataSourc
     @IBOutlet weak var scrollView: UIScrollView!
     var arcadeName:String?
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.nameLabel.text = self.nameOfMachine
         
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: "cancel")
         //priceTextField.keyboardType = .NumbersAndPunctuation
         //playsTextField.keyboardType = .NumbersAndPunctuation
         
@@ -59,6 +61,10 @@ class CreateArcadeMachineViewController: UIViewController, UIPickerViewDataSourc
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func cancel() {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
@@ -124,6 +130,7 @@ class CreateArcadeMachineViewController: UIViewController, UIPickerViewDataSourc
         newMachine.currency = self.currencyTextField.text!
         // get the location-
        
+        NSNotificationCenter.defaultCenter().postNotificationName("ArcadeMachineAdded", object: nil, userInfo: ["machine" : newMachine])
         self.backendless.persistenceService.save(newMachine, response: { (x: AnyObject!) -> Void in
             self.navigationController?.popViewControllerAnimated(true)
         }) { (x: Fault!) -> Void in

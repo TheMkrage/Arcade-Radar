@@ -11,6 +11,7 @@ import UIKit
 class SearchForNameTableViewController: UITableViewController {
     
     // MARK: - Properties
+    var arcadeNameForCreating:String?
     var isSendingToMap = true
     var backendless = Backendless()
     var filteredMachines = [ArcadeMachineType]()
@@ -26,11 +27,17 @@ class SearchForNameTableViewController: UITableViewController {
         definesPresentationContext = true
         searchController.dimsBackgroundDuringPresentation = false
         
-        
+        if !isSendingToMap {
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: "cancel")
+        }
         // Setup the Scope Bar
         searchController.searchBar.scopeButtonTitles = []
         
         tableView.tableHeaderView = searchController.searchBar
+    }
+    
+    func cancel() {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -65,6 +72,7 @@ class SearchForNameTableViewController: UITableViewController {
         }else {
             let createViewController = self.storyboard?.instantiateViewControllerWithIdentifier("Create") as! CreateArcadeMachineViewController
             createViewController.nameOfMachine = filteredMachines[indexPath.row].name
+            createViewController.arcadeName = self.arcadeNameForCreating
             self.showViewController(createViewController, sender: self)
         }
     }
