@@ -17,7 +17,7 @@ class ArcadeMachine: NSObject {
     var currency = "Dollar(s)"
     var numOfPlays = 1
     var whatPriceIsFor = "play" // songs/lives/plays etc.
-    var finds  = 1.0 // How many people have found and played this machine
-    var notFinds = 0.0// How many people could not find this machine
+    var finds:NSNumber!// How many people have found and played this machine
+    var notFinds:NSNumber!// How many people could not find this machine
     var latestComment = ""  // 50 character max
 }

@@ -39,7 +39,7 @@ class ArcadeMachineProfileViewController: ViewController {
         print(self.yesCountLabel.text)
         self.noCountLabel.text = String(format: "%7.0f", self.arcadeMachine.notFinds).stringByReplacingOccurrencesOfString(" ", withString: "")
         if (self.arcadeMachine.finds != 0) {
-            let percent:Double = (self.arcadeMachine.finds)/(self.arcadeMachine.finds + self.arcadeMachine.notFinds)
+            let percent:Double = Double(self.arcadeMachine.finds)/Double(self.arcadeMachine.finds) + Double(self.arcadeMachine.notFinds)
             print(percent)
             
             self.percentLabel.text = String(format: "%3.0f%%", (percent * 100.0))
@@ -111,7 +111,7 @@ class ArcadeMachineProfileViewController: ViewController {
     }
     
     func reportSeen() {
-        self.arcadeMachine.finds = arcadeMachine.finds + 1
+        self.arcadeMachine.finds = arcadeMachine.finds.floatValue + 1
         self.hasAlreadyReportedSeen = true
         self.arcadeMachine.lastSeen = NSDate()
         self.IDArraySeen?.append((self.arcadeMachine as AnyObject).objectId)
@@ -119,7 +119,7 @@ class ArcadeMachineProfileViewController: ViewController {
     }
     
     func unreportSeen() {
-        self.arcadeMachine.finds = arcadeMachine.finds - 1
+        self.arcadeMachine.finds = arcadeMachine.finds.floatValue - 1
         self.hasAlreadyReportedSeen = false
         self.IDArraySeen = self.IDArraySeen.filter{$0 != ((self.arcadeMachine as AnyObject).objectId)}
         self.yesButton.setImage(UIImage(named: "thumbsUpHollow.png"), forState: .Normal)
@@ -127,14 +127,14 @@ class ArcadeMachineProfileViewController: ViewController {
     
     func reportNotSeen() {
         self.IDArrayNotSeen?.append((self.arcadeMachine as AnyObject).objectId)
-        self.arcadeMachine.notFinds = self.arcadeMachine.notFinds + 1
+        self.arcadeMachine.notFinds = self.arcadeMachine.notFinds.floatValue + 1
         self.hasAlreadyReportedNotSeen = true
         self.noButton.setImage(UIImage(named: "thumbsDownFilled.png"), forState: .Normal)
     }
     
     func unreportNotSeen() {
         self.IDArrayNotSeen = self.IDArrayNotSeen.filter{$0 != ((self.arcadeMachine as AnyObject).objectId)}
-        self.arcadeMachine.notFinds = self.arcadeMachine.notFinds - 1
+        self.arcadeMachine.notFinds = self.arcadeMachine.notFinds.floatValue - 1
         self.hasAlreadyReportedNotSeen = false
         self.noButton.setImage(UIImage(named: "thumbsDownHollow.png"), forState: .Normal)
     }
@@ -167,7 +167,7 @@ class ArcadeMachineProfileViewController: ViewController {
         self.yesCountLabel.text = String(format: "%7.0f", self.arcadeMachine.finds).stringByReplacingOccurrencesOfString(" ", withString: "")
         self.noCountLabel.text = String(format: "%7.0f", self.arcadeMachine.notFinds).stringByReplacingOccurrencesOfString(" ", withString: "")
         if (self.arcadeMachine.finds != 0) {
-            let percent:Double = (self.arcadeMachine.finds)/(self.arcadeMachine.finds + self.arcadeMachine.notFinds)
+            let percent:Double = Double(self.arcadeMachine.finds)/(Double(self.arcadeMachine.finds) + Double(self.arcadeMachine.notFinds))
             print(percent)
             
             self.percentLabel.text = String(format: "%3.0f%%", (percent * 100.0))

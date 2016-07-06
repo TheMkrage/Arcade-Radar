@@ -138,9 +138,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
                     Types.tryblock({ () -> Void in
                         let arcadesSearched: BackendlessCollection! = self.backendless.data.of(Arcade.ofClass()).find(query)
                         let currentPage = arcadesSearched.getCurrentPage()
-                        for arcade in currentPage {
-                            let overlay = ArcadeMkCircle(centerCoordinate: CLLocationCoordinate2D(latitude: ((arcade.geoPoint as GeoPoint).latitude as Double), longitude: ((arcade.geoPoint as GeoPoint).longitude as Double)), radius: 20)
-                            overlay.setArcadeToDisplay(arcade as! Arcade)
+                        for arcade in currentPage as! [Arcade] {
+                            let overlay = ArcadeMkCircle(centerCoordinate: CLLocationCoordinate2D(latitude: ((arcade.geoPoint! as GeoPoint).latitude as Double), longitude: ((arcade.geoPoint! as GeoPoint).longitude as Double)), radius: 20)
+                            print(arcade.finds)
+                            overlay.setArcadeToDisplay(arcade )
                             var isAlreadyThere = false
                             if (self.clusteringManager.allAnnotations() as! [ArcadeMkCircle]).contains({ (arcade1: ArcadeMkCircle) -> Bool in
                                 return arcade1.arcade.geoPoint?.latitude == overlay.arcade.geoPoint?.latitude && arcade1.arcade.geoPoint?.longitude == overlay.arcade.geoPoint?.longitude && arcade1.arcade.name == overlay.arcade.name
@@ -309,6 +310,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
                 self.showViewController(vc, sender: self)
             }else {
                 let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ArcadeProfile") as! ArcadeProfileViewController
+                print(((view.annotation as! ArcadeMkCircle).arcade as Arcade!).finds)
                 vc.arcade = (view.annotation as! ArcadeMkCircle).arcade as Arcade!
                 self.showViewController(vc, sender: self)
             }

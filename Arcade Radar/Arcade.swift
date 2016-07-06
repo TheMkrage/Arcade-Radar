@@ -10,8 +10,9 @@ import UIKit
 
 class Arcade: NSObject {
     var name:String!
-    var finds:Double! = 1.0
-    var notFinds:Double! = 0.0
+    var objectId:String!
+    var finds:NSNumber!
+    var notFinds:NSNumber!
     var lastSeen = NSDate()
     var geoPoint:GeoPoint? // This should be something that can hold a lat and long
     var URL:String!

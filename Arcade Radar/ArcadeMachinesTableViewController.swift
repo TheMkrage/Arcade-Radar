@@ -23,6 +23,10 @@ class ArcadeMachinesTableViewController: UITableViewController {
         checkIfNeedToSearch()
         
     }
+    
+    override func viewWillDisappear(animated: Bool) {
+        EZLoadingActivity.hide(success: true, animated: true)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

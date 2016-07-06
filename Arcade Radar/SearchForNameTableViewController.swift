@@ -17,7 +17,7 @@ class SearchForNameTableViewController: UITableViewController {
     var backendless = Backendless()
     var filteredMachines = [ArcadeMachineType]()
     let searchController = UISearchController(searchResultsController: nil)
-    
+    var searchID = 0
     // MARK: - View Setup
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,7 +93,7 @@ class SearchForNameTableViewController: UITableViewController {
         return cell
     }
     
-    func filterContentForSearchText(searchText: String, scope: String = "All") {
+    func filterContentForSearchText(searchText: String, id: Int, scope: String = "All") {
         if searchController.searchBar.text != "" {
             let queryOptions = QueryOptions()
             //queryOptions.so
@@ -119,23 +119,40 @@ class SearchForNameTableViewController: UITableViewController {
                 }
             }
             print(firstLetters)
+            if self.searchID != id {
+                return
+            }
             query.whereClause = whereClause
             dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0), { () -> Void in
-                let machinesSearched: BackendlessCollection! = self.backendless.data.of(ArcadeMachineType.ofClass()).find(query)
-                let currentPage = machinesSearched.getCurrentPage() as! [ArcadeMachineType]
-                print("SEARCHED: Loaded \(currentPage.count) machine objects")
-                var tempArray = [ArcadeMachineType]()
-                
-                for machine in currentPage {
-                    print("SEARCHED! name = \(machine.name)")
-                    tempArray.append(machine )
+                if self.searchID != id {
+                    return
                 }
-                self.filteredMachines = tempArray
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    self.tableView.reloadData()
+                Types.tryblock({ () -> Void in
+                    let machinesSearched: BackendlessCollection! = self.backendless.data.of(ArcadeMachine.ofClass()).find(query)
+                   
+                    
+                    
+                    if self.searchID != id {
+                        return
+                    }
+                    let currentPage = machinesSearched.getCurrentPage() as! [ArcadeMachineType]
+                    print("SEARCHED: Loaded \(currentPage.count) machine objects")
+                    var tempArray = [ArcadeMachineType]()
+                    
+                    for machine in currentPage {
+                        print("SEARCHED! name = \(machine.name)")
+                        tempArray.append(machine )
+                    }
+                    self.filteredMachines = tempArray
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        self.tableView.reloadData()
+                    })
+                    
+                    }, catchblock: { (exception) -> Void in
+                        print(exception)
                 })
-                }
-            )
+                
+            })
         }else { // if not, make nothing show
             self.filteredMachines = []
             self.tableView.reloadData()
@@ -146,7 +163,6 @@ class SearchForNameTableViewController: UITableViewController {
 extension SearchForNameTableViewController: UISearchBarDelegate {
     // MARK: - UISearchBar Delegate
     func searchBar(searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        filterContentForSearchText(searchBar.text!, scope: searchBar.scopeButtonTitles![selectedScope])
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
@@ -171,6 +187,7 @@ extension SearchForNameTableViewController: UISearchBarDelegate {
 extension SearchForNameTableViewController: UISearchResultsUpdating {
     // MARK: - UISearchResultsUpdating Delegate
     func updateSearchResultsForSearchController(searchController: UISearchController) {
-        filterContentForSearchText(searchController.searchBar.text!)
+        searchID++
+        filterContentForSearchText(searchController.searchBar.text!, id: self.searchID)
     }
 }

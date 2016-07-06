@@ -18,7 +18,7 @@ class ArcadeProfileViewController: ViewController {
     var arcade:Arcade!
     var nameOfArcade:String?
     var geoPointOfArcade:GeoPoint?
-    var backendless = Backendless()
+    var backendless = Backendless.sharedInstance()
     @IBOutlet var arcadeLabel: UILabel!
     @IBOutlet var lastSeenLabel: UILabel!
     @IBOutlet var percentLabel: UILabel!
@@ -41,10 +41,10 @@ class ArcadeProfileViewController: ViewController {
         }
         self.arcadeLabel.text = self.arcade.name
         self.lastSeenLabel.text = "Last Seen on \(self.arcade.lastSeen)"
-        self.yesCountLabel.text = String(format: "%7.0f", self.arcade.finds).stringByReplacingOccurrencesOfString(" ", withString: "")
-        self.noCountLabel.text = String(format: "%7.0f", self.arcade.notFinds).stringByReplacingOccurrencesOfString(" ", withString: "")
+        self.yesCountLabel.text = "\(self.arcade.finds)"
+        self.noCountLabel.text = "\(self.arcade.notFinds)"
         if (self.arcade.finds != 0) {
-            let percent:Double = (self.arcade.finds)/(self.arcade.finds + self.arcade.notFinds)
+            let percent:Double = Double(self.arcade.finds)/(Double(self.arcade.finds) + Double(self.arcade.notFinds))
             self.percentLabel.text = String(format: "%3.0f%%", (percent * 100.0))
         }else {
             self.percentLabel.text = "0%"
@@ -57,8 +57,8 @@ class ArcadeProfileViewController: ViewController {
             let readArray : [NSString] = testArray! as! [NSString]
             self.IDArraySeen = readArray
             for string in readArray {
-                print(string)
-                print((self.arcade as AnyObject).objectId)
+               // print(string)
+                //print((self.arcade as AnyObject).objectId)
                 if string == (self.arcade as AnyObject).objectId {
                     self.hasAlreadyReportedSeen = true
                     self.yesButton.setImage(UIImage(named: "thumbsUpFilled.png"), forState: .Normal)
@@ -76,8 +76,8 @@ class ArcadeProfileViewController: ViewController {
             let readArray : [NSString] = testArray! as! [NSString]
             self.IDArrayNotSeen = readArray
             for string in readArray {
-                print(string)
-                print((self.arcade as AnyObject).objectId)
+                //print(string)
+               // print((self.arcade as AnyObject).objectId)
                 if string == (self.arcade as AnyObject).objectId {
                     self.hasAlreadyReportedNotSeen = true
                     self.noButton.setImage(UIImage(named: "thumbsDownFilled.png"), forState: .Normal)
@@ -134,7 +134,8 @@ class ArcadeProfileViewController: ViewController {
     */
     
     func reportSeen() {
-        self.arcade.finds = arcade.finds + 1
+        let finds = self.arcade.finds
+        self.arcade.finds = finds.floatValue + 1
         self.hasAlreadyReportedSeen = true
         self.arcade.lastSeen = NSDate()
         self.IDArraySeen?.append((self.arcade as AnyObject).objectId)
@@ -142,7 +143,7 @@ class ArcadeProfileViewController: ViewController {
     }
     
     func unreportSeen() {
-        self.arcade.finds = arcade.finds - 1
+        self.arcade.finds = arcade.finds.floatValue - 1
         self.hasAlreadyReportedSeen = false
         self.IDArraySeen = self.IDArraySeen.filter{$0 != ((self.arcade as AnyObject).objectId)}
         self.yesButton.setImage(UIImage(named: "thumbsUpHollow.png"), forState: .Normal)
@@ -150,14 +151,14 @@ class ArcadeProfileViewController: ViewController {
     
     func reportNotSeen() {
         self.IDArrayNotSeen?.append((self.arcade as AnyObject).objectId)
-        self.arcade.notFinds = self.arcade.notFinds + 1
+        self.arcade.notFinds = self.arcade.notFinds.floatValue + 1
         self.hasAlreadyReportedNotSeen = true
         self.noButton.setImage(UIImage(named: "thumbsDownFilled.png"), forState: .Normal)
     }
     
     func unreportNotSeen() {
         self.IDArrayNotSeen = self.IDArrayNotSeen.filter{$0 != ((self.arcade as AnyObject).objectId)}
-        self.arcade.notFinds = self.arcade.notFinds - 1
+        self.arcade.notFinds = self.arcade.notFinds.floatValue - 1
         self.hasAlreadyReportedNotSeen = false
         self.noButton.setImage(UIImage(named: "thumbsDownHollow.png"), forState: .Normal)
     }
@@ -186,10 +187,10 @@ class ArcadeProfileViewController: ViewController {
     
     func updateAfterNewReport() {
         
-        self.yesCountLabel.text = String(format: "%7.0f", self.arcade.finds).stringByReplacingOccurrencesOfString(" ", withString: "")
-        self.noCountLabel.text = String(format: "%7.0f", self.arcade.notFinds).stringByReplacingOccurrencesOfString(" ", withString: "")
+        self.yesCountLabel.text = "\(self.arcade.finds)"
+        self.noCountLabel.text = "\(self.arcade.notFinds)"
         if (self.arcade.finds != 0) {
-            let percent:Double = (self.arcade.finds)/(self.arcade.finds + self.arcade.notFinds)
+            let percent:Double = (Double(self.arcade.finds))/(Double(self.arcade.finds) + Double(self.arcade.notFinds))
             print(percent)
             
             self.percentLabel.text = String(format: "%3.0f%%", (percent * 100.0))
@@ -197,21 +198,31 @@ class ArcadeProfileViewController: ViewController {
         }else {
             self.percentLabel.text = "0%"
         }
-        // Update Counts online
-        backendless.persistenceService.of(Arcade.ofClass()).save(self.arcade,
+        
+        print("Before changing anything, here is my finds: \(self.arcade.finds)")
+        print("Here is my object ID: \(self.arcade.objectId)")
+        
+        // Time to update the value
+        backendless.data.save(self.arcade, response: { (x:AnyObject!) -> Void in
+             print("Arcade has been updated. Finds now: \(x.finds)")
+            }, error: { (error:Fault!) -> Void in
+                print("Server reported an error (2): \(error)")
+        })
+       /* backendless.persistenceService.save(self.arcade,
             response: { ( point : AnyObject!) -> Void in
                 print("ASYNC: geo point saved. Object ID - \(point.objectId)")
             },
             error: { ( fault : Fault!) -> () in
                 print("Server reported an error: \(fault)")
             }
-        )
+        )*/
         NSUserDefaults.standardUserDefaults().setObject(self.IDArraySeen, forKey: keySeen)
         NSUserDefaults.standardUserDefaults().setObject(self.IDArrayNotSeen, forKey: keyNotSeen)
         NSUserDefaults.standardUserDefaults().synchronize()
     }
 
     func findArcade() {
+        print("Finding Arcade")
         let queryOptions = QueryOptions()
         queryOptions.addRelated("geoPoint")
         queryOptions.pageSize = 1

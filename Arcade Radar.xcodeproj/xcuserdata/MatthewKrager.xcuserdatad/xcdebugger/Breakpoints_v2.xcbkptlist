@@ -28,11 +28,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Arcade Radar/MapViewController.swift"
-            timestampString = "489001444.425044"
+            timestampString = "489432981.661982"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "300"
-            endingLineNumber = "300"
+            startingLineNumber = "301"
+            endingLineNumber = "301"
             landmarkName = "mapView(_:annotationView:calloutAccessoryControlTapped:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -311,11 +311,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Arcade Radar/MapViewController.swift"
-            timestampString = "489001444.425044"
+            timestampString = "489432981.661982"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "326"
-            endingLineNumber = "326"
+            startingLineNumber = "328"
+            endingLineNumber = "328"
             landmarkName = "MapViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -327,11 +327,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Arcade Radar/MapViewController.swift"
-            timestampString = "489001444.425044"
+            timestampString = "489432981.661982"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "381"
-            endingLineNumber = "381"
+            startingLineNumber = "383"
+            endingLineNumber = "383"
             landmarkName = "mapView(_:viewForAnnotation:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -343,11 +343,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Arcade Radar/MapViewController.swift"
-            timestampString = "489001444.425044"
+            timestampString = "489432981.661982"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "369"
-            endingLineNumber = "369"
+            startingLineNumber = "371"
+            endingLineNumber = "371"
             landmarkName = "mapView(_:viewForAnnotation:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -521,8 +521,134 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "111"
             endingLineNumber = "111"
-            landmarkName = "filterContentForSearchText(_:scope:)"
+            landmarkName = "filterContentForSearchText(_:id:scope:)"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Arcade Radar/ArcadeMachine.swift"
+            timestampString = "489475045.543882"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "ArcadeMachine"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Arcade_Radar.ArcadeMachine.name.getter : Swift.String"
+                  moduleName = "Arcade Radar"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MatthewKrager/Documents/XCODE/Arcade%20Radar/Arcade%20Radar/ArcadeMachine.swift"
+                  timestampString = "489475045.695772"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Arcade_Radar.ArcadeMachine.name.setter : Swift.String"
+                  moduleName = "Arcade Radar"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MatthewKrager/Documents/XCODE/Arcade%20Radar/Arcade%20Radar/ArcadeMachine.swift"
+                  timestampString = "489475045.696216"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Arcade_Radar.ArcadeMachine.name.materializeForSet : Swift.String"
+                  moduleName = "Arcade Radar"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MatthewKrager/Documents/XCODE/Arcade%20Radar/Arcade%20Radar/ArcadeMachine.swift"
+                  timestampString = "489475045.69653"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Arcade_Radar.ArcadeMachine.init (Arcade_Radar.ArcadeMachine.Type)() -&gt; Arcade_Radar.ArcadeMachine"
+                  moduleName = "Arcade Radar"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MatthewKrager/Documents/XCODE/Arcade%20Radar/Arcade%20Radar/ArcadeMachine.swift"
+                  timestampString = "489475045.696782"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Arcade Radar/ArcadeMachine.swift"
+            timestampString = "489475046.968195"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "11"
+            endingLineNumber = "11"
+            landmarkName = "ArcadeMachine"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Arcade_Radar.ArcadeMachine.__deallocating_deinit"
+                  moduleName = "Arcade Radar"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MatthewKrager/Documents/XCODE/Arcade%20Radar/Arcade%20Radar/ArcadeMachine.swift"
+                  timestampString = "489475046.970863"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Arcade_Radar.ArcadeMachine.init (Arcade_Radar.ArcadeMachine.Type)() -&gt; Arcade_Radar.ArcadeMachine"
+                  moduleName = "Arcade Radar"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MatthewKrager/Documents/XCODE/Arcade%20Radar/Arcade%20Radar/ArcadeMachine.swift"
+                  timestampString = "489475046.97145"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
