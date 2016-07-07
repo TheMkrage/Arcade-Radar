@@ -128,8 +128,8 @@ class SearchForNameTableViewController: UITableViewController {
                     return
                 }
                 Types.tryblock({ () -> Void in
-                    let machinesSearched: BackendlessCollection! = self.backendless.data.of(ArcadeMachine.ofClass()).find(query)
-                   
+                    let machinesSearched: BackendlessCollection! = self.backendless.data.of(ArcadeMachineType.ofClass()).find(query)
+                    
                     
                     
                     if self.searchID != id {
@@ -150,6 +150,11 @@ class SearchForNameTableViewController: UITableViewController {
                     
                     }, catchblock: { (exception) -> Void in
                         print(exception)
+                        let alert = UIAlertController(title: "Oh Dear", message: "It appears there is no connection", preferredStyle: UIAlertControllerStyle.Alert)
+                        alert.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.Default, handler: { action in self.updateSearchResultsForSearchController(self.searchController)}))
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            self.presentViewController(alert, animated: true, completion: nil)
+                        })
                 })
                 
             })

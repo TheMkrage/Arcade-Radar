@@ -8,13 +8,17 @@
 
 import UIKit
 
-class ArcadesTableViewController: UITableViewController {
-
+class ArcadesTableViewController: UITableViewController, IMBannerDelegate {
+    var banner:IMBanner?
+    
     var arcades: [Arcade] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print(self.view.bounds.height)
+        self.banner = IMBanner(frame: CGRectMake(0, (self.view.bounds.height - (53 * 2)) - 49, self.view.bounds.size.width, 53), placementId: 1468459192824, delegate: self)
+        self.view.superview!.addSubview(self.banner!)
+        self.banner?.load()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -48,8 +52,38 @@ class ArcadesTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         cell.textLabel?.text = self.arcades[indexPath.row].name
+    
         return cell
     }
+    
+    func banner(banner: IMBanner!, didFailToLoadWithError error: IMRequestStatus!) {
+        print("Banner Load Failed")
+    }
+    func banner(banner: IMBanner!, didInteractWithParams params: [NSObject : AnyObject]!) {
+        //print("Banner didInteractWithParams: %@",params)
+    }
+    func banner(banner: IMBanner!, rewardActionCompletedWithRewards rewards: [NSObject : AnyObject]!) {
+        print("Banner rewardActionCompletedWithRewards %@",rewards)
+    }
+    func bannerDidDismissScreen(banner: IMBanner!) {
+        print("bannerDidDismissScreen")
+    }
+    func bannerDidFinishLoading(banner: IMBanner!) {
+        print("bannerDidFinishLoading")
+    }
+    func bannerDidPresentScreen(banner: IMBanner!) {
+        print("bannerDidPresentScreen")
+    }
+    func bannerWillDismissScreen(banner: IMBanner!) {
+        print("bannerWillDismissScreen")
+    }
+    func bannerWillPresentScreen(banner: IMBanner!) {
+        print("bannerWillPresentScreen")
+    }
+    func userWillLeaveApplicationFromBanner(banner: IMBanner!) {
+        print("userWillLeaveApplicationFromBanner")
+    }					
+				
     
 
     /*
