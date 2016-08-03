@@ -89,7 +89,7 @@ public class FBAnnotationClusterView : MKAnnotationView {
             countLabel.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
             countLabel.textAlignment = .Center
             countLabel.backgroundColor = UIColor.clearColor()
-            countLabel.textColor = UIColor.whiteColor()
+            countLabel.textColor = UIColor.blackColor()
             countLabel.adjustsFontSizeToFitWidth = true
             countLabel.minimumScaleFactor = 2
             countLabel.numberOfLines = 1
@@ -120,7 +120,7 @@ public class FBAnnotationClusterView : MKAnnotationView {
         centerOffset = CGPointZero
         
         // adds a white border around the green circle
-        layer.borderColor = UIColor.whiteColor().CGColor
+        layer.borderColor = UIColor.blackColor().CGColor
         layer.borderWidth = borderWidth
         layer.cornerRadius = self.bounds.size.width / 2
         

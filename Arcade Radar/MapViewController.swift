@@ -77,8 +77,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
             navigationItem.rightBarButtonItems = nil
         }else {
             navigationItem.leftBarButtonItems = [UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Refresh, target: self, action: "refresh"), MKUserTrackingBarButtonItem(mapView: self.mapView)]
-            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addNewArcade")
+            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self,
+                action: "addNewArcade")
         }
+        self.mapView.backgroundColor = UIColor.blackColor()
         /* let machine = ArcadeMachine()
         machine.name = "DDR Mega Mix "
         machine.arcadeName = "Kragers Arcade"

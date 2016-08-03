@@ -25,13 +25,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let hackerGreen = UIColor(red: 32.0/255.0, green: 194.0/255.0, blue: 14.0/255.0, alpha: 1.0)
         let sharedApplication = UIApplication.sharedApplication()
             sharedApplication.delegate?.window??.tintColor = hackerGreen
+            sharedApplication.delegate?.window??.backgroundColor = UIColor.blackColor()
             UINavigationBar.appearance().tintColor = hackerGreen
             UINavigationBar.appearance().barTintColor = UIColor.blackColor()
             UINavigationBar.appearance().barStyle = .Black
             UITabBar.appearance().barTintColor = UIColor.blackColor()
             UITabBar.appearance().barStyle = .Black
             
+            UISearchBar.appearance().barStyle = .Black
+            UISearchBar.appearance().tintColor = hackerGreen
+            UISearchBar.appearance().changeSearchBarColor(hackerGreen)
+            if #available(iOS 9.0, *) {
+                UILabel.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).textColor = hackerGreen
+            } else {
+                UILabel.appearance().textColor = hackerGreen
+            }
             
+            UITableView.appearance().backgroundColor = UIColor.darkGrayColor()
            // UINavigationBar.appearance().backgroundColor = UIColor.blackColor()
         return true
     }
@@ -58,5 +68,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+}
+
+// as UISearchBar extension
+extension UISearchBar {
+    func changeSearchBarColor(color : UIColor) {
+        for subView in self.subviews {
+            for subSubView in subView.subviews {
+                if subSubView.conformsToProtocol(UITextInputTraits.self) {
+                    let textField = subSubView as! UITextField
+                    textField.textColor = color
+                    textField.tintColor = color
+                    //textField.
+                    break
+                }
+            }
+        }
+    }
 }
 
