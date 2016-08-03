@@ -43,6 +43,8 @@
 		7E9DB0D51D2E2E1500147B17 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E9DB0D41D2E2E1500147B17 /* libsqlite3.0.tbd */; };
 		7E9DB0D71D2E34E200147B17 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E9DB0D61D2E34E200147B17 /* Foundation.framework */; };
 		7E9DB0D91D2E353E00147B17 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E9DB0D81D2E353E00147B17 /* CoreMedia.framework */; };
+		7E9DB0DB1D3B64BB00147B17 /* mapstogpx20160717_070033.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 7E9DB0DA1D3B64BB00147B17 /* mapstogpx20160717_070033.gpx */; };
+		7E9DB0DD1D3B667000147B17 /* the.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 7E9DB0DC1D3B667000147B17 /* the.gpx */; };
 		7EB46E071D09FBC50052F2A4 /* EZLoadingActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB46E061D09FBC50052F2A4 /* EZLoadingActivity.swift */; };
 		7EB46E0C1D0AA35E0052F2A4 /* thumbsDownFilled.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EB46E081D0AA35E0052F2A4 /* thumbsDownFilled.png */; };
 		7EB46E0D1D0AA35E0052F2A4 /* thumbsDownHollow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EB46E091D0AA35E0052F2A4 /* thumbsDownHollow.png */; };
@@ -152,6 +154,8 @@
 		7E9DB0D41D2E2E1500147B17 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		7E9DB0D61D2E34E200147B17 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7E9DB0D81D2E353E00147B17 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		7E9DB0DA1D3B64BB00147B17 /* mapstogpx20160717_070033.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = mapstogpx20160717_070033.gpx; path = ../../../Downloads/mapstogpx20160717_070033.gpx; sourceTree = "<group>"; };
+		7E9DB0DC1D3B667000147B17 /* the.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = the.gpx; path = ../../../Downloads/the.gpx; sourceTree = "<group>"; };
 		7EB46E061D09FBC50052F2A4 /* EZLoadingActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZLoadingActivity.swift; sourceTree = "<group>"; };
 		7EB46E081D0AA35E0052F2A4 /* thumbsDownFilled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumbsDownFilled.png; sourceTree = "<group>"; };
 		7EB46E091D0AA35E0052F2A4 /* thumbsDownHollow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumbsDownHollow.png; sourceTree = "<group>"; };
@@ -537,6 +541,8 @@
 		7EF8AE321CBB65B20003BA99 = {
 			isa = PBXGroup;
 			children = (
+				7E9DB0DC1D3B667000147B17 /* the.gpx */,
+				7E9DB0DA1D3B64BB00147B17 /* mapstogpx20160717_070033.gpx */,
 				7E9DB0D81D2E353E00147B17 /* CoreMedia.framework */,
 				7E9DB0D61D2E34E200147B17 /* Foundation.framework */,
 				7E9DB0D41D2E2E1500147B17 /* libsqlite3.0.tbd */,
@@ -1082,6 +1088,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E9DB0DB1D3B64BB00147B17 /* mapstogpx20160717_070033.gpx in Resources */,
 				7EB46E0C1D0AA35E0052F2A4 /* thumbsDownFilled.png in Resources */,
 				7EF8AE491CBB65B20003BA99 /* LaunchScreen.storyboard in Resources */,
 				7EDB234A1D07F41E00D5A432 /* Map Image Tab Bar.png in Resources */,
@@ -1091,6 +1098,7 @@
 				7EDFFFC51D146C51005F789F /* URL Image.png in Resources */,
 				7E188FCE1D0162A3009187ED /* Images.xcassets in Resources */,
 				7E188FD61D06A46B009187ED /* Arcade Icon.png in Resources */,
+				7E9DB0DD1D3B667000147B17 /* the.gpx in Resources */,
 				7E0926591CF7A13000F5E097 /* IMG_1806.jpg in Resources */,
 				7E188FDA1D06A9BE009187ED /* cabinetFacing.png in Resources */,
 				7EB46E0E1D0AA35E0052F2A4 /* thumbsUpFilled.png in Resources */,

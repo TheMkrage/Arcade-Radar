@@ -17,8 +17,8 @@ class ArcadesTableViewController: UITableViewController, IMBannerDelegate {
         super.viewDidLoad()
         print(self.view.bounds.height)
         self.banner = IMBanner(frame: CGRectMake(0, (self.view.bounds.height - (53 * 2)) - 49, self.view.bounds.size.width, 53), placementId: 1468459192824, delegate: self)
-        self.view.superview!.addSubview(self.banner!)
-        self.banner?.load()
+       // self.view.superview!.addSubview(self.banner!)
+       // self.banner?.load()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 

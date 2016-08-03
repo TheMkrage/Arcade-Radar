@@ -72,9 +72,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIGestureR
         panGesture.delegate = self
         self.mapView.addGestureRecognizer(panGesture)
         
-        // Nav SetUp
-        let navigationBar = navigationController!.navigationBar
-        navigationBar.tintColor = Colors.colorWithHexString("#00B0FF")
         if hasBackButton {
             navigationItem.leftBarButtonItems = nil
             navigationItem.rightBarButtonItems = nil

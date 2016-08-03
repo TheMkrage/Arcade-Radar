@@ -20,6 +20,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let backendless = Backendless.sharedInstance()
         IMSdk.initWithAccountID("cd81812d3d73471da21247c245ee8275")
         backendless.initApp(APP_ID, secret:SECRET_KEY, version:VERSION_NUM)
+            
+        // theme this application!
+        let hackerGreen = UIColor(red: 32.0/255.0, green: 194.0/255.0, blue: 14.0/255.0, alpha: 1.0)
+        let sharedApplication = UIApplication.sharedApplication()
+            sharedApplication.delegate?.window??.tintColor = hackerGreen
+            UINavigationBar.appearance().tintColor = hackerGreen
+            UINavigationBar.appearance().barTintColor = UIColor.blackColor()
+            UINavigationBar.appearance().barStyle = .Black
+            UITabBar.appearance().barTintColor = UIColor.blackColor()
+            UITabBar.appearance().barStyle = .Black
+            
+            
+           // UINavigationBar.appearance().backgroundColor = UIColor.blackColor()
         return true
     }
 
