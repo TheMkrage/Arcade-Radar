@@ -82,6 +82,7 @@ class ArcadeMachinesTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         cell.textLabel!.text = self.machines[indexPath.row].name
+        cell.textLabel?.textColor = Colors.hackerGreen
         // Configure the cell...
         cell.textLabel?.alpha = 0.0
         UIView.animateWithDuration(0.3, animations: {

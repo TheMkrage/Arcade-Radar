@@ -43,6 +43,8 @@ class ArcadeProfileViewController: ViewController {
         self.lastSeenLabel.text = "Last Seen on \(self.arcade.lastSeen)"
         self.yesCountLabel.text = "\(self.arcade.finds)"
         self.noCountLabel.text = "\(self.arcade.notFinds)"
+        self.bringToWebsiteButton.imageView?.image = self.bringToWebsiteButton.imageView!.image!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        self.bringToWebsiteButton.imageView?.tintColor = UIColor(red: 32.0/255.0, green: 194.0/255.0, blue: 14.0/255.0, alpha: 1.0)
         if (self.arcade.finds != 0) {
             let percent:Double = Double(self.arcade.finds)/(Double(self.arcade.finds) + Double(self.arcade.notFinds))
             self.percentLabel.text = String(format: "%3.0f%%", (percent * 100.0))

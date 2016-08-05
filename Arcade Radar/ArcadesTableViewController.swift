@@ -51,6 +51,7 @@ class ArcadesTableViewController: UITableViewController, IMBannerDelegate {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
+        cell.textLabel?.textColor = Colors.hackerGreen
         cell.textLabel?.text = self.arcades[indexPath.row].name
     
         return cell

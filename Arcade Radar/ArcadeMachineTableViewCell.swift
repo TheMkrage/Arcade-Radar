@@ -14,6 +14,9 @@ class ArcadeMachineTableViewCell: UITableViewCell {
     @IBOutlet var machineNameLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
+        let hackerGreen = UIColor(red: 32.0/255.0, green: 194.0/255.0, blue: 14.0/255.0, alpha: 1.0)
+        pricePerPlayLabel.textColor = hackerGreen
+        machineNameLabel.textColor = hackerGreen
         // Initialization code
     }
 

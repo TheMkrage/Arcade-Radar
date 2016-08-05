@@ -31,7 +31,8 @@ class CreateArcadeMachineViewController: UIViewController, UIPickerViewDataSourc
     override func viewDidLoad() {
         super.viewDidLoad()
         self.nameLabel.text = self.nameOfMachine
-        
+        self.view.backgroundColor = UIColor.darkGrayColor()
+        self.scrollView.backgroundColor = UIColor.darkGrayColor()
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: "cancel")
         //priceTextField.keyboardType = .NumbersAndPunctuation
         //playsTextField.keyboardType = .NumbersAndPunctuation

@@ -82,6 +82,7 @@ class SearchForNameTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         let machine: ArcadeMachineType
+        cell.textLabel?.textColor = Colors.hackerGreen
         if searchController.active && searchController.searchBar.text != "" && indexPath.row < self.filteredMachines.count {
             machine = filteredMachines[indexPath.row]
             cell.textLabel!.text = machine.name

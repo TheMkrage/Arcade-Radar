@@ -461,7 +461,7 @@
                                                 <constraint firstAttribute="height" constant="26" id="rrD-cg-Lvv"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="21"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.0" green="0.89540537590000002" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="default">
                                                 <mask key="constraints">
@@ -558,7 +558,7 @@
                                                     <constraint firstAttribute="width" constant="177" id="4fy-xe-ZPM"/>
                                                     <constraint firstAttribute="height" constant="30" id="Kx3-wc-si1"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <variation key="default">
                                                     <mask key="constraints">
@@ -718,7 +718,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="1Wk-Ma-Dck" firstAttribute="top" secondItem="ICH-BJ-Wwh" secondAttribute="bottom" constant="18" id="3ql-lJ-xeG"/>
                                             <constraint firstItem="5AR-35-XFb" firstAttribute="centerX" secondItem="jBx-Yh-EMu" secondAttribute="centerX" id="5tx-t0-czz"/>
@@ -912,6 +912,7 @@
                         <outlet property="locationTextField" destination="ZVW-Nd-2sa" id="jW9-Ae-KuZ"/>
                         <outlet property="machineTable" destination="6ZG-Jr-Ju0" id="DAz-9z-to9"/>
                         <outlet property="nameTextField" destination="xBd-7B-V4K" id="iiD-4Y-BAV"/>
+                        <outlet property="scrollView" destination="TtO-A8-aya" id="OZx-B9-X8I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uRP-DQ-dqT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1428,9 +1429,9 @@
                                     <constraint firstAttribute="height" constant="70" id="qSf-l2-uNb"/>
                                 </constraints>
                                 <inset key="contentEdgeInsets" minX="5" minY="0.0" maxX="-5" maxY="0.0"/>
-                                <state key="normal" image="cabinetFacingButton.png">
-                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="cabinetFacing.png">
+                                    <color key="titleColor" red="0.0" green="0.47843137254901957" blue="0.13725490196078433" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -1477,7 +1478,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="XVa-VJ-Pdk" firstAttribute="top" secondItem="He3-kj-EWF" secondAttribute="bottom" constant="13" id="0iw-FU-zry"/>
                             <constraint firstItem="XVa-VJ-Pdk" firstAttribute="centerX" secondItem="F4P-B5-zIv" secondAttribute="centerX" constant="-29" id="2vk-TO-8Yy">
@@ -1646,7 +1647,7 @@
                                                 <constraint firstAttribute="height" constant="26" id="W8A-Ie-17T"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="21"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.0" green="0.89540537590000002" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="default">
                                                 <mask key="constraints">
@@ -1665,7 +1666,7 @@
                                                 <constraint firstAttribute="height" constant="21" id="t8E-AH-Iny"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.0" green="0.89540537590000002" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="default">
                                                 <mask key="constraints">
@@ -1770,7 +1771,7 @@
         <image name="Map Image Tab Bar.png" width="40" height="40"/>
         <image name="Map Image.png" width="122" height="122"/>
         <image name="URL Image.png" width="120" height="120"/>
-        <image name="cabinetFacingButton.png" width="200" height="200"/>
+        <image name="cabinetFacing.png" width="200" height="200"/>
         <image name="thumbsDownHollow.png" width="225" height="225"/>
         <image name="thumbsUpHollow.png" width="225" height="225"/>
     </resources>

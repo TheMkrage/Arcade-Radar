@@ -32,6 +32,7 @@ class ArcadeMachineProfileViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         findIfReported()
+        self.view.backgroundColor = UIColor.grayColor()
         self.arcadeMachineNameLabel.text = self.arcadeMachine.name
         self.lastSeenOnLabel.text = "Last Seen on \(self.arcadeMachine.lastSeen)"
         self.addressButton.setTitle(self.arcadeMachine.arcadeName, forState: .Normal)

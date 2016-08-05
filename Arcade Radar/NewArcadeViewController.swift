@@ -15,6 +15,7 @@ class NewArcadeViewController: ViewController, UITableViewDelegate, UITableViewD
     @IBOutlet var URLTextField:UITextField!
     @IBOutlet var locationTextField:UITextField!
     @IBOutlet var machineTable:UITableView!
+    @IBOutlet var scrollView:UIScrollView!
     @IBOutlet var addMachineButton:UIButton!
     
     var currentLocation:CLLocationCoordinate2D!
@@ -24,6 +25,9 @@ class NewArcadeViewController: ViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateWithNewArcadeMachine:", name: "ArcadeMachineAdded", object: nil)
+        self.view.backgroundColor = UIColor.darkGrayColor()
+        self.scrollView.backgroundColor = UIColor.darkGrayColor()
+        
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: "cancel")
         self.addMachineButton.hidden = true
         

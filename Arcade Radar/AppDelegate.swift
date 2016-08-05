@@ -39,9 +39,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 UILabel.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).textColor = hackerGreen
             } else {
                 UILabel.appearance().textColor = hackerGreen
+                UILabel.appearance().tintColor = hackerGreen
+                UIButton.appearance().tintColor = hackerGreen
+               
             }
-            
+            UIImageView.appearance().tintColor = hackerGreen
+            UITableViewCell.appearance().backgroundColor = UIColor.darkGrayColor()
+            UITextField.appearance().backgroundColor = UIColor.blackColor()
+            UITextField.appearance().borderStyle = .Line
+            UITextField.appearance().textColor = hackerGreen
+            UITextField.appearance().font = UIFont(name: "Menlo", size: 14)
+            //UIScrollView.appearance().backgroundColor = UIColor.darkGrayColor()
             UITableView.appearance().backgroundColor = UIColor.darkGrayColor()
+            let view = UIView()
+            view.backgroundColor = UIColor.grayColor()
+            UITableViewCell.appearance().selectedBackgroundView = view
+            
+            UITableViewCell.appearance().textLabel?.textColor = hackerGreen
            // UINavigationBar.appearance().backgroundColor = UIColor.blackColor()
         return true
     }
