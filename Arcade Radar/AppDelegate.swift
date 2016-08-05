@@ -43,7 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 UIButton.appearance().tintColor = hackerGreen
                
             }
-            UIImageView.appearance().tintColor = hackerGreen
+            //UIImageView.appearance().tintColor = hackerGreen
             UITableViewCell.appearance().backgroundColor = UIColor.darkGrayColor()
             UITextField.appearance().backgroundColor = UIColor.blackColor()
             UITextField.appearance().borderStyle = .Line

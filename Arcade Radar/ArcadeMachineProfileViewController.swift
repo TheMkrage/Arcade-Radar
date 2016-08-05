@@ -33,6 +33,8 @@ class ArcadeMachineProfileViewController: ViewController {
         super.viewDidLoad()
         findIfReported()
         self.view.backgroundColor = UIColor.grayColor()
+        self.noCountLabel.textColor = Colors.colorWithHexString("EF5350")
+        self.yesCountLabel.textColor = Colors.colorWithHexString("008000")
         self.arcadeMachineNameLabel.text = self.arcadeMachine.name
         self.lastSeenOnLabel.text = "Last Seen on \(self.arcadeMachine.lastSeen)"
         self.addressButton.setTitle(self.arcadeMachine.arcadeName, forState: .Normal)

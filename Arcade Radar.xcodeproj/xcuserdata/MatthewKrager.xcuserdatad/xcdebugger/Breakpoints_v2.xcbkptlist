@@ -359,11 +359,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Arcade Radar/ArcadeMachineProfileViewController.swift"
-            timestampString = "491938816.787938"
+            timestampString = "492074995.539014"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
             landmarkName = "reportSeen()"
             landmarkType = "5">
          </BreakpointContent>
